@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1493148987.988672
+_modified_time = 1493149083.0348995
 _enable_loop = True
 _template_filename = 'c:/users/inzaniak/anaconda3/lib/site-packages/nikola/data/themes/base/templates/post_helper.tmpl'
 _template_uri = 'post_helper.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['meta_translations', 'html_pager', 'open_graph_metadata', 'mathjax_script', 'twitter_card_information', 'html_tags']
+_exports = ['html_pager', 'html_tags', 'mathjax_script', 'meta_translations', 'open_graph_metadata', 'twitter_card_information']
 
 
 def render_body(context,**pageargs):
@@ -25,28 +25,6 @@ def render_body(context,**pageargs):
         __M_writer('\n\n')
         __M_writer('\n\n')
         __M_writer('\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_meta_translations(context,post):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        len = context.get('len', UNDEFINED)
-        sorted = context.get('sorted', UNDEFINED)
-        translations = context.get('translations', UNDEFINED)
-        lang = context.get('lang', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n')
-        if len(translations) > 1:
-            for langname in sorted(translations):
-                if langname != lang and ((not post.skip_untranslated) or post.is_translation_available(langname)):
-                    __M_writer('                <link rel="alternate" hreflang="')
-                    __M_writer(str(langname))
-                    __M_writer('" href="')
-                    __M_writer(str(post.permalink(langname)))
-                    __M_writer('">\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -82,15 +60,89 @@ def render_html_pager(context,post):
         context.caller_stack._pop_frame()
 
 
+def render_html_tags(context,post):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        hidden_tags = context.get('hidden_tags', UNDEFINED)
+        _link = context.get('_link', UNDEFINED)
+        __M_writer = context.writer()
+        __M_writer('\n')
+        if post.tags:
+            __M_writer('        <ul itemprop="keywords" class="tags">\n')
+            for tag in post.tags:
+                if tag not in hidden_tags:
+                    __M_writer('            <li><a class="tag p-category" href="')
+                    __M_writer(str(_link('tag', tag)))
+                    __M_writer('" rel="tag">')
+                    __M_writer(filters.html_escape(str(tag)))
+                    __M_writer('</a></li>\n')
+            __M_writer('        </ul>\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_mathjax_script(context,post):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        use_katex = context.get('use_katex', UNDEFINED)
+        katex_auto_render = context.get('katex_auto_render', UNDEFINED)
+        mathjax_config = context.get('mathjax_config', UNDEFINED)
+        __M_writer = context.writer()
+        __M_writer('\n')
+        if post.is_mathjax:
+            if use_katex:
+                __M_writer('            <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"></script>\n            <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/contrib/auto-render.min.js"></script>\n')
+                if katex_auto_render:
+                    __M_writer('                <script>\n                    renderMathInElement(document.body,\n                        {\n                            ')
+                    __M_writer(str(katex_auto_render))
+                    __M_writer('\n                        }\n                    );\n                </script>\n')
+                else:
+                    __M_writer('                <script>\n                    renderMathInElement(document.body);\n                </script>\n')
+            else:
+                __M_writer('            <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>\n')
+                if mathjax_config:
+                    __M_writer('            ')
+                    __M_writer(str(mathjax_config))
+                    __M_writer('\n')
+                else:
+                    __M_writer('            <script type="text/x-mathjax-config">\n            MathJax.Hub.Config({tex2jax: {inlineMath: [[\'$latex \',\'$\'], [\'\\\\(\',\'\\\\)\']]}});\n            </script>\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_meta_translations(context,post):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        sorted = context.get('sorted', UNDEFINED)
+        lang = context.get('lang', UNDEFINED)
+        translations = context.get('translations', UNDEFINED)
+        len = context.get('len', UNDEFINED)
+        __M_writer = context.writer()
+        __M_writer('\n')
+        if len(translations) > 1:
+            for langname in sorted(translations):
+                if langname != lang and ((not post.skip_untranslated) or post.is_translation_available(langname)):
+                    __M_writer('                <link rel="alternate" hreflang="')
+                    __M_writer(str(langname))
+                    __M_writer('" href="')
+                    __M_writer(str(post.permalink(langname)))
+                    __M_writer('">\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_open_graph_metadata(context,post):
     __M_caller = context.caller_stack._push_frame()
     try:
-        url_replacer = context.get('url_replacer', UNDEFINED)
-        lang = context.get('lang', UNDEFINED)
-        permalink = context.get('permalink', UNDEFINED)
-        blog_title = context.get('blog_title', UNDEFINED)
         use_open_graph = context.get('use_open_graph', UNDEFINED)
+        blog_title = context.get('blog_title', UNDEFINED)
         abs_link = context.get('abs_link', UNDEFINED)
+        url_replacer = context.get('url_replacer', UNDEFINED)
+        permalink = context.get('permalink', UNDEFINED)
+        lang = context.get('lang', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if use_open_graph:
@@ -128,36 +180,6 @@ def render_open_graph_metadata(context,post):
         context.caller_stack._pop_frame()
 
 
-def render_mathjax_script(context,post):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        use_katex = context.get('use_katex', UNDEFINED)
-        mathjax_config = context.get('mathjax_config', UNDEFINED)
-        katex_auto_render = context.get('katex_auto_render', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n')
-        if post.is_mathjax:
-            if use_katex:
-                __M_writer('            <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"></script>\n            <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/contrib/auto-render.min.js"></script>\n')
-                if katex_auto_render:
-                    __M_writer('                <script>\n                    renderMathInElement(document.body,\n                        {\n                            ')
-                    __M_writer(str(katex_auto_render))
-                    __M_writer('\n                        }\n                    );\n                </script>\n')
-                else:
-                    __M_writer('                <script>\n                    renderMathInElement(document.body);\n                </script>\n')
-            else:
-                __M_writer('            <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>\n')
-                if mathjax_config:
-                    __M_writer('            ')
-                    __M_writer(str(mathjax_config))
-                    __M_writer('\n')
-                else:
-                    __M_writer('            <script type="text/x-mathjax-config">\n            MathJax.Hub.Config({tex2jax: {inlineMath: [[\'$latex \',\'$\'], [\'\\\\(\',\'\\\\)\']]}});\n            </script>\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_twitter_card_information(context,post):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -189,30 +211,8 @@ def render_twitter_card_information(context,post):
         context.caller_stack._pop_frame()
 
 
-def render_html_tags(context,post):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        hidden_tags = context.get('hidden_tags', UNDEFINED)
-        _link = context.get('_link', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n')
-        if post.tags:
-            __M_writer('        <ul itemprop="keywords" class="tags">\n')
-            for tag in post.tags:
-                if tag not in hidden_tags:
-                    __M_writer('            <li><a class="tag p-category" href="')
-                    __M_writer(str(_link('tag', tag)))
-                    __M_writer('" rel="tag">')
-                    __M_writer(filters.html_escape(str(tag)))
-                    __M_writer('</a></li>\n')
-            __M_writer('        </ul>\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 """
 __M_BEGIN_METADATA
-{"uri": "post_helper.tmpl", "source_encoding": "utf-8", "filename": "c:/users/inzaniak/anaconda3/lib/site-packages/nikola/data/themes/base/templates/post_helper.tmpl", "line_map": {"16": 0, "21": 2, "22": 11, "23": 23, "24": 40, "25": 69, "26": 85, "27": 116, "33": 3, "41": 3, "42": 4, "43": 5, "44": 6, "45": 7, "46": 7, "47": 7, "48": 7, "49": 7, "55": 25, "60": 25, "61": 26, "62": 27, "63": 28, "64": 29, "65": 30, "66": 30, "67": 30, "68": 30, "69": 30, "70": 30, "71": 33, "72": 34, "73": 35, "74": 35, "75": 35, "76": 35, "77": 35, "78": 35, "79": 38, "85": 42, "95": 42, "96": 43, "97": 44, "98": 44, "99": 44, "100": 45, "101": 45, "102": 46, "103": 46, "104": 47, "105": 48, "106": 48, "107": 48, "108": 49, "109": 50, "110": 50, "111": 50, "112": 52, "113": 53, "114": 53, "115": 53, "116": 55, "117": 60, "118": 61, "119": 61, "120": 61, "121": 63, "122": 64, "123": 65, "124": 65, "125": 65, "131": 87, "138": 87, "139": 88, "140": 89, "141": 90, "142": 92, "143": 93, "144": 96, "145": 96, "146": 100, "147": 101, "148": 105, "149": 106, "150": 107, "151": 108, "152": 108, "153": 108, "154": 109, "155": 110, "161": 71, "166": 71, "167": 72, "168": 73, "169": 73, "170": 73, "171": 74, "172": 75, "173": 75, "174": 75, "175": 76, "176": 77, "177": 77, "178": 77, "179": 79, "180": 80, "181": 80, "182": 80, "183": 81, "184": 82, "185": 82, "186": 82, "192": 13, "198": 13, "199": 14, "200": 15, "201": 16, "202": 17, "203": 18, "204": 18, "205": 18, "206": 18, "207": 18, "208": 21, "214": 208}}
+{"filename": "c:/users/inzaniak/anaconda3/lib/site-packages/nikola/data/themes/base/templates/post_helper.tmpl", "line_map": {"16": 0, "21": 2, "22": 11, "23": 23, "24": 40, "25": 69, "26": 85, "27": 116, "33": 25, "38": 25, "39": 26, "40": 27, "41": 28, "42": 29, "43": 30, "44": 30, "45": 30, "46": 30, "47": 30, "48": 30, "49": 33, "50": 34, "51": 35, "52": 35, "53": 35, "54": 35, "55": 35, "56": 35, "57": 38, "63": 13, "69": 13, "70": 14, "71": 15, "72": 16, "73": 17, "74": 18, "75": 18, "76": 18, "77": 18, "78": 18, "79": 21, "85": 87, "92": 87, "93": 88, "94": 89, "95": 90, "96": 92, "97": 93, "98": 96, "99": 96, "100": 100, "101": 101, "102": 105, "103": 106, "104": 107, "105": 108, "106": 108, "107": 108, "108": 109, "109": 110, "115": 3, "123": 3, "124": 4, "125": 5, "126": 6, "127": 7, "128": 7, "129": 7, "130": 7, "131": 7, "137": 42, "147": 42, "148": 43, "149": 44, "150": 44, "151": 44, "152": 45, "153": 45, "154": 46, "155": 46, "156": 47, "157": 48, "158": 48, "159": 48, "160": 49, "161": 50, "162": 50, "163": 50, "164": 52, "165": 53, "166": 53, "167": 53, "168": 55, "169": 60, "170": 61, "171": 61, "172": 61, "173": 63, "174": 64, "175": 65, "176": 65, "177": 65, "183": 71, "188": 71, "189": 72, "190": 73, "191": 73, "192": 73, "193": 74, "194": 75, "195": 75, "196": 75, "197": 76, "198": 77, "199": 77, "200": 77, "201": 79, "202": 80, "203": 80, "204": 80, "205": 81, "206": 82, "207": 82, "208": 82, "214": 208}, "source_encoding": "utf-8", "uri": "post_helper.tmpl"}
 __M_END_METADATA
 """

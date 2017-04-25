@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1493148987.5749874
+_modified_time = 1493149082.506028
 _enable_loop = True
 _template_filename = 'themes/lanyon/templates/base.tmpl'
 _template_uri = 'base.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['extra_head', 'content', 'extra_js']
+_exports = ['content', 'extra_js', 'extra_head']
 
 
 def _mako_get_namespace(context, name):
@@ -23,14 +23,14 @@ def _mako_generate_namespaces(context):
     ns = runtime.TemplateNamespace('base', context._clean_inheritance_tokens(), templateuri='base_helper.tmpl', callables=None,  calling_uri=_template_uri)
     context.namespaces[(__name__, 'base')] = ns
 
-    ns = runtime.TemplateNamespace('header', context._clean_inheritance_tokens(), templateuri='base_header.tmpl', callables=None,  calling_uri=_template_uri)
-    context.namespaces[(__name__, 'header')] = ns
-
     ns = runtime.TemplateNamespace('footer', context._clean_inheritance_tokens(), templateuri='base_footer.tmpl', callables=None,  calling_uri=_template_uri)
     context.namespaces[(__name__, 'footer')] = ns
 
     ns = runtime.TemplateNamespace('annotations', context._clean_inheritance_tokens(), templateuri='annotation_helper.tmpl', callables=None,  calling_uri=_template_uri)
     context.namespaces[(__name__, 'annotations')] = ns
+
+    ns = runtime.TemplateNamespace('header', context._clean_inheritance_tokens(), templateuri='base_header.tmpl', callables=None,  calling_uri=_template_uri)
+    context.namespaces[(__name__, 'header')] = ns
 
 def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
@@ -38,26 +38,26 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         _import_ns = {}
         _mako_get_namespace(context, 'base')._populate(_import_ns, ['*'])
-        _mako_get_namespace(context, 'header')._populate(_import_ns, ['*'])
         _mako_get_namespace(context, 'footer')._populate(_import_ns, ['*'])
-        momentjs_locales = _import_ns.get('momentjs_locales', context.get('momentjs_locales', UNDEFINED))
-        def content():
-            return render_content(context._locals(__M_locals))
+        _mako_get_namespace(context, 'header')._populate(_import_ns, ['*'])
         header = _mako_get_namespace(context, 'header')
-        footer = _mako_get_namespace(context, 'footer')
-        js_date_format = _import_ns.get('js_date_format', context.get('js_date_format', UNDEFINED))
         messages = _import_ns.get('messages', context.get('messages', UNDEFINED))
-        lang = _import_ns.get('lang', context.get('lang', UNDEFINED))
+        base = _mako_get_namespace(context, 'base')
+        footer = _mako_get_namespace(context, 'footer')
         def extra_head():
             return render_extra_head(context._locals(__M_locals))
-        lanyon_subtheme = _import_ns.get('lanyon_subtheme', context.get('lanyon_subtheme', UNDEFINED))
-        set_locale = _import_ns.get('set_locale', context.get('set_locale', UNDEFINED))
-        date_fanciness = _import_ns.get('date_fanciness', context.get('date_fanciness', UNDEFINED))
+        momentjs_locales = _import_ns.get('momentjs_locales', context.get('momentjs_locales', UNDEFINED))
+        template_hooks = _import_ns.get('template_hooks', context.get('template_hooks', UNDEFINED))
+        def content():
+            return render_content(context._locals(__M_locals))
         def extra_js():
             return render_extra_js(context._locals(__M_locals))
-        template_hooks = _import_ns.get('template_hooks', context.get('template_hooks', UNDEFINED))
+        date_fanciness = _import_ns.get('date_fanciness', context.get('date_fanciness', UNDEFINED))
         body_end = _import_ns.get('body_end', context.get('body_end', UNDEFINED))
-        base = _mako_get_namespace(context, 'base')
+        js_date_format = _import_ns.get('js_date_format', context.get('js_date_format', UNDEFINED))
+        lang = _import_ns.get('lang', context.get('lang', UNDEFINED))
+        set_locale = _import_ns.get('set_locale', context.get('set_locale', UNDEFINED))
+        lanyon_subtheme = _import_ns.get('lanyon_subtheme', context.get('lanyon_subtheme', UNDEFINED))
         __M_writer = context.writer()
         __M_writer('\n')
         __M_writer('\n')
@@ -116,29 +116,13 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_extra_head(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        _import_ns = {}
-        _mako_get_namespace(context, 'base')._populate(_import_ns, ['*'])
-        _mako_get_namespace(context, 'header')._populate(_import_ns, ['*'])
-        _mako_get_namespace(context, 'footer')._populate(_import_ns, ['*'])
-        def extra_head():
-            return render_extra_head(context)
-        __M_writer = context.writer()
-        __M_writer('\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         _import_ns = {}
         _mako_get_namespace(context, 'base')._populate(_import_ns, ['*'])
-        _mako_get_namespace(context, 'header')._populate(_import_ns, ['*'])
         _mako_get_namespace(context, 'footer')._populate(_import_ns, ['*'])
+        _mako_get_namespace(context, 'header')._populate(_import_ns, ['*'])
         def content():
             return render_content(context)
         __M_writer = context.writer()
@@ -152,8 +136,8 @@ def render_extra_js(context,**pageargs):
     try:
         _import_ns = {}
         _mako_get_namespace(context, 'base')._populate(_import_ns, ['*'])
-        _mako_get_namespace(context, 'header')._populate(_import_ns, ['*'])
         _mako_get_namespace(context, 'footer')._populate(_import_ns, ['*'])
+        _mako_get_namespace(context, 'header')._populate(_import_ns, ['*'])
         def extra_js():
             return render_extra_js(context)
         __M_writer = context.writer()
@@ -162,8 +146,24 @@ def render_extra_js(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_extra_head(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        _import_ns = {}
+        _mako_get_namespace(context, 'base')._populate(_import_ns, ['*'])
+        _mako_get_namespace(context, 'footer')._populate(_import_ns, ['*'])
+        _mako_get_namespace(context, 'header')._populate(_import_ns, ['*'])
+        def extra_head():
+            return render_extra_head(context)
+        __M_writer = context.writer()
+        __M_writer('\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"uri": "base.tmpl", "source_encoding": "utf-8", "filename": "themes/lanyon/templates/base.tmpl", "line_map": {"129": 8, "135": 52, "150": 67, "23": 2, "26": 3, "29": 4, "32": 5, "35": 0, "165": 150, "62": 2, "63": 3, "64": 4, "65": 5, "66": 6, "67": 6, "68": 7, "69": 7, "74": 10, "75": 11, "76": 11, "77": 24, "78": 25, "79": 25, "80": 25, "81": 26, "82": 27, "83": 29, "84": 29, "85": 29, "86": 39, "87": 39, "88": 47, "89": 47, "94": 52, "95": 54, "96": 54, "97": 58, "98": 58, "99": 59, "100": 59, "101": 60, "102": 60, "103": 63, "104": 63, "105": 64, "106": 64, "107": 64, "108": 64, "113": 67, "119": 8}}
+{"filename": "themes/lanyon/templates/base.tmpl", "line_map": {"134": 67, "149": 8, "23": 2, "26": 4, "29": 5, "159": 8, "32": 3, "35": 0, "165": 159, "62": 2, "63": 3, "64": 4, "65": 5, "66": 6, "67": 6, "68": 7, "69": 7, "74": 10, "75": 11, "76": 11, "77": 24, "78": 25, "79": 25, "80": 25, "81": 26, "82": 27, "83": 29, "84": 29, "85": 29, "86": 39, "87": 39, "88": 47, "89": 47, "94": 52, "95": 54, "96": 54, "97": 58, "98": 58, "99": 59, "100": 59, "101": 60, "102": 60, "103": 63, "104": 63, "105": 64, "106": 64, "107": 64, "108": 64, "113": 67, "119": 52}, "source_encoding": "utf-8", "uri": "base.tmpl"}
 __M_END_METADATA
 """

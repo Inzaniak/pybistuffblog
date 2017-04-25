@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1493148988.0118175
+_modified_time = 1493149083.0529168
 _enable_loop = True
 _template_filename = 'themes/lanyon/templates/post_header.tmpl'
 _template_uri = 'post_header.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['html_sourcelink', 'html_title', 'html_post_header', 'html_translations']
+_exports = ['html_title', 'html_post_header', 'html_sourcelink', 'html_translations']
 
 
 def _mako_get_namespace(context, name):
@@ -42,25 +42,6 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_html_sourcelink(context):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        post = context.get('post', UNDEFINED)
-        show_sourcelink = context.get('show_sourcelink', UNDEFINED)
-        messages = context.get('messages', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n')
-        if show_sourcelink:
-            __M_writer('        <p class="sourceline"><a href="')
-            __M_writer(str(post.source_link()))
-            __M_writer('" id="sourcelink">')
-            __M_writer(str(messages("Source")))
-            __M_writer('</a></p>\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_html_title(context):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -82,14 +63,14 @@ def render_html_title(context):
 def render_html_post_header(context):
     __M_caller = context.caller_stack._push_frame()
     try:
-        post = context.get('post', UNDEFINED)
-        date_format = context.get('date_format', UNDEFINED)
         def html_title():
             return render_html_title(context)
         comments = _mako_get_namespace(context, 'comments')
         site_has_comments = context.get('site_has_comments', UNDEFINED)
+        post = context.get('post', UNDEFINED)
         def html_translations(post):
             return render_html_translations(context,post)
+        date_format = context.get('date_format', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n    <header>\n        ')
         __M_writer(str(html_title()))
@@ -120,13 +101,32 @@ def render_html_post_header(context):
         context.caller_stack._pop_frame()
 
 
+def render_html_sourcelink(context):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        post = context.get('post', UNDEFINED)
+        show_sourcelink = context.get('show_sourcelink', UNDEFINED)
+        messages = context.get('messages', UNDEFINED)
+        __M_writer = context.writer()
+        __M_writer('\n')
+        if show_sourcelink:
+            __M_writer('        <p class="sourceline"><a href="')
+            __M_writer(str(post.source_link()))
+            __M_writer('" id="sourcelink">')
+            __M_writer(str(messages("Source")))
+            __M_writer('</a></p>\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_html_translations(context,post):
     __M_caller = context.caller_stack._push_frame()
     try:
         messages = context.get('messages', UNDEFINED)
-        len = context.get('len', UNDEFINED)
-        translations = context.get('translations', UNDEFINED)
         lang = context.get('lang', UNDEFINED)
+        translations = context.get('translations', UNDEFINED)
+        len = context.get('len', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if len(post.translated_to) > 1:
@@ -150,6 +150,6 @@ def render_html_translations(context,post):
 
 """
 __M_BEGIN_METADATA
-{"uri": "post_header.tmpl", "source_encoding": "utf-8", "filename": "themes/lanyon/templates/post_header.tmpl", "line_map": {"131": 12, "132": 13, "133": 14, "134": 15, "135": 15, "136": 16, "137": 17, "138": 18, "139": 18, "140": 18, "141": 18, "142": 18, "143": 18, "144": 18, "145": 21, "23": 3, "26": 2, "29": 0, "34": 2, "35": 3, "36": 10, "37": 23, "38": 29, "39": 46, "45": 25, "52": 25, "53": 26, "54": 27, "55": 27, "56": 27, "57": 27, "58": 27, "151": 145, "64": 5, "70": 5, "71": 6, "72": 7, "73": 7, "74": 7, "75": 7, "76": 7, "82": 31, "94": 31, "95": 33, "96": 33, "97": 35, "98": 35, "99": 36, "100": 36, "101": 36, "102": 36, "103": 36, "104": 36, "105": 36, "106": 36, "107": 37, "108": 38, "109": 38, "110": 38, "111": 40, "112": 41, "113": 41, "114": 41, "115": 43, "116": 44, "117": 44, "123": 12}}
+{"filename": "themes/lanyon/templates/post_header.tmpl", "line_map": {"131": 12, "132": 13, "133": 14, "134": 15, "135": 15, "136": 16, "137": 17, "138": 18, "139": 18, "140": 18, "141": 18, "142": 18, "143": 18, "144": 18, "145": 21, "23": 3, "26": 2, "29": 0, "34": 2, "35": 3, "36": 10, "37": 23, "38": 29, "39": 46, "45": 5, "51": 5, "52": 6, "53": 7, "54": 7, "55": 7, "56": 7, "57": 7, "151": 145, "63": 31, "75": 31, "76": 33, "77": 33, "78": 35, "79": 35, "80": 36, "81": 36, "82": 36, "83": 36, "84": 36, "85": 36, "86": 36, "87": 36, "88": 37, "89": 38, "90": 38, "91": 38, "92": 40, "93": 41, "94": 41, "95": 41, "96": 43, "97": 44, "98": 44, "104": 25, "111": 25, "112": 26, "113": 27, "114": 27, "115": 27, "116": 27, "117": 27, "123": 12}, "source_encoding": "utf-8", "uri": "post_header.tmpl"}
 __M_END_METADATA
 """
