@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Py, BI and Stuff (Posts about Reddit News)</title><link>https://inzaniak.github.io/pybistuffblog/</link><description></description><atom:link href="https://inzaniak.github.io/pybistuffblog/categories/reddit-news.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><copyright>Contents © 2017 &lt;a href="mailto:inzaniak@gmail.com"&gt;Umberto Grando&lt;/a&gt; </copyright><lastBuildDate>Tue, 25 Apr 2017 15:40:54 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Python: News from the Reddit, last week of March</title><link>https://inzaniak.github.io/pybistuffblog/posts/2017/03/28/python-news-from-the-reddit-last-week-of-march.html</link><dc:creator>Umberto Grando</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;These are the most voted posts on Python Reddit last week:
+&lt;/p&gt;&lt;h3&gt;Better-Exceptions&lt;/h3&gt;
+A nice library which adds prettier and more helpful exceptions
+&lt;img class="alignnone size-full wp-image-276" src="https://inzaniak.github.io/pybistuffblog/2017/03/screenshot.png" alt="screenshot" width="1082" height="452"&gt;
+Direct Link: &lt;a href="https://github.com/Qix-/better-exceptions"&gt;https://github.com/Qix-/better-exceptions
+&lt;/a&gt;Reddit: &lt;a href="https://github.com/Qix-/better-exceptions"&gt;https://github.com/Qix-/better-exceptions&lt;/a&gt;
+&lt;h3&gt;Opencv Python Drone&lt;/h3&gt;
+This is a youtube video in which a drone uses opencv to track the person who is holding a orange object.
+[youtube https://www.youtube.com/watch?v=zCdacGMnlO0&amp;amp;w=560&amp;amp;h=315]
+&lt;h3&gt;Audio Signal Processing Course&lt;/h3&gt;
+A free course on coursera about signal processing specifically tailored for audio files and music. As a music enthusiast i really reccomend to follow this.
+Direct Link: &lt;a href="https://www.coursera.org/learn/audio-signal-processing"&gt;https://www.coursera.org/learn/audio-signal-processing&lt;/a&gt;
+Reddit: &lt;a href="https://www.reddit.com/r/Python/comments/61eppg/audio_signal_processing_for_music_applications_a/"&gt;https://www.reddit.com/r/Python/comments/61eppg/audio_signal_processing_for_music_applications_a/&lt;/a&gt;
+&lt;h3&gt;Pycharm debugging is 40x faster!&lt;/h3&gt;
+I love Pycharm and it seems that, thanks to Python 3.6, the debugger just got faster. If you want to read about it just follow the links:
+Direct Link: &lt;a href="https://mail.python.org/pipermail/python-dev/2017-March/147681.html"&gt;https://mail.python.org/pipermail/python-dev/2017-March/147681.html&lt;/a&gt;
+Reddit: &lt;a href="https://www.reddit.com/r/Python/comments/61hokj/pythondev_pycharm_debugger_became_40x_faster_on/"&gt;https://www.reddit.com/r/Python/comments/61hokj/pythondev_pycharm_debugger_became_40x_faster_on/&lt;/a&gt;
+&lt;h3&gt;Python Automation Thread&lt;/h3&gt;
+There are no words to describe the content of this thread. It's funny and it's Python; just read it!
+Reddit: &lt;a href="https://www.reddit.com/r/Python/comments/61vbni/rpython_what_are_some_of_the_coolest_things_youve/"&gt;https://www.reddit.com/r/Python/comments/61vbni/rpython_what_are_some_of_the_coolest_things_youve/&lt;/a&gt;&lt;/div&gt;</description><category>Python</category><category>Reddit News</category><guid>https://inzaniak.github.io/pybistuffblog/posts/2017/03/28/python-news-from-the-reddit-last-week-of-march.html</guid><pubDate>Tue, 28 Mar 2017 15:26:51 GMT</pubDate></item></channel></rss>

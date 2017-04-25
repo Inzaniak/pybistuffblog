@@ -1,0 +1,1 @@
+<html><body><p>Una pagina figlia sul template di pagina del pannello.</p></body></html>
