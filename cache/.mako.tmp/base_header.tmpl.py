@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1493150557.1933413
+_modified_time = 1493150737.5412092
 _enable_loop = True
 _template_filename = 'themes/lanyon/templates/base_header.tmpl'
 _template_uri = 'base_header.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['html_site_title', 'html_navigation_links', 'html_translation_header', 'html_header']
+_exports = ['html_translation_header', 'html_header', 'html_site_title', 'html_navigation_links']
 
 
 def _mako_get_namespace(context, name):
@@ -40,63 +40,15 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_html_site_title(context):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        _import_ns = {}
-        _mako_get_namespace(context, 'base')._populate(_import_ns, ['*'])
-        blog_title = _import_ns.get('blog_title', context.get('blog_title', UNDEFINED))
-        lang = _import_ns.get('lang', context.get('lang', UNDEFINED))
-        abs_link = _import_ns.get('abs_link', context.get('abs_link', UNDEFINED))
-        _link = _import_ns.get('_link', context.get('_link', UNDEFINED))
-        __M_writer = context.writer()
-        __M_writer('\n    <h3 id="brand" class="masthead-title">\n      <a href="')
-        __M_writer(str(abs_link(_link("root", None, lang))))
-        __M_writer('" title="')
-        __M_writer(str(blog_title))
-        __M_writer('" rel="home">')
-        __M_writer(str(blog_title))
-        __M_writer('</a>\n    </h3>\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_html_navigation_links(context):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        _import_ns = {}
-        _mako_get_namespace(context, 'base')._populate(_import_ns, ['*'])
-        lang = _import_ns.get('lang', context.get('lang', UNDEFINED))
-        navigation_links = _import_ns.get('navigation_links', context.get('navigation_links', UNDEFINED))
-        template_hooks = _import_ns.get('template_hooks', context.get('template_hooks', UNDEFINED))
-        __M_writer = context.writer()
-        __M_writer('\n    <nav id="menu" role="navigation" class="sidebar-nav">\n')
-        for url, text in navigation_links[lang]:
-            __M_writer('        <a class="sidebar-nav-item" href="')
-            __M_writer(str(url))
-            __M_writer('">')
-            __M_writer(str(text))
-            __M_writer('</a>\n')
-        __M_writer('    ')
-        __M_writer(str(template_hooks['menu']()))
-        __M_writer('\n    ')
-        __M_writer(str(template_hooks['menu_alt']()))
-        __M_writer('\n    </nav>\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_html_translation_header(context):
     __M_caller = context.caller_stack._push_frame()
     try:
         _import_ns = {}
         _mako_get_namespace(context, 'base')._populate(_import_ns, ['*'])
         len = _import_ns.get('len', context.get('len', UNDEFINED))
-        base = _mako_get_namespace(context, 'base')
-        translations = _import_ns.get('translations', context.get('translations', UNDEFINED))
         messages = _import_ns.get('messages', context.get('messages', UNDEFINED))
+        translations = _import_ns.get('translations', context.get('translations', UNDEFINED))
+        base = _mako_get_namespace(context, 'base')
         __M_writer = context.writer()
         __M_writer('\n')
         if len(translations) > 1:
@@ -115,14 +67,14 @@ def render_html_header(context):
     try:
         _import_ns = {}
         _mako_get_namespace(context, 'base')._populate(_import_ns, ['*'])
+        search_form = _import_ns.get('search_form', context.get('search_form', UNDEFINED))
+        def html_translation_header():
+            return render_html_translation_header(context)
+        template_hooks = _import_ns.get('template_hooks', context.get('template_hooks', UNDEFINED))
         def html_site_title():
             return render_html_site_title(context)
         def html_navigation_links():
             return render_html_navigation_links(context)
-        template_hooks = _import_ns.get('template_hooks', context.get('template_hooks', UNDEFINED))
-        search_form = _import_ns.get('search_form', context.get('search_form', UNDEFINED))
-        def html_translation_header():
-            return render_html_translation_header(context)
         __M_writer = context.writer()
         __M_writer('\n    <header id="header" role="banner">\n        ')
         __M_writer(str(html_site_title()))
@@ -143,8 +95,56 @@ def render_html_header(context):
         context.caller_stack._pop_frame()
 
 
+def render_html_site_title(context):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        _import_ns = {}
+        _mako_get_namespace(context, 'base')._populate(_import_ns, ['*'])
+        abs_link = _import_ns.get('abs_link', context.get('abs_link', UNDEFINED))
+        _link = _import_ns.get('_link', context.get('_link', UNDEFINED))
+        blog_title = _import_ns.get('blog_title', context.get('blog_title', UNDEFINED))
+        lang = _import_ns.get('lang', context.get('lang', UNDEFINED))
+        __M_writer = context.writer()
+        __M_writer('\n    <h3 id="brand" class="masthead-title">\n      <a href="')
+        __M_writer(str(abs_link(_link("root", None, lang))))
+        __M_writer('" title="')
+        __M_writer(str(blog_title))
+        __M_writer('" rel="home">')
+        __M_writer(str(blog_title))
+        __M_writer('</a>\n    </h3>\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_html_navigation_links(context):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        _import_ns = {}
+        _mako_get_namespace(context, 'base')._populate(_import_ns, ['*'])
+        template_hooks = _import_ns.get('template_hooks', context.get('template_hooks', UNDEFINED))
+        navigation_links = _import_ns.get('navigation_links', context.get('navigation_links', UNDEFINED))
+        lang = _import_ns.get('lang', context.get('lang', UNDEFINED))
+        __M_writer = context.writer()
+        __M_writer('\n    <nav id="menu" role="navigation" class="sidebar-nav">\n')
+        for url, text in navigation_links[lang]:
+            __M_writer('        <a class="sidebar-nav-item" href="')
+            __M_writer(str(url))
+            __M_writer('">')
+            __M_writer(str(text))
+            __M_writer('</a>\n')
+        __M_writer('    ')
+        __M_writer(str(template_hooks['menu']()))
+        __M_writer('\n    ')
+        __M_writer(str(template_hooks['menu_alt']()))
+        __M_writer('\n    </nav>\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"uri": "base_header.tmpl", "line_map": {"128": 6, "129": 6, "130": 7, "131": 7, "132": 8, "133": 8, "134": 9, "135": 10, "136": 11, "137": 11, "138": 14, "139": 15, "140": 15, "146": 140, "23": 2, "26": 0, "33": 2, "34": 16, "35": 22, "36": 32, "37": 42, "43": 18, "53": 18, "54": 20, "55": 20, "56": 20, "57": 20, "58": 20, "59": 20, "65": 24, "74": 24, "75": 26, "76": 27, "77": 27, "78": 27, "79": 27, "80": 27, "81": 29, "82": 29, "83": 29, "84": 30, "85": 30, "91": 35, "101": 35, "102": 36, "103": 37, "104": 38, "105": 38, "106": 39, "107": 39, "113": 4, "127": 4}, "source_encoding": "utf-8", "filename": "themes/lanyon/templates/base_header.tmpl"}
+{"uri": "base_header.tmpl", "source_encoding": "utf-8", "line_map": {"129": 24, "130": 26, "131": 27, "132": 27, "133": 27, "134": 27, "135": 27, "136": 29, "137": 29, "138": 29, "139": 30, "140": 30, "146": 140, "23": 2, "26": 0, "33": 2, "34": 16, "35": 22, "36": 32, "37": 42, "43": 35, "53": 35, "54": 36, "55": 37, "56": 38, "57": 38, "58": 39, "59": 39, "65": 4, "79": 4, "80": 6, "81": 6, "82": 7, "83": 7, "84": 8, "85": 8, "86": 9, "87": 10, "88": 11, "89": 11, "90": 14, "91": 15, "92": 15, "98": 18, "108": 18, "109": 20, "110": 20, "111": 20, "112": 20, "113": 20, "114": 20, "120": 24}, "filename": "themes/lanyon/templates/base_header.tmpl"}
 __M_END_METADATA
 """
