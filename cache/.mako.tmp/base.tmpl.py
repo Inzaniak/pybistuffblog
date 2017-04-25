@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1493149603.215467
+_modified_time = 1493149790.3522587
 _enable_loop = True
 _template_filename = 'themes/lanyon/templates/base.tmpl'
 _template_uri = 'base.tmpl'
@@ -23,14 +23,14 @@ def _mako_generate_namespaces(context):
     ns = runtime.TemplateNamespace('footer', context._clean_inheritance_tokens(), templateuri='base_footer.tmpl', callables=None,  calling_uri=_template_uri)
     context.namespaces[(__name__, 'footer')] = ns
 
-    ns = runtime.TemplateNamespace('annotations', context._clean_inheritance_tokens(), templateuri='annotation_helper.tmpl', callables=None,  calling_uri=_template_uri)
-    context.namespaces[(__name__, 'annotations')] = ns
-
     ns = runtime.TemplateNamespace('base', context._clean_inheritance_tokens(), templateuri='base_helper.tmpl', callables=None,  calling_uri=_template_uri)
     context.namespaces[(__name__, 'base')] = ns
 
     ns = runtime.TemplateNamespace('header', context._clean_inheritance_tokens(), templateuri='base_header.tmpl', callables=None,  calling_uri=_template_uri)
     context.namespaces[(__name__, 'header')] = ns
+
+    ns = runtime.TemplateNamespace('annotations', context._clean_inheritance_tokens(), templateuri='annotation_helper.tmpl', callables=None,  calling_uri=_template_uri)
+    context.namespaces[(__name__, 'annotations')] = ns
 
 def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
@@ -40,24 +40,24 @@ def render_body(context,**pageargs):
         _mako_get_namespace(context, 'footer')._populate(_import_ns, ['*'])
         _mako_get_namespace(context, 'base')._populate(_import_ns, ['*'])
         _mako_get_namespace(context, 'header')._populate(_import_ns, ['*'])
-        messages = _import_ns.get('messages', context.get('messages', UNDEFINED))
-        lanyon_subtheme = _import_ns.get('lanyon_subtheme', context.get('lanyon_subtheme', UNDEFINED))
-        lang = _import_ns.get('lang', context.get('lang', UNDEFINED))
         set_locale = _import_ns.get('set_locale', context.get('set_locale', UNDEFINED))
-        template_hooks = _import_ns.get('template_hooks', context.get('template_hooks', UNDEFINED))
         footer = _mako_get_namespace(context, 'footer')
+        body_end = _import_ns.get('body_end', context.get('body_end', UNDEFINED))
         def content():
             return render_content(context._locals(__M_locals))
-        js_date_format = _import_ns.get('js_date_format', context.get('js_date_format', UNDEFINED))
+        lang = _import_ns.get('lang', context.get('lang', UNDEFINED))
+        template_hooks = _import_ns.get('template_hooks', context.get('template_hooks', UNDEFINED))
         base = _mako_get_namespace(context, 'base')
+        messages = _import_ns.get('messages', context.get('messages', UNDEFINED))
         momentjs_locales = _import_ns.get('momentjs_locales', context.get('momentjs_locales', UNDEFINED))
-        header = _mako_get_namespace(context, 'header')
-        body_end = _import_ns.get('body_end', context.get('body_end', UNDEFINED))
         def extra_js():
             return render_extra_js(context._locals(__M_locals))
+        header = _mako_get_namespace(context, 'header')
         date_fanciness = _import_ns.get('date_fanciness', context.get('date_fanciness', UNDEFINED))
         def extra_head():
             return render_extra_head(context._locals(__M_locals))
+        js_date_format = _import_ns.get('js_date_format', context.get('js_date_format', UNDEFINED))
+        lanyon_subtheme = _import_ns.get('lanyon_subtheme', context.get('lanyon_subtheme', UNDEFINED))
         __M_writer = context.writer()
         __M_writer('\n')
         __M_writer('\n')
@@ -164,6 +164,6 @@ def render_extra_js(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "uri": "base.tmpl", "filename": "themes/lanyon/templates/base.tmpl", "line_map": {"134": 8, "144": 8, "150": 67, "23": 4, "26": 5, "29": 2, "32": 3, "35": 0, "165": 150, "62": 2, "63": 3, "64": 4, "65": 5, "66": 6, "67": 6, "68": 7, "69": 7, "74": 10, "75": 11, "76": 11, "77": 24, "78": 25, "79": 25, "80": 25, "81": 26, "82": 27, "83": 29, "84": 29, "85": 29, "86": 39, "87": 39, "88": 47, "89": 47, "94": 52, "95": 54, "96": 54, "97": 58, "98": 58, "99": 59, "100": 59, "101": 60, "102": 60, "103": 63, "104": 63, "105": 64, "106": 64, "107": 64, "108": 64, "113": 67, "119": 52}}
+{"line_map": {"134": 8, "144": 8, "150": 67, "23": 4, "26": 2, "29": 3, "32": 5, "35": 0, "165": 150, "62": 2, "63": 3, "64": 4, "65": 5, "66": 6, "67": 6, "68": 7, "69": 7, "74": 10, "75": 11, "76": 11, "77": 24, "78": 25, "79": 25, "80": 25, "81": 26, "82": 27, "83": 29, "84": 29, "85": 29, "86": 39, "87": 39, "88": 47, "89": 47, "94": 52, "95": 54, "96": 54, "97": 58, "98": 58, "99": 59, "100": 59, "101": 60, "102": 60, "103": 63, "104": 63, "105": 64, "106": 64, "107": 64, "108": 64, "113": 67, "119": 52}, "uri": "base.tmpl", "source_encoding": "utf-8", "filename": "themes/lanyon/templates/base.tmpl"}
 __M_END_METADATA
 """
