@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1493149395.204203
+_modified_time = 1493149603.4277499
 _enable_loop = True
 _template_filename = 'themes/lanyon/templates/base_header.tmpl'
 _template_uri = 'base_header.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['html_site_title', 'html_navigation_links', 'html_header', 'html_translation_header']
+_exports = ['html_site_title', 'html_translation_header', 'html_navigation_links', 'html_header']
 
 
 def _mako_get_namespace(context, name):
@@ -46,9 +46,9 @@ def render_html_site_title(context):
         _import_ns = {}
         _mako_get_namespace(context, 'base')._populate(_import_ns, ['*'])
         abs_link = _import_ns.get('abs_link', context.get('abs_link', UNDEFINED))
-        blog_title = _import_ns.get('blog_title', context.get('blog_title', UNDEFINED))
         _link = _import_ns.get('_link', context.get('_link', UNDEFINED))
         lang = _import_ns.get('lang', context.get('lang', UNDEFINED))
+        blog_title = _import_ns.get('blog_title', context.get('blog_title', UNDEFINED))
         __M_writer = context.writer()
         __M_writer('\n    <h3 id="brand" class="masthead-title">\n      <a href="')
         __M_writer(str(abs_link(_link("root", None, lang))))
@@ -62,14 +62,36 @@ def render_html_site_title(context):
         context.caller_stack._pop_frame()
 
 
+def render_html_translation_header(context):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        _import_ns = {}
+        _mako_get_namespace(context, 'base')._populate(_import_ns, ['*'])
+        messages = _import_ns.get('messages', context.get('messages', UNDEFINED))
+        translations = _import_ns.get('translations', context.get('translations', UNDEFINED))
+        len = _import_ns.get('len', context.get('len', UNDEFINED))
+        base = _mako_get_namespace(context, 'base')
+        __M_writer = context.writer()
+        __M_writer('\n')
+        if len(translations) > 1:
+            __M_writer('        <div id="toptranslations">\n            <h2>')
+            __M_writer(str(messages("Languages:")))
+            __M_writer('</h2>\n            ')
+            __M_writer(str(base.html_translations()))
+            __M_writer('\n        </div>\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_html_navigation_links(context):
     __M_caller = context.caller_stack._push_frame()
     try:
         _import_ns = {}
         _mako_get_namespace(context, 'base')._populate(_import_ns, ['*'])
         navigation_links = _import_ns.get('navigation_links', context.get('navigation_links', UNDEFINED))
-        template_hooks = _import_ns.get('template_hooks', context.get('template_hooks', UNDEFINED))
         lang = _import_ns.get('lang', context.get('lang', UNDEFINED))
+        template_hooks = _import_ns.get('template_hooks', context.get('template_hooks', UNDEFINED))
         __M_writer = context.writer()
         __M_writer('\n    <nav id="menu" role="navigation" class="sidebar-nav">\n')
         for url, text in navigation_links[lang]:
@@ -93,14 +115,14 @@ def render_html_header(context):
     try:
         _import_ns = {}
         _mako_get_namespace(context, 'base')._populate(_import_ns, ['*'])
-        search_form = _import_ns.get('search_form', context.get('search_form', UNDEFINED))
         def html_site_title():
             return render_html_site_title(context)
+        def html_translation_header():
+            return render_html_translation_header(context)
         def html_navigation_links():
             return render_html_navigation_links(context)
         template_hooks = _import_ns.get('template_hooks', context.get('template_hooks', UNDEFINED))
-        def html_translation_header():
-            return render_html_translation_header(context)
+        search_form = _import_ns.get('search_form', context.get('search_form', UNDEFINED))
         __M_writer = context.writer()
         __M_writer('\n    <header id="header" role="banner">\n        ')
         __M_writer(str(html_site_title()))
@@ -121,30 +143,8 @@ def render_html_header(context):
         context.caller_stack._pop_frame()
 
 
-def render_html_translation_header(context):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        _import_ns = {}
-        _mako_get_namespace(context, 'base')._populate(_import_ns, ['*'])
-        base = _mako_get_namespace(context, 'base')
-        messages = _import_ns.get('messages', context.get('messages', UNDEFINED))
-        translations = _import_ns.get('translations', context.get('translations', UNDEFINED))
-        len = _import_ns.get('len', context.get('len', UNDEFINED))
-        __M_writer = context.writer()
-        __M_writer('\n')
-        if len(translations) > 1:
-            __M_writer('        <div id="toptranslations">\n            <h2>')
-            __M_writer(str(messages("Languages:")))
-            __M_writer('</h2>\n            ')
-            __M_writer(str(base.html_translations()))
-            __M_writer('\n        </div>\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 """
 __M_BEGIN_METADATA
-{"uri": "base_header.tmpl", "line_map": {"134": 35, "135": 36, "136": 37, "137": 38, "138": 38, "139": 39, "140": 39, "146": 140, "23": 2, "26": 0, "33": 2, "34": 16, "35": 22, "36": 32, "37": 42, "43": 18, "53": 18, "54": 20, "55": 20, "56": 20, "57": 20, "58": 20, "59": 20, "65": 24, "74": 24, "75": 26, "76": 27, "77": 27, "78": 27, "79": 27, "80": 27, "81": 29, "82": 29, "83": 29, "84": 30, "85": 30, "91": 4, "105": 4, "106": 6, "107": 6, "108": 7, "109": 7, "110": 8, "111": 8, "112": 9, "113": 10, "114": 11, "115": 11, "116": 14, "117": 15, "118": 15, "124": 35}, "source_encoding": "utf-8", "filename": "themes/lanyon/templates/base_header.tmpl"}
+{"source_encoding": "utf-8", "uri": "base_header.tmpl", "filename": "themes/lanyon/templates/base_header.tmpl", "line_map": {"128": 6, "129": 6, "130": 7, "131": 7, "132": 8, "133": 8, "134": 9, "135": 10, "136": 11, "137": 11, "138": 14, "139": 15, "140": 15, "146": 140, "23": 2, "26": 0, "33": 2, "34": 16, "35": 22, "36": 32, "37": 42, "43": 18, "53": 18, "54": 20, "55": 20, "56": 20, "57": 20, "58": 20, "59": 20, "65": 35, "75": 35, "76": 36, "77": 37, "78": 38, "79": 38, "80": 39, "81": 39, "87": 24, "96": 24, "97": 26, "98": 27, "99": 27, "100": 27, "101": 27, "102": 27, "103": 29, "104": 29, "105": 29, "106": 30, "107": 30, "113": 4, "127": 4}}
 __M_END_METADATA
 """
