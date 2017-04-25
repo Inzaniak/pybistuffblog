@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1493149910.0945506
+_modified_time = 1493150306.21993
 _enable_loop = True
 _template_filename = 'themes/lanyon/templates/index.tmpl'
 _template_uri = 'index.tmpl'
@@ -20,11 +20,11 @@ def _mako_get_namespace(context, name):
         _mako_generate_namespaces(context)
         return context.namespaces[(__name__, name)]
 def _mako_generate_namespaces(context):
-    ns = runtime.TemplateNamespace('helper', context._clean_inheritance_tokens(), templateuri='index_helper.tmpl', callables=None,  calling_uri=_template_uri)
-    context.namespaces[(__name__, 'helper')] = ns
-
     ns = runtime.TemplateNamespace('comments', context._clean_inheritance_tokens(), templateuri='comments_helper.tmpl', callables=None,  calling_uri=_template_uri)
     context.namespaces[(__name__, 'comments')] = ns
+
+    ns = runtime.TemplateNamespace('helper', context._clean_inheritance_tokens(), templateuri='index_helper.tmpl', callables=None,  calling_uri=_template_uri)
+    context.namespaces[(__name__, 'helper')] = ns
 
 def _mako_inherit(template, context):
     _mako_generate_namespaces(context)
@@ -33,21 +33,21 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        index_file = context.get('index_file', UNDEFINED)
-        permalink = context.get('permalink', UNDEFINED)
         date_format = context.get('date_format', UNDEFINED)
-        index_teasers = context.get('index_teasers', UNDEFINED)
-        def content_header():
-            return render_content_header(context._locals(__M_locals))
+        permalink = context.get('permalink', UNDEFINED)
         parent = context.get('parent', UNDEFINED)
-        comments = _mako_get_namespace(context, 'comments')
         posts = context.get('posts', UNDEFINED)
-        helper = _mako_get_namespace(context, 'helper')
-        site_has_comments = context.get('site_has_comments', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
+        site_has_comments = context.get('site_has_comments', UNDEFINED)
         def extra_head():
             return render_extra_head(context._locals(__M_locals))
+        comments = _mako_get_namespace(context, 'comments')
+        def content_header():
+            return render_content_header(context._locals(__M_locals))
+        helper = _mako_get_namespace(context, 'helper')
+        index_file = context.get('index_file', UNDEFINED)
+        index_teasers = context.get('index_teasers', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         __M_writer('\n')
@@ -82,15 +82,15 @@ def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         date_format = context.get('date_format', UNDEFINED)
-        index_teasers = context.get('index_teasers', UNDEFINED)
-        def content_header():
-            return render_content_header(context)
-        comments = _mako_get_namespace(context, 'comments')
         posts = context.get('posts', UNDEFINED)
-        helper = _mako_get_namespace(context, 'helper')
         def content():
             return render_content(context)
         site_has_comments = context.get('site_has_comments', UNDEFINED)
+        comments = _mako_get_namespace(context, 'comments')
+        def content_header():
+            return render_content_header(context)
+        helper = _mako_get_namespace(context, 'helper')
+        index_teasers = context.get('index_teasers', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content_header'):
@@ -145,12 +145,12 @@ def render_content(context,**pageargs):
 def render_extra_head(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        posts = context.get('posts', UNDEFINED)
         permalink = context.get('permalink', UNDEFINED)
-        def extra_head():
-            return render_extra_head(context)
+        posts = context.get('posts', UNDEFINED)
         parent = context.get('parent', UNDEFINED)
         index_file = context.get('index_file', UNDEFINED)
+        def extra_head():
+            return render_extra_head(context)
         __M_writer = context.writer()
         __M_writer('\n    ')
         __M_writer(str(parent.extra_head()))
@@ -166,6 +166,6 @@ def render_extra_head(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"uri": "index.tmpl", "filename": "themes/lanyon/templates/index.tmpl", "line_map": {"128": 32, "129": 33, "130": 34, "131": 34, "132": 36, "133": 39, "134": 40, "135": 40, "136": 41, "137": 41, "138": 42, "139": 42, "145": 6, "23": 2, "26": 3, "155": 6, "156": 7, "157": 7, "158": 8, "159": 9, "32": 0, "161": 9, "167": 161, "52": 2, "53": 3, "54": 4, "59": 11, "64": 44, "160": 9, "70": 14, "81": 13, "95": 13, "100": 14, "101": 16, "102": 17, "103": 17, "104": 17, "105": 19, "106": 19, "107": 19, "108": 19, "109": 22, "110": 22, "111": 23, "112": 23, "113": 23, "114": 23, "115": 23, "116": 23, "117": 23, "118": 23, "119": 24, "120": 25, "121": 25, "122": 25, "123": 27, "124": 29, "125": 30, "126": 31, "127": 31}, "source_encoding": "utf-8"}
+{"source_encoding": "utf-8", "uri": "index.tmpl", "line_map": {"128": 32, "129": 33, "130": 34, "131": 34, "132": 36, "133": 39, "134": 40, "135": 40, "136": 41, "137": 41, "138": 42, "139": 42, "145": 6, "23": 3, "26": 2, "155": 6, "156": 7, "157": 7, "158": 8, "159": 9, "32": 0, "161": 9, "167": 161, "52": 2, "53": 3, "54": 4, "59": 11, "64": 44, "160": 9, "70": 14, "81": 13, "95": 13, "100": 14, "101": 16, "102": 17, "103": 17, "104": 17, "105": 19, "106": 19, "107": 19, "108": 19, "109": 22, "110": 22, "111": 23, "112": 23, "113": 23, "114": 23, "115": 23, "116": 23, "117": 23, "118": 23, "119": 24, "120": 25, "121": 25, "122": 25, "123": 27, "124": 29, "125": 30, "126": 31, "127": 31}, "filename": "themes/lanyon/templates/index.tmpl"}
 __M_END_METADATA
 """

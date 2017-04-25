@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1493149909.6120045
+_modified_time = 1493150306.4586744
 _enable_loop = True
 _template_filename = 'c:/users/inzaniak/anaconda3/lib/site-packages/nikola/data/themes/base/templates/comments_helper_isso.tmpl'
 _template_uri = 'comments_helper_isso.tmpl'
@@ -80,6 +80,6 @@ def render_comment_form(context,url,title,identifier):
 
 """
 __M_BEGIN_METADATA
-{"uri": "comments_helper_isso.tmpl", "filename": "c:/users/inzaniak/anaconda3/lib/site-packages/nikola/data/themes/base/templates/comments_helper_isso.tmpl", "line_map": {"67": 2, "68": 3, "69": 4, "70": 4, "71": 4, "72": 5, "73": 5, "74": 5, "75": 5, "16": 0, "81": 75, "21": 7, "22": 13, "23": 20, "29": 16, "35": 16, "36": 17, "37": 18, "38": 18, "39": 18, "40": 18, "41": 18, "47": 9, "52": 9, "53": 10, "54": 11, "55": 11, "56": 11, "62": 2}, "source_encoding": "utf-8"}
+{"source_encoding": "utf-8", "uri": "comments_helper_isso.tmpl", "line_map": {"67": 2, "68": 3, "69": 4, "70": 4, "71": 4, "72": 5, "73": 5, "74": 5, "75": 5, "16": 0, "81": 75, "21": 7, "22": 13, "23": 20, "29": 16, "35": 16, "36": 17, "37": 18, "38": 18, "39": 18, "40": 18, "41": 18, "47": 9, "52": 9, "53": 10, "54": 11, "55": 11, "56": 11, "62": 2}, "filename": "c:/users/inzaniak/anaconda3/lib/site-packages/nikola/data/themes/base/templates/comments_helper_isso.tmpl"}
 __M_END_METADATA
 """
