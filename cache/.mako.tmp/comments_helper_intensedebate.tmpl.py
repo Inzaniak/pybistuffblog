@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1493149231.2314682
+_modified_time = 1493149395.0850883
 _enable_loop = True
 _template_filename = 'c:/users/inzaniak/anaconda3/lib/site-packages/nikola/data/themes/base/templates/comments_helper_intensedebate.tmpl'
 _template_uri = 'comments_helper_intensedebate.tmpl'
@@ -76,6 +76,6 @@ def render_comment_link(context,link,identifier):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"64": 14, "65": 14, "66": 16, "67": 16, "68": 17, "69": 17, "70": 18, "71": 18, "77": 71, "16": 0, "21": 11, "22": 22, "23": 25, "29": 2, "34": 2, "35": 4, "36": 4, "37": 5, "38": 5, "39": 6, "40": 6, "46": 24, "50": 24, "56": 13, "61": 13, "62": 14, "63": 14}, "uri": "comments_helper_intensedebate.tmpl", "filename": "c:/users/inzaniak/anaconda3/lib/site-packages/nikola/data/themes/base/templates/comments_helper_intensedebate.tmpl", "source_encoding": "utf-8"}
+{"uri": "comments_helper_intensedebate.tmpl", "line_map": {"64": 14, "65": 14, "66": 16, "67": 16, "68": 17, "69": 17, "70": 18, "71": 18, "77": 71, "16": 0, "21": 11, "22": 22, "23": 25, "29": 2, "34": 2, "35": 4, "36": 4, "37": 5, "38": 5, "39": 6, "40": 6, "46": 24, "50": 24, "56": 13, "61": 13, "62": 14, "63": 14}, "source_encoding": "utf-8", "filename": "c:/users/inzaniak/anaconda3/lib/site-packages/nikola/data/themes/base/templates/comments_helper_intensedebate.tmpl"}
 __M_END_METADATA
 """
