@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1493149790.2649913
+_modified_time = 1493149909.62763
 _enable_loop = True
 _template_filename = 'c:/users/inzaniak/anaconda3/lib/site-packages/nikola/data/themes/base/templates/post.tmpl'
 _template_uri = 'post.tmpl'
@@ -36,17 +36,17 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def content():
-            return render_content(context._locals(__M_locals))
         messages = context.get('messages', UNDEFINED)
-        helper = _mako_get_namespace(context, 'helper')
         parent = context.get('parent', UNDEFINED)
         comments = _mako_get_namespace(context, 'comments')
+        helper = _mako_get_namespace(context, 'helper')
+        site_has_comments = context.get('site_has_comments', UNDEFINED)
         post = context.get('post', UNDEFINED)
-        pheader = _mako_get_namespace(context, 'pheader')
+        def content():
+            return render_content(context._locals(__M_locals))
         def extra_head():
             return render_extra_head(context._locals(__M_locals))
-        site_has_comments = context.get('site_has_comments', UNDEFINED)
+        pheader = _mako_get_namespace(context, 'pheader')
         __M_writer = context.writer()
         __M_writer('\n')
         __M_writer('\n')
@@ -70,14 +70,14 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        comments = _mako_get_namespace(context, 'comments')
+        messages = context.get('messages', UNDEFINED)
+        helper = _mako_get_namespace(context, 'helper')
         post = context.get('post', UNDEFINED)
         def content():
             return render_content(context)
-        pheader = _mako_get_namespace(context, 'pheader')
-        messages = context.get('messages', UNDEFINED)
-        helper = _mako_get_namespace(context, 'helper')
         site_has_comments = context.get('site_has_comments', UNDEFINED)
+        pheader = _mako_get_namespace(context, 'pheader')
+        comments = _mako_get_namespace(context, 'comments')
         __M_writer = context.writer()
         __M_writer('\n<article class="post-')
         __M_writer(str(post.meta('type')))
@@ -109,11 +109,11 @@ def render_content(context,**pageargs):
 def render_extra_head(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        post = context.get('post', UNDEFINED)
         parent = context.get('parent', UNDEFINED)
         def extra_head():
             return render_extra_head(context)
         helper = _mako_get_namespace(context, 'helper')
-        post = context.get('post', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n    ')
         __M_writer(str(parent.extra_head()))
@@ -153,6 +153,6 @@ def render_extra_head(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"128": 13, "129": 14, "130": 14, "131": 14, "132": 14, "133": 14, "134": 16, "135": 17, "136": 17, "137": 17, "138": 17, "139": 17, "140": 19, "141": 20, "142": 22, "143": 22, "144": 22, "145": 23, "146": 23, "147": 24, "148": 24, "154": 148, "23": 3, "26": 2, "29": 4, "35": 0, "51": 2, "52": 3, "53": 4, "54": 5, "59": 25, "64": 48, "70": 27, "82": 27, "83": 28, "84": 28, "85": 29, "86": 29, "87": 31, "88": 31, "89": 35, "90": 35, "91": 36, "92": 36, "93": 39, "94": 40, "95": 41, "96": 41, "97": 42, "98": 42, "99": 45, "100": 45, "101": 45, "102": 47, "103": 47, "109": 7, "118": 7, "119": 8, "120": 8, "121": 9, "122": 10, "123": 10, "124": 10, "125": 12, "126": 12, "127": 12}, "uri": "post.tmpl", "source_encoding": "utf-8", "filename": "c:/users/inzaniak/anaconda3/lib/site-packages/nikola/data/themes/base/templates/post.tmpl"}
+{"uri": "post.tmpl", "filename": "c:/users/inzaniak/anaconda3/lib/site-packages/nikola/data/themes/base/templates/post.tmpl", "line_map": {"128": 13, "129": 14, "130": 14, "131": 14, "132": 14, "133": 14, "134": 16, "135": 17, "136": 17, "137": 17, "138": 17, "139": 17, "140": 19, "141": 20, "142": 22, "143": 22, "144": 22, "145": 23, "146": 23, "147": 24, "148": 24, "154": 148, "23": 3, "26": 2, "29": 4, "35": 0, "51": 2, "52": 3, "53": 4, "54": 5, "59": 25, "64": 48, "70": 27, "82": 27, "83": 28, "84": 28, "85": 29, "86": 29, "87": 31, "88": 31, "89": 35, "90": 35, "91": 36, "92": 36, "93": 39, "94": 40, "95": 41, "96": 41, "97": 42, "98": 42, "99": 45, "100": 45, "101": 45, "102": 47, "103": 47, "109": 7, "118": 7, "119": 8, "120": 8, "121": 9, "122": 10, "123": 10, "124": 10, "125": 12, "126": 12, "127": 12}, "source_encoding": "utf-8"}
 __M_END_METADATA
 """

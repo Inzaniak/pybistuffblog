@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1493149790.8397403
+_modified_time = 1493149910.1943676
 _enable_loop = True
 _template_filename = 'c:/users/inzaniak/anaconda3/lib/site-packages/nikola/data/themes/base/templates/listing.tmpl'
 _template_uri = 'listing.tmpl'
@@ -33,15 +33,15 @@ def render_body(context,**pageargs):
         _import_ns = {}
         _mako_get_namespace(context, 'ui')._populate(_import_ns, ['bar'])
         files = _import_ns.get('files', context.get('files', UNDEFINED))
+        title = _import_ns.get('title', context.get('title', UNDEFINED))
+        folders = _import_ns.get('folders', context.get('folders', UNDEFINED))
+        messages = _import_ns.get('messages', context.get('messages', UNDEFINED))
+        code = _import_ns.get('code', context.get('code', UNDEFINED))
+        source_link = _import_ns.get('source_link', context.get('source_link', UNDEFINED))
+        crumbs = _import_ns.get('crumbs', context.get('crumbs', UNDEFINED))
+        ui = _mako_get_namespace(context, 'ui')
         def content():
             return render_content(context._locals(__M_locals))
-        title = _import_ns.get('title', context.get('title', UNDEFINED))
-        messages = _import_ns.get('messages', context.get('messages', UNDEFINED))
-        source_link = _import_ns.get('source_link', context.get('source_link', UNDEFINED))
-        code = _import_ns.get('code', context.get('code', UNDEFINED))
-        folders = _import_ns.get('folders', context.get('folders', UNDEFINED))
-        ui = _mako_get_namespace(context, 'ui')
-        crumbs = _import_ns.get('crumbs', context.get('crumbs', UNDEFINED))
         __M_writer = context.writer()
         __M_writer('\n')
         __M_writer('\n')
@@ -61,15 +61,15 @@ def render_content(context,**pageargs):
         _import_ns = {}
         _mako_get_namespace(context, 'ui')._populate(_import_ns, ['bar'])
         files = _import_ns.get('files', context.get('files', UNDEFINED))
+        title = _import_ns.get('title', context.get('title', UNDEFINED))
+        folders = _import_ns.get('folders', context.get('folders', UNDEFINED))
+        messages = _import_ns.get('messages', context.get('messages', UNDEFINED))
+        code = _import_ns.get('code', context.get('code', UNDEFINED))
+        source_link = _import_ns.get('source_link', context.get('source_link', UNDEFINED))
+        crumbs = _import_ns.get('crumbs', context.get('crumbs', UNDEFINED))
+        ui = _mako_get_namespace(context, 'ui')
         def content():
             return render_content(context)
-        title = _import_ns.get('title', context.get('title', UNDEFINED))
-        messages = _import_ns.get('messages', context.get('messages', UNDEFINED))
-        source_link = _import_ns.get('source_link', context.get('source_link', UNDEFINED))
-        code = _import_ns.get('code', context.get('code', UNDEFINED))
-        folders = _import_ns.get('folders', context.get('folders', UNDEFINED))
-        ui = _mako_get_namespace(context, 'ui')
-        crumbs = _import_ns.get('crumbs', context.get('crumbs', UNDEFINED))
         __M_writer = context.writer()
         __M_writer('\n')
         __M_writer(str(ui.bar(crumbs)))
@@ -109,6 +109,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"74": 4, "75": 5, "76": 5, "77": 6, "78": 7, "79": 8, "80": 9, "81": 9, "82": 9, "83": 9, "84": 9, "85": 11, "86": 12, "87": 12, "88": 12, "89": 12, "90": 12, "91": 14, "92": 16, "29": 0, "94": 17, "95": 17, "96": 18, "97": 19, "98": 19, "99": 19, "100": 19, "101": 19, "102": 21, "93": 17, "104": 22, "103": 22, "110": 104, "46": 2, "47": 3, "52": 24, "23": 3, "58": 4}, "uri": "listing.tmpl", "source_encoding": "utf-8", "filename": "c:/users/inzaniak/anaconda3/lib/site-packages/nikola/data/themes/base/templates/listing.tmpl"}
+{"uri": "listing.tmpl", "filename": "c:/users/inzaniak/anaconda3/lib/site-packages/nikola/data/themes/base/templates/listing.tmpl", "line_map": {"74": 4, "75": 5, "76": 5, "77": 6, "78": 7, "79": 8, "80": 9, "81": 9, "82": 9, "83": 9, "84": 9, "85": 11, "86": 12, "87": 12, "88": 12, "89": 12, "90": 12, "91": 14, "92": 16, "29": 0, "94": 17, "95": 17, "96": 18, "97": 19, "98": 19, "99": 19, "100": 19, "101": 19, "102": 21, "93": 17, "104": 22, "103": 22, "110": 104, "46": 2, "47": 3, "52": 24, "23": 3, "58": 4}, "source_encoding": "utf-8"}
 __M_END_METADATA
 """
