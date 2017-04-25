@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Py, BI and Stuff (Posts about Python)</title><link>https://inzaniak.github.io/pybistuffblog/</link><description></description><atom:link type="application/rss+xml" rel="self" href="https://inzaniak.github.io/pybistuffblog/categories/python.xml"></atom:link><language>en</language><copyright>Contents © 2017 &lt;a href="mailto:inzaniak@gmail.com"&gt;Umberto Grando&lt;/a&gt; </copyright><lastBuildDate>Tue, 25 Apr 2017 19:35:37 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Python: News from Reddit, 17/04/25</title><link>https://inzaniak.github.io/pybistuffblog/posts/2017/04/25/python-reddit-170425.html</link><dc:creator>Umberto Grando</dc:creator><description>&lt;ol&gt;
+&lt;li&gt;Title:&lt;strong&gt; Self-driving vehicles with Python, TensorFlow, OpenCV, and Grand Theft Auto 5&lt;/strong&gt;&lt;br&gt;Author:&lt;strong&gt; sentdex&lt;/strong&gt;&lt;br&gt;Score:&lt;strong&gt; 707&lt;/strong&gt;&lt;br&gt;Url:&lt;strong&gt; &lt;a href="http://www.reddit.com/r/Python/comments/665jqt/selfdriving_vehicles_with_python_tensorflow/"&gt;Reddit&lt;/a&gt;/&lt;a href="https://www.reddit.com/r/Python/comments/665jqt/selfdriving_vehicles_with_python_tensorflow/"&gt;Direct&lt;/a&gt;&lt;/strong&gt;&lt;strong&gt;&lt;br&gt;&lt;/strong&gt;Description:&lt;br&gt;
+Some progress on the python-powered self-driving car GTA5 project.
+&lt;br&gt;&lt;br&gt;&lt;/li&gt;&lt;li&gt;Title:&lt;strong&gt; IPython 6.0 released – Stop Python 2 support&lt;/strong&gt;&lt;br&gt;Author:&lt;strong&gt; mbussonn&lt;/strong&gt;&lt;br&gt;Score:&lt;strong&gt; 402&lt;/strong&gt;&lt;br&gt;Url:&lt;strong&gt; &lt;a href="http://www.reddit.com/r/Python/comments/66dq42/ipython_60_released_stop_python_2_support/"&gt;Reddit&lt;/a&gt;/&lt;a href="https://blog.jupyter.org/2017/04/19/release-of-ipython-6-0/"&gt;Direct&lt;/a&gt;&lt;/strong&gt;&lt;strong&gt;&lt;br&gt;&lt;/strong&gt;Description:&lt;br&gt;
+The newest release of IPython 6 is out. Python 2 support is now dropped.
+&lt;br&gt;&lt;br&gt;&lt;/li&gt;&lt;li&gt;Title:&lt;strong&gt; Python... slowly taking over the world (Python in SQL Server 2017)&lt;/strong&gt;&lt;br&gt;Author:&lt;strong&gt; chillysurfer&lt;/strong&gt;&lt;br&gt;Score:&lt;strong&gt; 328&lt;/strong&gt;&lt;br&gt;Url:&lt;strong&gt; &lt;a href="http://www.reddit.com/r/Python/comments/66ofa0/python_slowly_taking_over_the_world_python_in_sql/"&gt;Reddit&lt;/a&gt;/&lt;a href="https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/python-in-sql-server-2017-enhanced-in-database-machine-learning/"&gt;Direct&lt;/a&gt;&lt;/strong&gt;&lt;strong&gt;&lt;br&gt;&lt;/strong&gt;Description:&lt;br&gt;
+Good news on the MSSQL front. Python will be available on SQL 2017!
+&lt;br&gt;&lt;br&gt;&lt;/li&gt;&lt;li&gt;Title:&lt;strong&gt; Python power comes to SQL Server 2017&lt;/strong&gt;&lt;br&gt;Author:&lt;strong&gt; JonTheAndroid&lt;/strong&gt;&lt;br&gt;Score:&lt;strong&gt; 237&lt;/strong&gt;&lt;br&gt;Url:&lt;strong&gt; &lt;a href="http://www.reddit.com/r/Python/comments/66zgtn/python_power_comes_to_sql_server_2017/"&gt;Reddit&lt;/a&gt;/&lt;a href="http://www.infoworld.com/article/3191187/database/python-power-comes-to-sql-server-2017.html"&gt;Direct&lt;/a&gt;&lt;/strong&gt;&lt;strong&gt;&lt;br&gt;&lt;/strong&gt;Description:&lt;br&gt;
+Infos about Python in SQL 2017
+&lt;br&gt;&lt;br&gt;&lt;/li&gt;&lt;li&gt;Title:&lt;strong&gt; Eye blink detection with Python and OpenCV.&lt;/strong&gt;&lt;br&gt;Author:&lt;strong&gt; zionsrogue&lt;/strong&gt;&lt;br&gt;Score:&lt;strong&gt; 209&lt;/strong&gt;&lt;br&gt;Url:&lt;strong&gt; &lt;a href="http://www.reddit.com/r/Python/comments/679ar4/eye_blink_detection_with_python_and_opencv/"&gt;Reddit&lt;/a&gt;/&lt;a href="http://www.pyimagesearch.com/2017/04/24/eye-blink-detection-opencv-python-dlib/"&gt;Direct&lt;/a&gt;&lt;/strong&gt;&lt;strong&gt;&lt;br&gt;&lt;/strong&gt;Description:&lt;br&gt;
+Awesome python tutorial about blink detection with OpenCV.
+&lt;br&gt;&lt;br&gt;&lt;/li&gt;
+&lt;/ol&gt;</description><category>Python</category><guid>https://inzaniak.github.io/pybistuffblog/posts/2017/04/25/python-reddit-170425.html</guid><pubDate>Tue, 25 Apr 2017 19:18:34 GMT</pubDate></item><item><title>Python: Count Frequencies with NLTK</title><link>https://inzaniak.github.io/pybistuffblog/posts/2017/04/20/python-count-frequencies-with-nltk.html</link><dc:creator>Umberto Grando</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;Last time we learned how to use stopwords with NLTK, today we are going to take a look at counting frequencies with NLTK.&lt;/p&gt;
+&lt;p&gt;You can find the project &lt;a href="https://github.com/Inzaniak/pybistuff/tree/master/NLTK%20Freq"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To start we need some text to analyze. We could use some of the books which are integrated in NLTK, but I prefer to read from an external file.
+The best source of free ebooks to practice your text analysis skills is &lt;a href="http://www.gutenberg.org"&gt;gutenberg&lt;/a&gt;. Project Gutenberg is an awesome "open source" project that offers more than 53.000 free ebooks. For this tutorial we are going to use &lt;a href="http://www.gutenberg.org/ebooks/345"&gt;Dracula&lt;/a&gt; by Bram Stoker, you can download it as a UTF-8 txt.&lt;/p&gt;
+&lt;p&gt;For this project we are going to create the folders like this:
+&lt;img class="alignnone size-full wp-image-404" src="https://inzaniak.github.io/pybistuffblog/2017/04/2017-04-20-15_16_25-prompt-dei-comandi.png" alt="2017-04-20 15_16_25-Prompt dei comandi" width="155" height="117"&gt;&lt;/p&gt;
+&lt;p&gt;You just need to download the utf-8 version of a book of your choice and save it as ebook.txt in data folder inside your project. You can download the stopwords from &lt;a href="https://github.com/Inzaniak/pybistuff/tree/master/NLTK%20Freq"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Let's start coding!
+&lt;/p&gt;&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#f92672;"&gt;import&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;nltk&lt;/span&gt;
+&lt;p&gt;&lt;span style="color:#75715e;"&gt;# Let's declare a function to get word index&lt;/span&gt;
+&lt;span style="color:#66d9ef;"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e;"&gt;get_index&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;(in_list,in_string):&lt;/span&gt;
+    &lt;span style="color:#66d9ef;"&gt;for&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;num,row&lt;/span&gt; &lt;span style="color:#f92672;"&gt;in&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;enumerate(in_list):&lt;/span&gt;
+        &lt;span style="color:#66d9ef;"&gt;if&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;in_string&lt;/span&gt; &lt;span style="color:#f92672;"&gt;in&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;row:&lt;/span&gt;
+            &lt;span style="color:#66d9ef;"&gt;return&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;num&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="color:#75715e;"&gt;# Let's open the book we downloaded&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;book&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;open(&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'data/ebook.txt'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'r'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;read()&lt;/span&gt;
+&lt;span style="color:#75715e;"&gt;# Divide text by rows&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;rows&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;book&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;split(&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;\n&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;
+&lt;/p&gt;&lt;/pre&gt;
+&lt;code&gt;
+import nltk&lt;/code&gt;
+We import the necessary library as usual
+&lt;p&gt;&lt;code&gt;get_index()&lt;/code&gt;
+We define a simple function which helps us find the index of a word inside of a list. We loop for every row and if we find the string we return the index of the string&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;open() and split()&lt;/code&gt;
+We load the book into a variable as a string and then we split it into lines
+&lt;/p&gt;&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#75715e;"&gt;# Search for START and END tags to remove useless parts&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;start_idx&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;get_index(rows,&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'&lt;strong&gt;&lt;em&gt; START'&lt;/em&gt;&lt;/strong&gt;&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;end_idx&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;get_index(rows,&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;' END'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;rows&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;rows[start_idx&lt;/span&gt;&lt;span style="color:#f92672;"&gt;+&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;1&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:end_idx]&lt;/span&gt;
+&lt;/pre&gt;
+Now we look for START and END tags in our list and we redefine the list omitting the lines which are added by gutemberg.org.
+&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#75715e;"&gt;# Create a list of words by converting to lowercase and splitting&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;words&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;[s&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;lower()&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;split()&lt;/span&gt; &lt;span style="color:#66d9ef;"&gt;for&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;s&lt;/span&gt; &lt;span style="color:#f92672;"&gt;in&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;rows&lt;/span&gt; &lt;span style="color:#66d9ef;"&gt;if&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;s]&lt;/span&gt;
+&lt;span style="color:#75715e;"&gt;# Convert the list of lists into a flat list&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;words&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;[sublist&lt;/span&gt; &lt;span style="color:#66d9ef;"&gt;for&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;l&lt;/span&gt; &lt;span style="color:#f92672;"&gt;in&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;words&lt;/span&gt; &lt;span style="color:#66d9ef;"&gt;for&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;sublist&lt;/span&gt; &lt;span style="color:#f92672;"&gt;in&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;l]&lt;/span&gt;
+&lt;p&gt;&lt;span style="color:#75715e;"&gt;# Import the stopwords&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;stop&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;open(&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'data/stop.txt'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'r'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;read()&lt;/span&gt;
+&lt;span style="color:#75715e;"&gt;# Split the stopwords by line&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;stop&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;stop&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;split(&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;\n&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="color:#75715e;"&gt;# Remove punctuation and numbers from words&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;words&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;[&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;''&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;join(c&lt;/span&gt; &lt;span style="color:#66d9ef;"&gt;for&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;c&lt;/span&gt; &lt;span style="color:#f92672;"&gt;in&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;w&lt;/span&gt; &lt;span style="color:#66d9ef;"&gt;if&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;c&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;isalpha())&lt;/span&gt; &lt;span style="color:#66d9ef;"&gt;for&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;w&lt;/span&gt; &lt;span style="color:#f92672;"&gt;in&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;words]&lt;/span&gt;
+&lt;span style="color:#75715e;"&gt;# Remove stopwords and blanks from words&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;words&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;[w&lt;/span&gt; &lt;span style="color:#66d9ef;"&gt;for&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;w&lt;/span&gt; &lt;span style="color:#f92672;"&gt;in&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;words&lt;/span&gt; &lt;span style="color:#66d9ef;"&gt;if&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;w&lt;/span&gt; &lt;span style="color:#f92672;"&gt;not&lt;/span&gt; &lt;span style="color:#f92672;"&gt;in&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;stop&lt;/span&gt; &lt;span style="color:#f92672;"&gt;and&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;w&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;isalpha()]&lt;/span&gt;
+&lt;/p&gt;&lt;/pre&gt;
+We create a list of words by following these steps:
+&lt;ul&gt;
+    &lt;li&gt;Convert all the rows to lowercase and split the row into words&lt;/li&gt;
+    &lt;li&gt;Flatten the list of lists into a single list of words&lt;/li&gt;
+    &lt;li&gt;Load the stopwords and split them by line&lt;/li&gt;
+    &lt;li&gt;Remove punctuation from words&lt;/li&gt;
+    &lt;li&gt;Remove stopwords and empty elements from words&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#75715e;"&gt;# Let's load the word into NLTK&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;text&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;nltk&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;Text(words)&lt;/span&gt;
+&lt;p&gt;&lt;span style="color:#75715e;"&gt;# Calculate Frequency distribution&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;freq&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;nltk&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;FreqDist(text)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="color:#75715e;"&gt;# Print and plot most common words&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;freq&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;most_common(&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;20&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;freq&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;plot(&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;10&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;
+&lt;/p&gt;&lt;/pre&gt;
+Now we can load our words into NLTK and calculate the frequencies by using FreqDist(). After this we can use .most_common(20) to show in console 20 most common words or .plot(10) to show a line plot representing word frequencies:
+&lt;img class="alignnone size-full wp-image-449" src="https://inzaniak.github.io/pybistuffblog/2017/04/2017-04-20-15_47_21-figure-1.png" alt="2017-04-20 15_47_21-Figure 1" width="642" height="580"&gt;
+&lt;p&gt;Pretty boring words, how can we improve the output?
+We can use bigrams to show more relevant data. From Wikipedia: A &lt;b&gt;bigram&lt;/b&gt; or &lt;b&gt;digram&lt;/b&gt; is a sequence of two adjacent elements from a string of tokens, which are typically letters, syllables, or words.
+&lt;/p&gt;&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#75715e;"&gt;# Get Bigrams from text&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;bigrams&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;nltk&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;bigrams(text)&lt;/span&gt;
+&lt;p&gt;&lt;span style="color:#75715e;"&gt;# Calculate Frequency Distribution for Bigrams&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;freq_bi&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;nltk&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;FreqDist(bigrams)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="color:#75715e;"&gt;# Print and plot most common bigrams&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;freq_bi&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;most_common(&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;20&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;freq_bi&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;plot(&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;10&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;
+&lt;/p&gt;&lt;/pre&gt;
+After creating the bigrams we can plot them:
+&lt;img class="alignnone size-full wp-image-458" src="https://inzaniak.github.io/pybistuffblog/2017/04/2017-04-20-15_56_03-figure-1.png" alt="2017-04-20 15_56_03-Figure 1.png" width="749" height="772"&gt;
+&lt;p&gt;Pretty cool, right?&lt;/p&gt;
+&lt;p&gt;That's it for today. Have fun experimenting with word frequencies&lt;/p&gt;&lt;/div&gt;</description><category>Python</category><category>Senza categoria</category><guid>https://inzaniak.github.io/pybistuffblog/posts/2017/04/20/python-count-frequencies-with-nltk.html</guid><pubDate>Thu, 20 Apr 2017 15:57:33 GMT</pubDate></item><item><title>Python: Quick Stopwords with NLTK</title><link>https://inzaniak.github.io/pybistuffblog/posts/2017/04/19/python-quick-stopwords-with-nltk.html</link><dc:creator>Umberto Grando</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;One of the most tedious task in Text Analytics is cleaning raw text.
+Fortunately NLTK has a lot of tools to help you in this task. One of the most important is &lt;strong&gt;nltk.corpus.stopwords&lt;/strong&gt; which contains stopwords for 11 languages.&lt;/p&gt;
+&lt;p&gt;Let's start coding:
+&lt;/p&gt;&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#f92672;"&gt;import&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;nltk&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;nltk&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;download()&lt;/span&gt;
+&lt;/pre&gt;
+First step is to install the stopwords so we run &lt;strong&gt;nltk.download()&lt;/strong&gt;.
+&lt;p&gt;&lt;img class="alignnone size-full wp-image-367" src="https://inzaniak.github.io/pybistuffblog/2017/04/2017-04-18-12_48_29-nltk-downloader.png" alt="2017-04-18 12_48_29-NLTK Downloader" width="757" height="597"&gt;&lt;/p&gt;
+&lt;p&gt;Then we choose Corpora -&amp;gt; Stopwords -&amp;gt; Download&lt;/p&gt;
+&lt;p&gt;&lt;img class="alignnone size-full wp-image-370" src="https://inzaniak.github.io/pybistuffblog/2017/04/2017-04-18-12_50_19-nltk-downloader.png" alt="2017-04-18 12_50_19-NLTK Downloader.png" width="757" height="597"&gt;&lt;/p&gt;
+&lt;p&gt;Back to coding!
+&lt;/p&gt;&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#f92672;"&gt;from&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;nltk.corpus&lt;/span&gt; &lt;span style="color:#66d9ef;"&gt;import&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;stopwords&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;stop&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;stopwords&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;words(&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'english'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;print(stop[&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;0&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;5&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;])&lt;/span&gt;
+&lt;span style="color:#75715e;"&gt;# ['i', 'me', 'my', 'myself', 'we']&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;print(type(stop))&lt;/span&gt;
+&lt;span style="color:#75715e;"&gt;# &amp;lt;class 'list'&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+The first line imports the corpus.reader, then we store into a variable the words contained in "English Stopwords". The words are returned as a list, so we can easily navigate them.
+&lt;p&gt;But how do we use them?
+&lt;/p&gt;&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#f8f8f2;"&gt;sentence&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;'NLTK is a leading platform for building Python programs to work with human language data.'&lt;/span&gt;
+&lt;span style="color:#75715e;"&gt;# With Generator&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;keywords&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;[w&lt;/span&gt; &lt;span style="color:#66d9ef;"&gt;for&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;w&lt;/span&gt; &lt;span style="color:#f92672;"&gt;in&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;sentence&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;split()&lt;/span&gt; &lt;span style="color:#66d9ef;"&gt;if&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;w&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;lower()&lt;/span&gt; &lt;span style="color:#f92672;"&gt;not&lt;/span&gt; &lt;span style="color:#f92672;"&gt;in&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;stop]&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;print(keywords)&lt;/span&gt;
+&lt;span style="color:#75715e;"&gt;# ['NLTK', 'leading', 'platform', 'building', 'Python', 'programs', 'work', 'human', 'language', 'data.']&lt;/span&gt;
+&lt;p&gt;&lt;span style="color:#75715e;"&gt;# Without Generator&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;keywords&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;[]&lt;/span&gt;
+&lt;span style="color:#66d9ef;"&gt;for&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;word&lt;/span&gt; &lt;span style="color:#f92672;"&gt;in&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;sentence&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;split():&lt;/span&gt;
+    &lt;span style="color:#66d9ef;"&gt;if&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;word&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;lower()&lt;/span&gt; &lt;span style="color:#f92672;"&gt;not&lt;/span&gt; &lt;span style="color:#f92672;"&gt;in&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;stop:&lt;/span&gt;
+        &lt;span style="color:#f8f8f2;"&gt;keywords&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;append(word)&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;print(keywords)&lt;/span&gt;
+&lt;span style="color:#75715e;"&gt;# ['NLTK', 'leading', 'platform', 'building', 'Python', 'programs', 'work', 'human', 'language', 'data.']&lt;/span&gt;
+&lt;/p&gt;&lt;/pre&gt;
+We use a simple sentence as input. Then we use a generator or a "for loop" to create a list of keywords, by ignoring all the words that are not in our stopwords list.
+We use word.lower() because all the words in the stopwords list are lowercase.
+&lt;p&gt;That's it, this is the fastest way to implement stopwords using NLTK.
+Have fun&lt;/p&gt;&lt;/div&gt;</description><category>Python</category><category>Senza categoria</category><guid>https://inzaniak.github.io/pybistuffblog/posts/2017/04/19/python-quick-stopwords-with-nltk.html</guid><pubDate>Wed, 19 Apr 2017 08:00:15 GMT</pubDate></item><item><title>Python: News from the Reddit, last week of March</title><link>https://inzaniak.github.io/pybistuffblog/posts/2017/03/28/python-news-from-the-reddit-last-week-of-march.html</link><dc:creator>Umberto Grando</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;These are the most voted posts on Python Reddit last week:
+&lt;/p&gt;&lt;h3&gt;Better-Exceptions&lt;/h3&gt;
+A nice library which adds prettier and more helpful exceptions
+&lt;img class="alignnone size-full wp-image-276" src="https://inzaniak.github.io/pybistuffblog/2017/03/screenshot.png" alt="screenshot" width="1082" height="452"&gt;
+Direct Link: &lt;a href="https://github.com/Qix-/better-exceptions"&gt;https://github.com/Qix-/better-exceptions
+&lt;/a&gt;Reddit: &lt;a href="https://github.com/Qix-/better-exceptions"&gt;https://github.com/Qix-/better-exceptions&lt;/a&gt;
+&lt;h3&gt;Opencv Python Drone&lt;/h3&gt;
+This is a youtube video in which a drone uses opencv to track the person who is holding a orange object.
+[youtube https://www.youtube.com/watch?v=zCdacGMnlO0&amp;amp;w=560&amp;amp;h=315]
+&lt;h3&gt;Audio Signal Processing Course&lt;/h3&gt;
+A free course on coursera about signal processing specifically tailored for audio files and music. As a music enthusiast i really reccomend to follow this.
+Direct Link: &lt;a href="https://www.coursera.org/learn/audio-signal-processing"&gt;https://www.coursera.org/learn/audio-signal-processing&lt;/a&gt;
+Reddit: &lt;a href="https://www.reddit.com/r/Python/comments/61eppg/audio_signal_processing_for_music_applications_a/"&gt;https://www.reddit.com/r/Python/comments/61eppg/audio_signal_processing_for_music_applications_a/&lt;/a&gt;
+&lt;h3&gt;Pycharm debugging is 40x faster!&lt;/h3&gt;
+I love Pycharm and it seems that, thanks to Python 3.6, the debugger just got faster. If you want to read about it just follow the links:
+Direct Link: &lt;a href="https://mail.python.org/pipermail/python-dev/2017-March/147681.html"&gt;https://mail.python.org/pipermail/python-dev/2017-March/147681.html&lt;/a&gt;
+Reddit: &lt;a href="https://www.reddit.com/r/Python/comments/61hokj/pythondev_pycharm_debugger_became_40x_faster_on/"&gt;https://www.reddit.com/r/Python/comments/61hokj/pythondev_pycharm_debugger_became_40x_faster_on/&lt;/a&gt;
+&lt;h3&gt;Python Automation Thread&lt;/h3&gt;
+There are no words to describe the content of this thread. It's funny and it's Python; just read it!
+Reddit: &lt;a href="https://www.reddit.com/r/Python/comments/61vbni/rpython_what_are_some_of_the_coolest_things_youve/"&gt;https://www.reddit.com/r/Python/comments/61vbni/rpython_what_are_some_of_the_coolest_things_youve/&lt;/a&gt;&lt;/div&gt;</description><category>Python</category><category>Reddit News</category><guid>https://inzaniak.github.io/pybistuffblog/posts/2017/03/28/python-news-from-the-reddit-last-week-of-march.html</guid><pubDate>Tue, 28 Mar 2017 15:26:51 GMT</pubDate></item><item><title>Python: Learning Lambda Functions and map, filter and reduce.</title><link>https://inzaniak.github.io/pybistuffblog/posts/2017/03/27/python-learning-lambda-functions-and-map-filter-and-reduce.html</link><dc:creator>Umberto Grando</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;Python supports the creation of anonymous functions at runtime, using a construct called "&lt;strong&gt;lambda&lt;/strong&gt;".&lt;/p&gt;
+&lt;p&gt;Let's see an example:
+&lt;/p&gt;&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#75715e;"&gt;# Standard way to define a function&lt;/span&gt;
+&lt;span style="color:#66d9ef;"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e;"&gt;my_func&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;(in_num):&lt;/span&gt;
+    &lt;span style="color:#66d9ef;"&gt;return&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;in_num&lt;/span&gt;&lt;span style="color:#f92672;"&gt;*&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;in_num&lt;/span&gt;
+&lt;p&gt;&lt;span style="color:#75715e;"&gt;# Lambda way&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;my_func_l&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef;"&gt;lambda&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;x:&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;x&lt;/span&gt;&lt;span style="color:#f92672;"&gt;*&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;x&lt;/span&gt;&lt;/p&gt;&lt;/pre&gt;
+Both of the functions return the same result, but are declared in different ways.&lt;img class="alignnone size-full wp-image-233" src="https://inzaniak.github.io/pybistuffblog/2017/03/result.png" alt="result" width="159" height="77"&gt;
+&lt;p&gt;So the question is: "When is it useful to use a lambda function?".
+I find it particularly useful when i'm working on "dynamic" functions:
+&lt;/p&gt;&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#66d9ef;"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e;"&gt;my_func&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;(n):&lt;/span&gt;
+    &lt;span style="color:#66d9ef;"&gt;return&lt;/span&gt; &lt;span style="color:#66d9ef;"&gt;lambda&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;x:x&lt;/span&gt;&lt;span style="color:#f92672;"&gt;*&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;n&lt;/span&gt;
+&lt;p&gt;&lt;span style="color:#75715e;"&gt;# This creates the anonymous function by defining the n value&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;f&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;my_func(&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;2&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;g&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;my_func(&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;4&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="color:#75715e;"&gt;# This calls the function by passing the parameter x&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;f(&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;5&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;g(&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;3&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="color:#75715e;"&gt;# You can also call the function without assigning it&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;my_func(&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;2&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)(&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;8&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;
+&lt;/p&gt;&lt;/pre&gt;
+But Lambdas functions are often used with map, filter and reduce.
+&lt;h3&gt;Map&lt;/h3&gt;
+&lt;strong&gt;Map&lt;/strong&gt; applies a function to all the items in an input_list.
+&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#75715e;"&gt;# Let's declare a simple list of number&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;items&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;[&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;1&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#ae81ff;"&gt;2&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#ae81ff;"&gt;3&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#ae81ff;"&gt;4&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#ae81ff;"&gt;5&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;]&lt;/span&gt;
+&lt;span style="color:#75715e;"&gt;# We create a Lambda that does the square for the number&lt;/span&gt;
+&lt;span style="color:#75715e;"&gt;# and apply it to the list by using map&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;list(map(&lt;/span&gt;&lt;span style="color:#66d9ef;"&gt;lambda&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;x:x&lt;/span&gt;&lt;span style="color:#f92672;"&gt;&lt;em&gt;&lt;/em&gt;&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;x,items))
+&lt;span style="color:#ffcc99;"&gt;Out[354]: [1, 4, 9, 16, 25]&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;
+This is a really fast way to apply a function on a list. It is really useful if you need to use it once.
+&lt;h3&gt;Filter&lt;/h3&gt;
+&lt;strong&gt;Filter &lt;/strong&gt;creates a list of elements for which a function returns true.
+&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#75715e;"&gt;# Let's declare a simple list of number&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;items&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;[&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;1&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#ae81ff;"&gt;2&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#ae81ff;"&gt;3&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#ae81ff;"&gt;4&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#ae81ff;"&gt;5&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;]&lt;/span&gt;
+&lt;span style="color:#75715e;"&gt;# We create a Lambda that check if the number is even&lt;/span&gt;
+&lt;span style="color:#75715e;"&gt;# and apply it to the list by using filter&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;list(filter(&lt;/span&gt;&lt;span style="color:#66d9ef;"&gt;lambda&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;x:&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;x&lt;/span&gt;&lt;span style="color:#f92672;"&gt;%&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;2&lt;/span&gt; &lt;span style="color:#f92672;"&gt;==&lt;/span&gt; &lt;span style="color:#ae81ff;"&gt;0&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;items))&lt;/span&gt;
+&lt;span style="color:#ffcc99;"&gt;Out[356]: [2, 4]
+&lt;/span&gt;&lt;/pre&gt;
+By using filter you can clean your list easily.
+&lt;h3&gt;Reduce&lt;/h3&gt;
+&lt;strong&gt;Reduce &lt;/strong&gt;is a really useful function for performing some computation on a list and returning the result.
+&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#75715e;"&gt;# We need to import reduce from functools library&lt;/span&gt;
+&lt;span style="color:#f92672;"&gt;from&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;functools&lt;/span&gt; &lt;span style="color:#66d9ef;"&gt;import&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;reduce&lt;/span&gt;
+&lt;span style="color:#75715e;"&gt;# Let's declare a simple list of number&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;items&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;[&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;1&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#ae81ff;"&gt;2&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#ae81ff;"&gt;3&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#ae81ff;"&gt;4&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#ae81ff;"&gt;5&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;]&lt;/span&gt;
+&lt;span style="color:#75715e;"&gt;# We create a Lambda that compute the product of the integers&lt;/span&gt;
+&lt;span style="color:#75715e;"&gt;# and apply it to the list by using reduce&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;reduce(&lt;/span&gt;&lt;span style="color:#66d9ef;"&gt;lambda&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;x,y:&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;x&lt;/span&gt;&lt;span style="color:#f92672;"&gt;&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;y,&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;items)
+&lt;span style="color:#ffcc99;"&gt;Out[363]: 120&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;
+ 
+&lt;p&gt;And that's all for today!&lt;/p&gt;&lt;/div&gt;</description><category>Python</category><category>Senza categoria</category><guid>https://inzaniak.github.io/pybistuffblog/posts/2017/03/27/python-learning-lambda-functions-and-map-filter-and-reduce.html</guid><pubDate>Mon, 27 Mar 2017 17:20:03 GMT</pubDate></item><item><title>Python: How to work with Json</title><link>https://inzaniak.github.io/pybistuffblog/posts/2017/03/24/python-how-to-work-with-json.html</link><dc:creator>Umberto Grando</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;One of the most used format these days (especially online) is the Javascript Object Notation (JSON). At first sight it can be a little confusing, but after using it a few times it won't be a problem anymore.&lt;/p&gt;
+&lt;p&gt;So what's the best way to read Json in Python?
+Luckily for you (and me) there is an awesome library integrated within Python named "json".&lt;/p&gt;
+&lt;p&gt;Let's start with a Json available on &lt;a href="http://json.org/example.html"&gt;http://json.org/example.html&lt;/a&gt;:
+&lt;/p&gt;&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#f8f8f2;"&gt;{&lt;/span&gt;
+    &lt;span style="color:#f92672;"&gt;"glossary"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;{&lt;/span&gt;
+        &lt;span style="color:#f92672;"&gt;"title"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"example glossary"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;
+        &lt;span style="color:#f92672;"&gt;"GlossDiv"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;{&lt;/span&gt;
+            &lt;span style="color:#f92672;"&gt;"title"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"S"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;
+            &lt;span style="color:#f92672;"&gt;"GlossList"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;{&lt;/span&gt;
+                &lt;span style="color:#f92672;"&gt;"GlossEntry"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;{&lt;/span&gt;
+                    &lt;span style="color:#f92672;"&gt;"ID"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"SGML"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;
+                    &lt;span style="color:#f92672;"&gt;"SortAs"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"SGML"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;
+                    &lt;span style="color:#f92672;"&gt;"GlossTerm"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"Standard Generalized Markup Language"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;
+                    &lt;span style="color:#f92672;"&gt;"Acronym"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"SGML"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;
+                    &lt;span style="color:#f92672;"&gt;"Abbrev"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"ISO 8879:1986"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;
+                    &lt;span style="color:#f92672;"&gt;"GlossDef"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;{&lt;/span&gt;
+                        &lt;span style="color:#f92672;"&gt;"para"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"A meta-markup language, used to create markup languages such as DocBook."&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;
+                        &lt;span style="color:#f92672;"&gt;"GlossSeeAlso"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;[&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;"GML"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"XML"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;]&lt;/span&gt;
+                    &lt;span style="color:#f8f8f2;"&gt;},&lt;/span&gt;
+                    &lt;span style="color:#f92672;"&gt;"GlossSee"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"markup"&lt;/span&gt;
+                &lt;span style="color:#f8f8f2;"&gt;}&lt;/span&gt;
+            &lt;span style="color:#f8f8f2;"&gt;}&lt;/span&gt;
+        &lt;span style="color:#f8f8f2;"&gt;}&lt;/span&gt;
+    &lt;span style="color:#f8f8f2;"&gt;}&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+There are a few tools that help you format and read Json, these are the ones i use often:
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href="http://jsonviewer.stack.hu"&gt;http://jsonviewer.stack.hu&lt;/a&gt;: This is a really awesome site which helps you understand the content of the Json&lt;/li&gt;
+    &lt;li&gt;&lt;a href="http://atom.io"&gt;atom.io&lt;/a&gt;: An awesome text editor that supports a lot of extension. I really suggest you to take a look at it&lt;/li&gt;
+&lt;/ul&gt;
+So let's take a look at this Json structure on Jsonviewer:
+&lt;p&gt;&lt;img class="alignnone size-full wp-image-202" src="https://inzaniak.github.io/pybistuffblog/2017/03/jsonviewer.png" alt="Jsonviewer" width="723" height="416"&gt;&lt;/p&gt;
+&lt;p&gt;Now, what are the first steps to import this data structure into our python script?
+&lt;/p&gt;&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#f92672;"&gt;import&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;json&lt;/span&gt;
+&lt;p&gt;&lt;span style="color:#f8f8f2;"&gt;json_string&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"""&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;{&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;    "glossary": {&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;        "title": "example glossary",&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;       "GlossDiv": {&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;            "title": "S",&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;           "GlossList": {&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;                "GlossEntry": {&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;                    "ID": "SGML",&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;                   "SortAs": "SGML",&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;                   "GlossTerm": "Standard Generalized Markup Language",&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;                   "Acronym": "SGML",&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;                   "Abbrev": "ISO 8879:1986",&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;                   "GlossDef": {&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;                        "para": "A meta-markup language, used to create markup languages such as DocBook.",&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;                       "GlossSeeAlso": ["GML", "XML"]&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;                    },&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;                   "GlossSee": "markup"&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;                }&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;            }&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;        }&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;    }&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;}&lt;/span&gt;
+&lt;span style="color:#e6db74;"&gt;"""&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="color:#f8f8f2;"&gt;my_json&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;json&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;loads(json_string)&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;print(my_json)&lt;/span&gt;
+&lt;/p&gt;&lt;/pre&gt;
+The first step is to import the library we are going to use: "json". Then we create a string which contains the Json we are going to read. Now that we have our Json we load it into a variable by using &lt;em&gt;json.loads() &lt;/em&gt;and print the result:
+&lt;p&gt;&lt;img class="alignnone size-full wp-image-211" src="https://inzaniak.github.io/pybistuffblog/2017/03/jsonout1.png" alt="JsonOut1" width="1564" height="175"&gt;&lt;/p&gt;
+&lt;p&gt;We can see that the Json we loaded is outputted as a python Dict, which is convenient for us.
+To navigate it you just need to use the syntax you'll use with a Dict:
+&lt;/p&gt;&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#f8f8f2;"&gt;print(my_json[&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'glossary'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;][&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'title'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;])&lt;/span&gt;
+&lt;span style="color:#75715e;"&gt;# returns: example glossary&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;print(my_json[&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'glossary'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;][&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'GlossDiv'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;])&lt;/span&gt;
+&lt;span style="color:#75715e;"&gt;# returns: a dict&lt;/span&gt;
+&lt;/pre&gt;
+That's pretty awesome right? But what if i need to output the json as is? There is a simple method in the json library named &lt;em&gt;dumps()&lt;/em&gt; that does just what we need:
+&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#f8f8f2;"&gt;print(json&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;dumps(my_json))&lt;/span&gt;
+&lt;span style="color:#f92672;"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;{&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;"glossary"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;{&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;"title"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"example glossary"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"GlossDiv"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;{&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;"title"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"S"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"GlossList"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;{&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;"GlossEntry"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;{&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;"ID"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"SGML"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"GlossTerm"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"Standard Generalized Markup Language"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"Acronym"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"SGML"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"GlossSee"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"markup"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"SortAs"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"SGML"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"Abbrev"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"ISO 8879:1986"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"GlossDef"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;{&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;"GlossSeeAlso"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;[&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;"GML"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"XML"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;],&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"para"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"A meta-markup language, used to create markup languages such as DocBook."&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;}}}}}}&lt;/span&gt;
+&lt;/pre&gt;
+ 
+&lt;p&gt;I think that's all for this session! Thanks for reading.&lt;/p&gt;&lt;/div&gt;</description><category>Python</category><category>Senza categoria</category><guid>https://inzaniak.github.io/pybistuffblog/posts/2017/03/24/python-how-to-work-with-json.html</guid><pubDate>Fri, 24 Mar 2017 14:21:25 GMT</pubDate></item><item><title>Python: .get() method</title><link>https://inzaniak.github.io/pybistuffblog/posts/2017/03/16/python-get-method.html</link><dc:creator>Umberto Grando</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;One of the most annoying things that happens to me when i'm working with json extracted from social networks is the absence of some of the keys from the json.&lt;/p&gt;
+&lt;p&gt;If you try to read that the usual way:
+&lt;/p&gt;&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#f92672;"&gt;import&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;json&lt;/span&gt;
+&lt;p&gt;&lt;span style="color:#f8f8f2;"&gt;user_id&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;{&lt;/span&gt;
+    &lt;span style="color:#ae81ff;"&gt;101&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"Mario"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;
+    &lt;span style="color:#ae81ff;"&gt;102&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"John"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;
+    &lt;span style="color:#ae81ff;"&gt;103&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"Lewis"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;
+    &lt;span style="color:#ae81ff;"&gt;105&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"Andrew"&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;}&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="color:#66d9ef;"&gt;for&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;i&lt;/span&gt; &lt;span style="color:#f92672;"&gt;in&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;range(&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;101&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;106&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;):&lt;/span&gt;
+    &lt;span style="color:#66d9ef;"&gt;print&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;(user_id[i])&lt;/span&gt;
+&lt;/p&gt;&lt;/pre&gt;
+You will have this error:
+&lt;p&gt;&lt;img class="alignnone size-full wp-image-139" src="https://inzaniak.github.io/pybistuffblog/2017/03/img1.png" alt="img1" width="872" height="206"&gt;
+Because you are referencing an element that doesn't exists.&lt;/p&gt;
+&lt;p&gt;You could solve this problem by using a Try - Except statement, but that will make the code longer and less readable.&lt;/p&gt;
+&lt;p&gt;The best way to fix this is by using .get():
+&lt;/p&gt;&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#f92672;"&gt;import&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;json&lt;/span&gt;
+&lt;p&gt;&lt;span style="color:#f8f8f2;"&gt;user_id&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;{&lt;/span&gt;
+    &lt;span style="color:#ae81ff;"&gt;101&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"Mario"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;
+    &lt;span style="color:#ae81ff;"&gt;102&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"John"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;
+    &lt;span style="color:#ae81ff;"&gt;103&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"Lewis"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;
+    &lt;span style="color:#ae81ff;"&gt;105&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;"Andrew"&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;}&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="color:#66d9ef;"&gt;for&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;i&lt;/span&gt; &lt;span style="color:#f92672;"&gt;in&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;range(&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;101&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;106&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;):&lt;/span&gt;
+    &lt;span style="color:#66d9ef;"&gt;print&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;(user_id&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;get(i,&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;"ND"&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;))&lt;/span&gt;
+&lt;/p&gt;&lt;/pre&gt;
+The method: ".get()" extract the element from the json as usual, but when the value doesn't exit it returns a value chosen by the user.
+&lt;p&gt;This is really lifesaving when working with json.&lt;/p&gt;&lt;/div&gt;</description><category>Python</category><category>Senza categoria</category><guid>https://inzaniak.github.io/pybistuffblog/posts/2017/03/16/python-get-method.html</guid><pubDate>Thu, 16 Mar 2017 15:44:31 GMT</pubDate></item><item><title>Python: Clean SQL views for documentation</title><link>https://inzaniak.github.io/pybistuffblog/posts/2017/02/07/python-clean-sql-views-for-documentation.html</link><dc:creator>Umberto Grando</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;One of the most tedious tasks of working with databases is to write and maintain documentation, in particular writing reports from tables and views.&lt;/p&gt;
+&lt;p&gt;So why not try to make this task a bit less heavy by using Python?
+&lt;/p&gt;&lt;h6&gt;Step0-The input and the output&lt;/h6&gt;
+The script requires that the views are created using create view.
+Example:
+&lt;h6&gt;Right click on view&lt;/h6&gt;
+&lt;img class="alignnone  wp-image-107" src="https://inzaniak.github.io/pybistuffblog/2017/02/img1.png" alt="img1" width="477" height="298"&gt;
+&lt;h6&gt;Copy view&lt;/h6&gt;
+&lt;img class="alignnone size-full wp-image-110" src="https://inzaniak.github.io/pybistuffblog/2017/02/img2.png" alt="img2" width="440" height="237"&gt;
+&lt;h6&gt;Output view after python script&lt;/h6&gt;
+&lt;img class="alignnone size-full wp-image-121" src="https://inzaniak.github.io/pybistuffblog/2017/02/img3.png" alt="img3" width="424" height="224"&gt;
+&lt;hr&gt;
+
+&lt;h6&gt;Step1 - Extract Columns Function&lt;/h6&gt;
+
+&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#66d9ef;"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e;"&gt;extract_columns&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;(in_txt):&lt;/span&gt;
+    &lt;span style="color:#e6db74;"&gt;"""Simple function to extract columns between select and from"""&lt;/span&gt;
+    &lt;span style="color:#75715e;"&gt;# Splitting by select i only choose text after select&lt;/span&gt;
+    &lt;span style="color:#f8f8f2;"&gt;out_view&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;re&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;split(&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;r'(?i)\bselect\b'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,in_txt)[&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;1&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;]&lt;/span&gt;
+    &lt;span style="color:#75715e;"&gt;# Splitting by from i only choose text before from&lt;/span&gt;
+    &lt;span style="color:#f8f8f2;"&gt;out_view&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;re&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;split(&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;r'(?i)\bfrom\b'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,out_view)[&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;0&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;]&lt;/span&gt;
+    &lt;span style="color:#75715e;"&gt;# Cleaning extra spaces and tabs&lt;/span&gt;
+    &lt;span style="color:#f8f8f2;"&gt;out_view&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;strip()&lt;/span&gt;
+    &lt;span style="color:#66d9ef;"&gt;return&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;out_view&lt;/span&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;Let's start by defining a function with the purpose of extracting only the columns from the script of a view. Thus ignoring everything before the Select statement and everything after the From statement.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h6&gt;Step2 -Let's start from the variables&lt;/h6&gt;
+
+&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#f92672;"&gt;import&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;re&lt;/span&gt;
+
+&lt;span style="color:#75715e;"&gt;# We open the file containing the view&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;view&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;extract_columns(open(&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'input.txt'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'r'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,encoding&lt;/span&gt;&lt;span style="color:#f92672;"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'utf-8'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;read())&lt;/span&gt;
+&lt;span style="color:#75715e;"&gt;# Now we insert text into the list and we create a new list&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;view_l&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;view&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;split(&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;\n&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;
+&lt;span style="color:#f8f8f2;"&gt;out_l&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;[]&lt;/span&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;Now we declare the variables we are going to use.
+&lt;/p&gt;&lt;ul&gt;
+    &lt;li&gt;view: contains the input text&lt;/li&gt;
+    &lt;li&gt;view_l: is a list created by splitting text by line&lt;/li&gt;
+    &lt;li&gt;out_l: is the output list&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h6&gt;Step3-Main Code&lt;/h6&gt;
+
+&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#75715e;"&gt;# Now we loop through all the lines of the view&lt;/span&gt;
+&lt;span style="color:#66d9ef;"&gt;for&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;num,line&lt;/span&gt; &lt;span style="color:#f92672;"&gt;in&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;enumerate(view_l):&lt;/span&gt;
+    &lt;span style="color:#75715e;"&gt;# Clean extra spaces&lt;/span&gt;
+    &lt;span style="color:#f8f8f2;"&gt;line&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;line&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;strip()&lt;/span&gt;
+    &lt;span style="color:#75715e;"&gt;# Remove Comments&lt;/span&gt;
+    &lt;span style="color:#f8f8f2;"&gt;line&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;line&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;split(&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'--'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)[&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;0&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;]&lt;/span&gt;
+    &lt;span style="color:#75715e;"&gt;# Remove Commas&lt;/span&gt;
+    &lt;span style="color:#f8f8f2;"&gt;line&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;line&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;replace(&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;','&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;''&lt;span style="color:#ffffff;"&gt;,&lt;/span&gt;1&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;
+    &lt;span style="color:#75715e;"&gt;# Substitute Tabs with Spaces&lt;/span&gt;
+    &lt;span style="color:#f8f8f2;"&gt;line&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;line&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;replace(&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;\t&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;' '&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;
+    &lt;span style="color:#75715e;"&gt;# While two spaces are in line we substitute the with one space&lt;/span&gt;
+    &lt;span style="color:#66d9ef;"&gt;while&lt;/span&gt; &lt;span style="color:#e6db74;"&gt;'  '&lt;/span&gt; &lt;span style="color:#f92672;"&gt;in&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;line:&lt;/span&gt;
+        &lt;span style="color:#f8f8f2;"&gt;line&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;line&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;replace(&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'  '&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;' '&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;
+    &lt;span style="color:#75715e;"&gt;# Remove [ and ]&lt;/span&gt;
+    &lt;span style="color:#f8f8f2;"&gt;line&lt;/span&gt; &lt;span style="color:#f92672;"&gt;=&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;line&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;replace&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;(&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'['&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;''&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;replace(&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;']'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;''&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;
+    &lt;span style="color:#75715e;"&gt;# If line is not empty&lt;/span&gt;
+    &lt;span style="color:#66d9ef;"&gt;if&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;len(line)&lt;/span&gt;&lt;span style="color:#f92672;"&gt;&amp;gt;&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;0&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt;
+        &lt;span style="color:#75715e;"&gt;# If line is not a comment&lt;/span&gt;
+        &lt;span style="color:#66d9ef;"&gt;if&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;line[&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;0&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;]&lt;/span&gt;&lt;span style="color:#f92672;"&gt;!=&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'-'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt;
+            &lt;span style="color:#75715e;"&gt;# We add the new line to out_l&lt;/span&gt;
+            &lt;span style="color:#f8f8f2;"&gt;out_l&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;append(re&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;split(&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;r'(?i)\bas\b'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,line))&lt;/span&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;Finally we come to the main code.
+The first part is a For loop, using the list we created in step2.
+For each line the script removes useless characters and comments and then adds the line to the new list.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h6&gt;Step4-Output Text&lt;/h6&gt;
+
+&lt;pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"&gt;&lt;span style="color:#75715e;"&gt;# Open output file&lt;/span&gt;
+&lt;span style="color:#66d9ef;"&gt;with&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;open(&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'out.txt'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;,&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'w'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt; &lt;span style="color:#66d9ef;"&gt;as&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;out_txt:&lt;/span&gt;
+    &lt;span style="color:#75715e;"&gt;# For line in output list&lt;/span&gt;
+    &lt;span style="color:#66d9ef;"&gt;for&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;line&lt;/span&gt; &lt;span style="color:#f92672;"&gt;in&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;out_l:&lt;/span&gt;
+        &lt;span style="color:#75715e;"&gt;# Try / Except to output all the values to the file separated by ','&lt;/span&gt;
+        &lt;span style="color:#66d9ef;"&gt;print&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;(line)&lt;/span&gt;
+        &lt;span style="color:#66d9ef;"&gt;if&lt;/span&gt; &lt;span style="color:#f8f8f2;"&gt;len(line)&lt;/span&gt;&lt;span style="color:#f92672;"&gt;&amp;gt;&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;1&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt;
+            &lt;span style="color:#f8f8f2;"&gt;out_txt&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;write(&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'as'&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;join(line[&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;0&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt;&lt;span style="color:#f92672;"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;1&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;])&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;strip()&lt;/span&gt;&lt;span style="color:#f92672;"&gt;+&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'|'&lt;/span&gt;&lt;span style="color:#f92672;"&gt;+&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;str(line[&lt;/span&gt;&lt;span style="color:#f92672;"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;1&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;])&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;strip()&lt;/span&gt;&lt;span style="color:#f92672;"&gt;+&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;\n&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;
+        &lt;span style="color:#66d9ef;"&gt;else&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;:&lt;/span&gt;
+            &lt;span style="color:#f8f8f2;"&gt;out_txt&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;write(str(line[&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;0&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;])&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;strip()&lt;/span&gt;&lt;span style="color:#f92672;"&gt;+&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'|'&lt;/span&gt;&lt;span style="color:#f92672;"&gt;+&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;str(line[&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;0&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;])&lt;/span&gt;&lt;span style="color:#f92672;"&gt;.&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;strip()&lt;/span&gt;&lt;span style="color:#f92672;"&gt;+&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'&lt;/span&gt;&lt;span style="color:#ae81ff;"&gt;\n&lt;/span&gt;&lt;span style="color:#e6db74;"&gt;'&lt;/span&gt;&lt;span style="color:#f8f8f2;"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;In the last part we write to an external file using a Try/Except to avoid IndexErrors.&lt;/p&gt;
+&lt;p&gt;This article is also available on &lt;a href="https://powerbloggerbi.com"&gt;PowerBloggerBI&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</description><category>Python</category><category>Senza categoria</category><category>SQL</category><guid>https://inzaniak.github.io/pybistuffblog/posts/2017/02/07/python-clean-sql-views-for-documentation.html</guid><pubDate>Tue, 07 Feb 2017 17:47:19 GMT</pubDate></item></channel></rss>

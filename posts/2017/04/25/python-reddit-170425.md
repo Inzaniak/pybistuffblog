@@ -1,0 +1,13 @@
+<ol>
+<li>Title:<strong> Self-driving vehicles with Python, TensorFlow, OpenCV, and Grand Theft Auto 5</strong><br />Author:<strong> sentdex</strong><br />Score:<strong> 707</strong><br />Url:<strong> <a href=" http://www.reddit.com/r/Python/comments/665jqt/selfdriving_vehicles_with_python_tensorflow/">Reddit</a>/<a href="https://www.reddit.com/r/Python/comments/665jqt/selfdriving_vehicles_with_python_tensorflow/">Direct</a></strong><strong><br /></strong>Description:<br />
+Some progress on the python-powered self-driving car GTA5 project.
+<br /><br /></li><li>Title:<strong> IPython 6.0 released – Stop Python 2 support</strong><br />Author:<strong> mbussonn</strong><br />Score:<strong> 402</strong><br />Url:<strong> <a href=" http://www.reddit.com/r/Python/comments/66dq42/ipython_60_released_stop_python_2_support/">Reddit</a>/<a href="https://blog.jupyter.org/2017/04/19/release-of-ipython-6-0/">Direct</a></strong><strong><br /></strong>Description:<br />
+The newest release of IPython 6 is out. Python 2 support is now dropped.
+<br /><br /></li><li>Title:<strong> Python... slowly taking over the world (Python in SQL Server 2017)</strong><br />Author:<strong> chillysurfer</strong><br />Score:<strong> 328</strong><br />Url:<strong> <a href=" http://www.reddit.com/r/Python/comments/66ofa0/python_slowly_taking_over_the_world_python_in_sql/">Reddit</a>/<a href="https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/python-in-sql-server-2017-enhanced-in-database-machine-learning/">Direct</a></strong><strong><br /></strong>Description:<br />
+Good news on the MSSQL front. Python will be available on SQL 2017!
+<br /><br /></li><li>Title:<strong> Python power comes to SQL Server 2017</strong><br />Author:<strong> JonTheAndroid</strong><br />Score:<strong> 237</strong><br />Url:<strong> <a href=" http://www.reddit.com/r/Python/comments/66zgtn/python_power_comes_to_sql_server_2017/">Reddit</a>/<a href="http://www.infoworld.com/article/3191187/database/python-power-comes-to-sql-server-2017.html">Direct</a></strong><strong><br /></strong>Description:<br />
+Infos about Python in SQL 2017
+<br /><br /></li><li>Title:<strong> Eye blink detection with Python and OpenCV.</strong><br />Author:<strong> zionsrogue</strong><br />Score:<strong> 209</strong><br />Url:<strong> <a href=" http://www.reddit.com/r/Python/comments/679ar4/eye_blink_detection_with_python_and_opencv/">Reddit</a>/<a href="http://www.pyimagesearch.com/2017/04/24/eye-blink-detection-opencv-python-dlib/">Direct</a></strong><strong><br /></strong>Description:<br />
+Awesome python tutorial about blink detection with OpenCV.
+<br /><br /></li>
+</ol>
