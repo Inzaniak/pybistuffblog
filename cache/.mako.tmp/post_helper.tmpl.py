@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1493150941.1023915
+_modified_time = 1493151040.7355945
 _enable_loop = True
 _template_filename = 'c:/users/inzaniak/anaconda3/lib/site-packages/nikola/data/themes/base/templates/post_helper.tmpl'
 _template_uri = 'post_helper.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['twitter_card_information', 'open_graph_metadata', 'meta_translations', 'mathjax_script', 'html_tags', 'html_pager']
+_exports = ['html_tags', 'twitter_card_information', 'meta_translations', 'mathjax_script', 'html_pager', 'open_graph_metadata']
 
 
 def render_body(context,**pageargs):
@@ -25,6 +25,28 @@ def render_body(context,**pageargs):
         __M_writer('\n\n')
         __M_writer('\n\n')
         __M_writer('\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_html_tags(context,post):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        _link = context.get('_link', UNDEFINED)
+        hidden_tags = context.get('hidden_tags', UNDEFINED)
+        __M_writer = context.writer()
+        __M_writer('\n')
+        if post.tags:
+            __M_writer('        <ul itemprop="keywords" class="tags">\n')
+            for tag in post.tags:
+                if tag not in hidden_tags:
+                    __M_writer('            <li><a class="tag p-category" href="')
+                    __M_writer(str(_link('tag', tag)))
+                    __M_writer('" rel="tag">')
+                    __M_writer(filters.html_escape(str(tag)))
+                    __M_writer('</a></li>\n')
+            __M_writer('        </ul>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -61,58 +83,12 @@ def render_twitter_card_information(context,post):
         context.caller_stack._pop_frame()
 
 
-def render_open_graph_metadata(context,post):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        blog_title = context.get('blog_title', UNDEFINED)
-        abs_link = context.get('abs_link', UNDEFINED)
-        url_replacer = context.get('url_replacer', UNDEFINED)
-        lang = context.get('lang', UNDEFINED)
-        permalink = context.get('permalink', UNDEFINED)
-        use_open_graph = context.get('use_open_graph', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n')
-        if use_open_graph:
-            __M_writer('    <meta property="og:site_name" content="')
-            __M_writer(filters.html_escape(str(blog_title)))
-            __M_writer('">\n    <meta property="og:title" content="')
-            __M_writer(filters.html_escape(str(post.title()[:70])))
-            __M_writer('">\n    <meta property="og:url" content="')
-            __M_writer(str(abs_link(permalink)))
-            __M_writer('">\n')
-            if post.description():
-                __M_writer('    <meta property="og:description" content="')
-                __M_writer(filters.html_escape(str(post.description()[:200])))
-                __M_writer('">\n')
-            else:
-                __M_writer('    <meta property="og:description" content="')
-                __M_writer(filters.html_escape(str(post.text(strip_html=True)[:200])))
-                __M_writer('">\n')
-            if post.previewimage:
-                __M_writer('    <meta property="og:image" content="')
-                __M_writer(str(url_replacer(permalink, post.previewimage, lang, 'absolute')))
-                __M_writer('">\n')
-            __M_writer('    <meta property="og:type" content="article">\n')
-            if post.date.isoformat():
-                __M_writer('    <meta property="article:published_time" content="')
-                __M_writer(str(post.formatted_date('webiso')))
-                __M_writer('">\n')
-            if post.tags:
-                for tag in post.tags:
-                    __M_writer('           <meta property="article:tag" content="')
-                    __M_writer(filters.html_escape(str(tag)))
-                    __M_writer('">\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_meta_translations(context,post):
     __M_caller = context.caller_stack._push_frame()
     try:
         lang = context.get('lang', UNDEFINED)
-        translations = context.get('translations', UNDEFINED)
         len = context.get('len', UNDEFINED)
+        translations = context.get('translations', UNDEFINED)
         sorted = context.get('sorted', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
@@ -159,28 +135,6 @@ def render_mathjax_script(context,post):
         context.caller_stack._pop_frame()
 
 
-def render_html_tags(context,post):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        _link = context.get('_link', UNDEFINED)
-        hidden_tags = context.get('hidden_tags', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n')
-        if post.tags:
-            __M_writer('        <ul itemprop="keywords" class="tags">\n')
-            for tag in post.tags:
-                if tag not in hidden_tags:
-                    __M_writer('            <li><a class="tag p-category" href="')
-                    __M_writer(str(_link('tag', tag)))
-                    __M_writer('" rel="tag">')
-                    __M_writer(filters.html_escape(str(tag)))
-                    __M_writer('</a></li>\n')
-            __M_writer('        </ul>\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_html_pager(context,post):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -211,8 +165,54 @@ def render_html_pager(context,post):
         context.caller_stack._pop_frame()
 
 
+def render_open_graph_metadata(context,post):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        lang = context.get('lang', UNDEFINED)
+        abs_link = context.get('abs_link', UNDEFINED)
+        url_replacer = context.get('url_replacer', UNDEFINED)
+        permalink = context.get('permalink', UNDEFINED)
+        blog_title = context.get('blog_title', UNDEFINED)
+        use_open_graph = context.get('use_open_graph', UNDEFINED)
+        __M_writer = context.writer()
+        __M_writer('\n')
+        if use_open_graph:
+            __M_writer('    <meta property="og:site_name" content="')
+            __M_writer(filters.html_escape(str(blog_title)))
+            __M_writer('">\n    <meta property="og:title" content="')
+            __M_writer(filters.html_escape(str(post.title()[:70])))
+            __M_writer('">\n    <meta property="og:url" content="')
+            __M_writer(str(abs_link(permalink)))
+            __M_writer('">\n')
+            if post.description():
+                __M_writer('    <meta property="og:description" content="')
+                __M_writer(filters.html_escape(str(post.description()[:200])))
+                __M_writer('">\n')
+            else:
+                __M_writer('    <meta property="og:description" content="')
+                __M_writer(filters.html_escape(str(post.text(strip_html=True)[:200])))
+                __M_writer('">\n')
+            if post.previewimage:
+                __M_writer('    <meta property="og:image" content="')
+                __M_writer(str(url_replacer(permalink, post.previewimage, lang, 'absolute')))
+                __M_writer('">\n')
+            __M_writer('    <meta property="og:type" content="article">\n')
+            if post.date.isoformat():
+                __M_writer('    <meta property="article:published_time" content="')
+                __M_writer(str(post.formatted_date('webiso')))
+                __M_writer('">\n')
+            if post.tags:
+                for tag in post.tags:
+                    __M_writer('           <meta property="article:tag" content="')
+                    __M_writer(filters.html_escape(str(tag)))
+                    __M_writer('">\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"filename": "c:/users/inzaniak/anaconda3/lib/site-packages/nikola/data/themes/base/templates/post_helper.tmpl", "source_encoding": "utf-8", "uri": "post_helper.tmpl", "line_map": {"16": 0, "21": 2, "22": 11, "23": 23, "24": 40, "25": 69, "26": 85, "27": 116, "33": 71, "38": 71, "39": 72, "40": 73, "41": 73, "42": 73, "43": 74, "44": 75, "45": 75, "46": 75, "47": 76, "48": 77, "49": 77, "50": 77, "51": 79, "52": 80, "53": 80, "54": 80, "55": 81, "56": 82, "57": 82, "58": 82, "64": 42, "74": 42, "75": 43, "76": 44, "77": 44, "78": 44, "79": 45, "80": 45, "81": 46, "82": 46, "83": 47, "84": 48, "85": 48, "86": 48, "87": 49, "88": 50, "89": 50, "90": 50, "91": 52, "92": 53, "93": 53, "94": 53, "95": 55, "96": 60, "97": 61, "98": 61, "99": 61, "100": 63, "101": 64, "102": 65, "103": 65, "104": 65, "110": 3, "118": 3, "119": 4, "120": 5, "121": 6, "122": 7, "123": 7, "124": 7, "125": 7, "126": 7, "132": 87, "139": 87, "140": 88, "141": 89, "142": 90, "143": 92, "144": 93, "145": 96, "146": 96, "147": 100, "148": 101, "149": 105, "150": 106, "151": 107, "152": 108, "153": 108, "154": 108, "155": 109, "156": 110, "162": 13, "168": 13, "169": 14, "170": 15, "171": 16, "172": 17, "173": 18, "174": 18, "175": 18, "176": 18, "177": 18, "178": 21, "184": 25, "189": 25, "190": 26, "191": 27, "192": 28, "193": 29, "194": 30, "195": 30, "196": 30, "197": 30, "198": 30, "199": 30, "200": 33, "201": 34, "202": 35, "203": 35, "204": 35, "205": 35, "206": 35, "207": 35, "208": 38, "214": 208}}
+{"line_map": {"16": 0, "21": 2, "22": 11, "23": 23, "24": 40, "25": 69, "26": 85, "27": 116, "33": 13, "39": 13, "40": 14, "41": 15, "42": 16, "43": 17, "44": 18, "45": 18, "46": 18, "47": 18, "48": 18, "49": 21, "55": 71, "60": 71, "61": 72, "62": 73, "63": 73, "64": 73, "65": 74, "66": 75, "67": 75, "68": 75, "69": 76, "70": 77, "71": 77, "72": 77, "73": 79, "74": 80, "75": 80, "76": 80, "77": 81, "78": 82, "79": 82, "80": 82, "86": 3, "94": 3, "95": 4, "96": 5, "97": 6, "98": 7, "99": 7, "100": 7, "101": 7, "102": 7, "108": 87, "115": 87, "116": 88, "117": 89, "118": 90, "119": 92, "120": 93, "121": 96, "122": 96, "123": 100, "124": 101, "125": 105, "126": 106, "127": 107, "128": 108, "129": 108, "130": 108, "131": 109, "132": 110, "138": 25, "143": 25, "144": 26, "145": 27, "146": 28, "147": 29, "148": 30, "149": 30, "150": 30, "151": 30, "152": 30, "153": 30, "154": 33, "155": 34, "156": 35, "157": 35, "158": 35, "159": 35, "160": 35, "161": 35, "162": 38, "168": 42, "178": 42, "179": 43, "180": 44, "181": 44, "182": 44, "183": 45, "184": 45, "185": 46, "186": 46, "187": 47, "188": 48, "189": 48, "190": 48, "191": 49, "192": 50, "193": 50, "194": 50, "195": 52, "196": 53, "197": 53, "198": 53, "199": 55, "200": 60, "201": 61, "202": 61, "203": 61, "204": 63, "205": 64, "206": 65, "207": 65, "208": 65, "214": 208}, "filename": "c:/users/inzaniak/anaconda3/lib/site-packages/nikola/data/themes/base/templates/post_helper.tmpl", "uri": "post_helper.tmpl", "source_encoding": "utf-8"}
 __M_END_METADATA
 """
