@@ -1194,6 +1194,11 @@ MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
 # before </head>
 # (translatable)
 EXTRA_HEAD_DATA = """
+<!-- Syntax highlight -->
+<link rel="stylesheet" href="/syntax/styles/zenburn.css">
+<script src="/syntax/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- Syntax highlight -->
 <!-- Google Analytics -->
 <script>
 window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;

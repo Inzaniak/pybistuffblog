@@ -448,12 +448,12 @@ body {
 
 html {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5;
 }
 @media (min-width: 38em) {
   html {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
@@ -470,15 +470,22 @@ a {
   color: #E5E5E5;
   text-decoration: none;
 }
+/*
 a strong {
   color: inherit;
 }
+*/
 /* `:focus` is linked to `:hover` for basic accessibility */
 a:hover,
 a:focus {
   text-decoration: underline;
 }
-
+a:link {
+  color: #17BEBB;
+}
+a:target{
+  color: #17BEBB;
+}
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
@@ -505,12 +512,13 @@ h4, h5, h6 {
 
 /* Body text */
 p {
+  font-size: 18px;
   margin-top: 0;
   margin-bottom: 1rem;
 }
 
 strong {
-  color: #FCFCFC;
+  color: inherit;
 }
 
 
@@ -548,17 +556,19 @@ abbr[title] {
 }
 
 /* Code */
+
 code,
 pre {
   font-family: Menlo, Monaco, "Courier New", monospace;
 }
-code {
-  padding: .25em .5em;
-  font-size: 85%;
+
+code,pre {
+  font-size: 90%;
   color: #bf616a;
   background-color: #2F2F2F;
-  border-radius: 3px;
+  border-radius: 1px;
 }
+
 pre {
   display: block;
   margin-top: 0;
@@ -574,7 +584,7 @@ pre {
 }
 pre code {
   padding: 0;
-  font-size: 100%;
+  font-size: .8rem;
   color: inherit;
   background-color: transparent;
 }

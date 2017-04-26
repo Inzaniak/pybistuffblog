@@ -26,7 +26,7 @@ for el in data['data']['children']:
     
 html = '<ol>\n'
 for post in out_dict['posts'][0:5]:
-    html+=('<li>Title:<strong> {}</strong><br />Author:<strong> {}</strong><br />Score:<strong> {}</strong><br />Url:<strong><a href=" {}">Reddit</a>/<a href="{}">Direct</a></strong><strong><br /></strong>Description:<br />simpletext<br /><br /></li>').format(
+    html+=('<li>Title:<strong> {}</strong><br />Author:<strong> {}</strong><br />Score:<strong> {}</strong><br />Url:<strong> <a href=" {}">Reddit</a>/<a href="{}">Direct</a></strong><strong><br /></strong>Description:<br />\nsimpletext\n<br /><br /></li>').format(
                 post['Title']
                 ,post['Author']
                 ,post['Score']
