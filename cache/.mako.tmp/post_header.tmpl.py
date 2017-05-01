@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1493634430.0281396
+_modified_time = 1493634541.8041053
 _enable_loop = True
 _template_filename = 'themes/lanyon/templates/post_header.tmpl'
 _template_uri = 'post_header.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['html_title', 'html_translations', 'html_post_header', 'html_sourcelink']
+_exports = ['html_translations', 'html_post_header', 'html_sourcelink', 'html_title']
 
 
 def _mako_get_namespace(context, name):
@@ -42,31 +42,13 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_html_title(context):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        title = context.get('title', UNDEFINED)
-        post = context.get('post', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n')
-        if title and not post.meta('hidetitle'):
-            __M_writer('    <h1 class="post-title p-name entry-title" itemprop="headline name"><a href="')
-            __M_writer(str(post.permalink()))
-            __M_writer('" class="u-url">')
-            __M_writer(filters.html_escape(str(post.title())))
-            __M_writer('</a></h1>\n    <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_html_translations(context,post):
     __M_caller = context.caller_stack._push_frame()
     try:
-        translations = context.get('translations', UNDEFINED)
-        lang = context.get('lang', UNDEFINED)
         messages = context.get('messages', UNDEFINED)
+        lang = context.get('lang', UNDEFINED)
         len = context.get('len', UNDEFINED)
+        translations = context.get('translations', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if len(post.translated_to) > 1:
@@ -92,13 +74,13 @@ def render_html_post_header(context):
     __M_caller = context.caller_stack._push_frame()
     try:
         comments = _mako_get_namespace(context, 'comments')
-        site_has_comments = context.get('site_has_comments', UNDEFINED)
-        post = context.get('post', UNDEFINED)
         date_format = context.get('date_format', UNDEFINED)
-        def html_title():
-            return render_html_title(context)
         def html_translations(post):
             return render_html_translations(context,post)
+        post = context.get('post', UNDEFINED)
+        site_has_comments = context.get('site_has_comments', UNDEFINED)
+        def html_title():
+            return render_html_title(context)
         __M_writer = context.writer()
         __M_writer('\n    <header>\n        ')
         __M_writer(str(html_title()))
@@ -132,8 +114,8 @@ def render_html_post_header(context):
 def render_html_sourcelink(context):
     __M_caller = context.caller_stack._push_frame()
     try:
-        messages = context.get('messages', UNDEFINED)
         show_sourcelink = context.get('show_sourcelink', UNDEFINED)
+        messages = context.get('messages', UNDEFINED)
         post = context.get('post', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
@@ -148,8 +130,26 @@ def render_html_sourcelink(context):
         context.caller_stack._pop_frame()
 
 
+def render_html_title(context):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        title = context.get('title', UNDEFINED)
+        post = context.get('post', UNDEFINED)
+        __M_writer = context.writer()
+        __M_writer('\n')
+        if title and not post.meta('hidetitle'):
+            __M_writer('    <h1 class="post-title p-name entry-title" itemprop="headline name"><a href="')
+            __M_writer(str(post.permalink()))
+            __M_writer('" class="u-url">')
+            __M_writer(filters.html_escape(str(post.title())))
+            __M_writer('</a></h1>\n    <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"uri": "post_header.tmpl", "source_encoding": "utf-8", "filename": "themes/lanyon/templates/post_header.tmpl", "line_map": {"132": 25, "139": 25, "140": 26, "141": 27, "142": 27, "143": 27, "144": 27, "145": 27, "23": 3, "26": 2, "29": 0, "34": 2, "35": 3, "36": 10, "37": 23, "38": 29, "39": 46, "45": 5, "51": 5, "52": 6, "53": 7, "54": 7, "55": 7, "56": 7, "57": 7, "151": 145, "63": 12, "71": 12, "72": 13, "73": 14, "74": 15, "75": 15, "76": 16, "77": 17, "78": 18, "79": 18, "80": 18, "81": 18, "82": 18, "83": 18, "84": 18, "85": 21, "91": 31, "103": 31, "104": 33, "105": 33, "106": 35, "107": 35, "108": 36, "109": 36, "110": 36, "111": 36, "112": 36, "113": 36, "114": 36, "115": 36, "116": 37, "117": 38, "118": 38, "119": 38, "120": 40, "121": 41, "122": 41, "123": 41, "124": 43, "125": 44, "126": 44}}
+{"uri": "post_header.tmpl", "source_encoding": "utf-8", "filename": "themes/lanyon/templates/post_header.tmpl", "line_map": {"133": 5, "139": 5, "140": 6, "141": 7, "142": 7, "143": 7, "144": 7, "145": 7, "23": 3, "151": 145, "26": 2, "29": 0, "34": 2, "35": 3, "36": 10, "37": 23, "38": 29, "39": 46, "45": 12, "53": 12, "54": 13, "55": 14, "56": 15, "57": 15, "58": 16, "59": 17, "60": 18, "61": 18, "62": 18, "63": 18, "64": 18, "65": 18, "66": 18, "67": 21, "73": 31, "85": 31, "86": 33, "87": 33, "88": 35, "89": 35, "90": 36, "91": 36, "92": 36, "93": 36, "94": 36, "95": 36, "96": 36, "97": 36, "98": 37, "99": 38, "100": 38, "101": 38, "102": 40, "103": 41, "104": 41, "105": 41, "106": 43, "107": 44, "108": 44, "114": 25, "121": 25, "122": 26, "123": 27, "124": 27, "125": 27, "126": 27, "127": 27}}
 __M_END_METADATA
 """
