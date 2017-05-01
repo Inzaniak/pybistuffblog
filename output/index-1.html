@@ -29,6 +29,8 @@ ga('send', 'pageview');
     <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="archive.html">Archives</a>
         <a class="sidebar-nav-item" href="categories/index.html">Tags</a>
         <a class="sidebar-nav-item" href="rss.xml">RSS feed</a>
+        <a class="sidebar-nav-item" href="pages/contatti.html">Contacts</a>
+        <a class="sidebar-nav-item" href="pages/informazioni.html">About me</a>
     
     
     </nav>
@@ -51,7 +53,54 @@ ga('send', 'pageview');
         
 
 <div class="posts">
-    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/2017/02/07/python-clean-sql-views-for-documentation.html" class="u-url">Python: Clean SQL views for documentation</a></h1>
+    <article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/2017/03/16/python-get-method.html" class="u-url">Python: .get() method</a></h1>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script><div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Umberto Grando</span></p>
+            <p class="dateline"><a href="posts/2017/03/16/python-get-method.html" rel="bookmark"><time class="post-date published dt-published" datetime="2017-03-16T15:44:31+00:00" title="2017-03-16 15:44">2017-03-16 15:44</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/2017/03/16/python-get-method.html#disqus_thread" data-disqus-identifier="cache/posts/2017/03/16/python-get-method.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p></p>
+<p>One of the most annoying things that happens to me when i'm working with json extracted from social networks is the absence of some of the keys from the json.</p>
+<p>If you try to read that the usual way:
+</p>
+<pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"><span style="color:#f92672;">import</span> <span style="color:#f8f8f2;">json</span>
+<p><span style="color:#f8f8f2;">user_id</span> <span style="color:#f92672;">=</span> <span style="color:#f8f8f2;">{</span>
+    <span style="color:#ae81ff;">101</span><span style="color:#f8f8f2;">:</span> <span style="color:#e6db74;">"Mario"</span><span style="color:#f8f8f2;">,</span>
+    <span style="color:#ae81ff;">102</span><span style="color:#f8f8f2;">:</span> <span style="color:#e6db74;">"John"</span><span style="color:#f8f8f2;">,</span>
+    <span style="color:#ae81ff;">103</span><span style="color:#f8f8f2;">:</span> <span style="color:#e6db74;">"Lewis"</span><span style="color:#f8f8f2;">,</span>
+    <span style="color:#ae81ff;">105</span><span style="color:#f8f8f2;">:</span> <span style="color:#e6db74;">"Andrew"</span>
+<span style="color:#f8f8f2;">}</span></p>
+<p><span style="color:#66d9ef;">for</span> <span style="color:#f8f8f2;">i</span> <span style="color:#f92672;">in</span> <span style="color:#f8f8f2;">range(</span><span style="color:#ae81ff;">101</span><span style="color:#f8f8f2;">,</span><span style="color:#ae81ff;">106</span><span style="color:#f8f8f2;">):</span>
+    <span style="color:#66d9ef;">print</span><span style="color:#f8f8f2;">(user_id[i])</span>
+</p></pre>
+You will have this error:
+<p><img class="alignnone size-full wp-image-139" src="2017/03/img1.png" alt="img1" width="872" height="206">
+Because you are referencing an element that doesn't exists.</p>
+<p>You could solve this problem by using a Try - Except statement, but that will make the code longer and less readable.</p>
+<p>The best way to fix this is by using .get():
+</p>
+<pre style="background:#272822;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;margin:0;line-height:125%;"><span style="color:#f92672;">import</span> <span style="color:#f8f8f2;">json</span>
+<p><span style="color:#f8f8f2;">user_id</span> <span style="color:#f92672;">=</span> <span style="color:#f8f8f2;">{</span>
+    <span style="color:#ae81ff;">101</span><span style="color:#f8f8f2;">:</span> <span style="color:#e6db74;">"Mario"</span><span style="color:#f8f8f2;">,</span>
+    <span style="color:#ae81ff;">102</span><span style="color:#f8f8f2;">:</span> <span style="color:#e6db74;">"John"</span><span style="color:#f8f8f2;">,</span>
+    <span style="color:#ae81ff;">103</span><span style="color:#f8f8f2;">:</span> <span style="color:#e6db74;">"Lewis"</span><span style="color:#f8f8f2;">,</span>
+    <span style="color:#ae81ff;">105</span><span style="color:#f8f8f2;">:</span> <span style="color:#e6db74;">"Andrew"</span>
+<span style="color:#f8f8f2;">}</span></p>
+<p><span style="color:#66d9ef;">for</span> <span style="color:#f8f8f2;">i</span> <span style="color:#f92672;">in</span> <span style="color:#f8f8f2;">range(</span><span style="color:#ae81ff;">101</span><span style="color:#f8f8f2;">,</span><span style="color:#ae81ff;">106</span><span style="color:#f8f8f2;">):</span>
+    <span style="color:#66d9ef;">print</span><span style="color:#f8f8f2;">(user_id</span><span style="color:#f92672;">.</span><span style="color:#f8f8f2;">get(i,</span><span style="color:#e6db74;">"ND"</span><span style="color:#f8f8f2;">))</span>
+</p></pre>
+The method: ".get()" extract the element from the json as usual, but when the value doesn't exit it returns a value chosen by the user.
+<p>This is really lifesaving when working with json.</p>
+</div>
+    </div>
+    </article><article class="post h-entry post-text"><header><h1 class="post-title p-name"><a href="posts/2017/02/07/python-clean-sql-views-for-documentation.html" class="u-url">Python: Clean SQL views for documentation</a></h1>
         <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script><div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Umberto Grando</span></p>
             <p class="dateline"><a href="posts/2017/02/07/python-clean-sql-views-for-documentation.html" rel="bookmark"><time class="post-date published dt-published" datetime="2017-02-07T17:47:19+00:00" title="2017-02-07 17:47">2017-02-07 17:47</time></a></p>
@@ -332,7 +381,7 @@ Launching one of these two scripts you will get the list of tables or views with
 <li class="previous">
                 <a href="index.html" rel="prev">Newer posts</a>
             </li>
-        </ul></nav><script>var disqus_shortname="pybistuff";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script><footer id="footer"><p>Contents © 2017         <a href="mailto:inzaniak@gmail.com">Umberto Grando</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         </p>
+        </ul></nav><script>var disqus_shortname="pybistuff";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><!-- <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> --><footer id="footer"><p>Contents © 2017         <a href="mailto:inzaniak@gmail.com">Umberto Grando</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         </p>
             
         </footer>
 </div>
@@ -341,7 +390,24 @@ Launching one of these two scripts you will get the list of tables or views with
     
     
     
-            <script src="assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+            <script src="assets/js/all-nocdn.js"></script><!-- Social buttons --><div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
+</div>
+<script src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script><!-- End of social buttons --><!-- fancy dates --><script>
     moment.locale("en");
     fancydates(0, "YYYY-MM-DD HH:mm");
     </script><!-- end fancy dates -->

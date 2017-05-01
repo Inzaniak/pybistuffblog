@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1493209027.0172155
+_modified_time = 1493634324.6842134
 _enable_loop = True
 _template_filename = 'c:/users/inzaniak/anaconda3/lib/site-packages/nikola/data/themes/base/templates/list.tmpl'
 _template_uri = 'list.tmpl'
@@ -32,10 +32,10 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         _import_ns = {}
         _mako_get_namespace(context, 'archive_nav')._populate(_import_ns, ['*'])
-        messages = _import_ns.get('messages', context.get('messages', UNDEFINED))
-        archive_nav = _mako_get_namespace(context, 'archive_nav')
         def content():
             return render_content(context._locals(__M_locals))
+        archive_nav = _mako_get_namespace(context, 'archive_nav')
+        messages = _import_ns.get('messages', context.get('messages', UNDEFINED))
         items = _import_ns.get('items', context.get('items', UNDEFINED))
         title = _import_ns.get('title', context.get('title', UNDEFINED))
         __M_writer = context.writer()
@@ -56,10 +56,10 @@ def render_content(context,**pageargs):
     try:
         _import_ns = {}
         _mako_get_namespace(context, 'archive_nav')._populate(_import_ns, ['*'])
-        messages = _import_ns.get('messages', context.get('messages', UNDEFINED))
-        archive_nav = _mako_get_namespace(context, 'archive_nav')
         def content():
             return render_content(context)
+        archive_nav = _mako_get_namespace(context, 'archive_nav')
+        messages = _import_ns.get('messages', context.get('messages', UNDEFINED))
         items = _import_ns.get('items', context.get('items', UNDEFINED))
         title = _import_ns.get('title', context.get('title', UNDEFINED))
         __M_writer = context.writer()
