@@ -37,8 +37,8 @@ Let's start coding!
 
 We are going to use some of the code we wrote in the last tutorial.
 Let's create two functions:
-• <p style="color:#bf616a;">get_index()</p>: Useful for getting the index of START and END
-• <p style="color:#bf616a;">clean_book()</p>: Returns the book text without the parts added by Project Gutenberg
+• <span style="color:#bf616a;">get_index()</span>: Useful for getting the index of START and END
+• <span style="color:#bf616a;">clean_book()</span>: Returns the book text without the parts added by Project Gutenberg
 §python        
 §import markovify
 §# 1. Build the model.
