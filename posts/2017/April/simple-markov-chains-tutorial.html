@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90742675-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-90742675-2');
+    </script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Data Break</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="/css/clean-blog.min.css" rel="stylesheet">
+    <link href="/css/pygmentsmonokai.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="/index.html">Data Break</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="post-heading">
+                        <h1>Simple Markov Chains tutorial</h1>
+                        <h2 class="subheading">With Markovify library</h2>
+                        <span class="meta">Posted by
+                            <a href="#">Umberto</a>
+                            on April, 2017</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-md-10 mx-auto">
+                    <p>Hello World!</p>
+<p>Today we are going to take a look at how to create a simple Markov chain generator, by using markovify.</p>
+<p>Let's get two ebooks from Project Gutenberg. For this tutorial we are going to use Alice in Wonderland and Grimms' Fairy Tales, you can download them as a UTF-8 txt.</p>
+<p>Your project folder will be like this: </p>
+<a href="#">
+        <img class="img-fluid" src="https://raw.githubusercontent.com/Inzaniak/Inzaniak.github.io/master/img/posts/2017/april/mark_tree.png" alt="" style="display: block;margin: 0 auto">
+</a>
+<br>
+<p>Let's start coding!</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="c1"># Let&#39;s declare a function to get word index</span>
+<span class="k">def</span> <span class="nf">get_index</span><span class="p">(</span><span class="n">in_list</span><span class="p">,</span><span class="n">in_string</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">num</span><span class="p">,</span><span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">in_list</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">in_string</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">num</span>
+<span class="c1"># We convert the script from the NLTK Stopwords tutorial into a def</span>
+<span class="k">def</span> <span class="nf">clean_book</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="c1"># Let&#39;s open the book we downloaded</span>
+    <span class="n">book</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="c1"># Divide text by rows</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">book</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="c1"># Search for START and END tags to remove useless parts</span>
+    <span class="n">start_idx</span> <span class="o">=</span> <span class="n">get_index</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span><span class="s1">&#39;*** START&#39;</span><span class="p">)</span>
+    <span class="n">end_idx</span> <span class="o">=</span> <span class="n">get_index</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span><span class="s1">&#39;*** END&#39;</span><span class="p">)</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">rows</span><span class="p">[</span><span class="n">start_idx</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">end_idx</span><span class="p">]</span>
+    <span class="c1"># We need to create a string for markovify</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span> <span class="k">if</span> <span class="n">r</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">text</span>
+</pre></div>
+
+<p>We are going to use some of the code we wrote in the last tutorial.</p>
+<p>Let's create two functions:</p>
+<p>• <p style="color:#bf616a;">get_index()</p>: Useful for getting the index of START and END</p>
+<p>• <p style="color:#bf616a;">clean_book()</p>: Returns the book text without the parts added by Project Gutenberg</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">markovify</span>
+<span class="c1"># 1. Build the model.</span>
+<span class="n">ebook_a</span> <span class="o">=</span> <span class="n">clean_book</span><span class="p">(</span><span class="s1">&#39;data/ebook.txt&#39;</span><span class="p">)</span>
+<span class="n">text_model_a</span> <span class="o">=</span> <span class="n">markovify</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">ebook_a</span><span class="p">)</span>
+<span class="c1"># 2. Print five randomly-generated sentences</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">text_model_a</span><span class="o">.</span><span class="n">make_sentence</span><span class="p">())</span>
+<span class="c1"># 3. Print three randomly-generated sentences of no more than 140 characters</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">text_model_a</span><span class="o">.</span><span class="n">make_short_sentence</span><span class="p">(</span><span class="mi">140</span><span class="p">))</span>
+</pre></div>
+
+<p>Markovify is a really easy-to-use library. After importing we just need to create the model and we can start using it.</p>
+<p>The steps are:</p>
+<p>We build the model by using markovify.Text(). The input MUST be a string.</p>
+<p>Then we can print sentences using the model we generated by calling text_model_a.make_sentence()</p>
+<p>We can also make a short sentence using text_model_a.make_short_sentence(max_length_of_sentence)</p>
+<div class="highlight"><pre><span></span><span class="c1"># Recreate the model using 3 sentences</span>
+<span class="n">three_model</span> <span class="o">=</span> <span class="n">markovify</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">ebook_a</span><span class="p">,</span><span class="n">state_size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">three_model</span><span class="o">.</span><span class="n">make_sentence</span><span class="p">())</span>
+</pre></div>
+
+<p>We can also use more than 2 sentences to create markov chains by using the state_size variable.</p>
+<div class="highlight"><pre><span></span><span class="c1"># Build the second model.</span>
+<span class="n">ebook_b</span> <span class="o">=</span> <span class="n">clean_book</span><span class="p">(</span><span class="s1">&#39;data/ebook2.txt&#39;</span><span class="p">)</span>
+<span class="n">text_model_b</span> <span class="o">=</span> <span class="n">markovify</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">ebook_b</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">text_model_b</span><span class="o">.</span><span class="n">make_sentence</span><span class="p">())</span>
+
+<span class="c1"># Combine the models into a single one</span>
+<span class="n">both_models</span> <span class="o">=</span> <span class="n">markovify</span><span class="o">.</span><span class="n">combine</span><span class="p">([</span><span class="n">text_model_a</span><span class="p">,</span><span class="n">text_model_b</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">both_models</span><span class="o">.</span><span class="n">make_sentence</span><span class="p">())</span>
+</pre></div>
+
+<p>    </p>
+<p>We can also build a second model and combine it with the first.</p>
+<p>Here are some sentences generated by the combined model:</p>
+<p>• When evening came, and it was very melancholy, and wandered up and rubbed its eyes: then it watched the geese on.</p>
+<p>• ‘Well, then,’ the Gryphon only answered ‘Come on!’ cried the cat had a beautiful girl stood like a mountain.</p>
+<p>• ‘Yes, dear father, your will shall be in a hurry.</p>
+<p>• Then poor Snowdrop wandered along through the wood belonged was hunting in it, and shut his eyes, and died.</p>
+<p>• The poor horse was the enemy’s commander-in-chief.</p>
+<p>That's all for today! You can get the code of this post <a href="https://github.com/Inzaniak/pybistuff/tree/master/Markov">here</a></p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

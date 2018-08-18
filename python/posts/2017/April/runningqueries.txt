@@ -1,0 +1,20 @@
+Title: TSQL Running Queries
+Subhead: Simple code Snippet
+Year: 2017
+Month: April
+Date: 2017-04-18
+Author: Umberto
+---PostStart---
+Today i want to share a simple snippet of code which I find useful from time to time. With this code you can check if a query is running on your db in a quick and effective way.
+
+çtsql
+çSELECT 
+ç    sqltext.TEXT, 
+ç    req.session_id, 
+ç    req.status, 
+ç    req.command, 
+ç    req.cpu_time, 
+ç    req.total_elapsed_time 
+çFROM sys.dm_exec_requests req 
+ç    CROSS APPLY sys.dm_exec_sql_text(sql_handle) AS sqltext
+That's it, have a nice day :)

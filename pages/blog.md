@@ -1,1 +1,0 @@
-<html><body><p>Questa è la pagina in cui gli utenti troveranno il blog del tuo sito.</p></body></html>

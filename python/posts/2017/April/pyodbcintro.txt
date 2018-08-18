@@ -1,0 +1,53 @@
+Title: Pyodbc Intro
+Subhead: How to connect to SQL
+Year: 2017
+Month: April
+Date: 2017-04-11
+Author: Umberto
+---PostStart---
+As a SQL/Python coder, one of the library i use the most is pyodbc. pyodbc is an open source Python module that makes accessing ODBC databases simple. It implements the DB API 2.0 specification but is packed with even more Pythonic convenience.
+
+Let's start coding then!
+
+§python
+§# Let's import the library
+§import pyodbc
+§# Here we set the connection variables
+§server = 'your_server_name'
+§database = 'your_db_name'
+§# Username and password if you use a SQL account. Otherwise it will use
+§# Windows Authentication
+§username = 'your_username'
+§password = 'your_password'
+§# The driver you are going to use.
+§driver= '{ODBC Driver 13 for SQL Server}'
+§
+§
+§# Let's Create a connection and a cursor
+§conn = pyodbc.connect('DRIVER='+driver
+§                      +';PORT=1433;SERVER='+server
+§                      +';DATABASE='+database
+§                      +';UID='+username+';PWD='+ password)
+§cursor = conn.cursor()
+
+The first step is to import the library. If you need to install it: pip install pyodbc.
+After importing the library we need to set up the connection variables. You'll need you server name, database name and username and password. If you don't have a User because you are using Windows Authentication, just remove the variables from the connection string. The driver variable is the driver version you are using to connect to SQL. If you can't connect because of a driver error, just Google download odbc driver 13 :) .
+
+To connect to SQL we need to pass the variables to the pyodbc.connect() function. Then we need to create a cursor by using the conn.cursor()
+
+çSelect
+§python
+§# SELECT
+§cursor.execute("SELECT FROM dbo.your_table")
+§rows = cursor.fetchall()
+§for row in rows:
+§    print(row[0],row[1])
+§To communicate with SQL, we use cursor.execute(). You just need to pass a query and use fetchone() or fetchall() to return the result. With fetchall() you can loop over the rows by using a for loop.
+
+çInsert/Update/Delete etc...
+§python
+§# INSERT
+§cursor.execute("INSERT into dbo.your_table VALUES ('test')")
+§cursor.commit()
+§To run an insert,update or delete you just need to execute the statement and the commit it to the server.
+§That's all for today!

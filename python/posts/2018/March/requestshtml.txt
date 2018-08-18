@@ -1,0 +1,37 @@
+Title: Requests-html
+Subhead: How to and quickstart
+Year: 2018
+Month: March
+Date: 2018-03-19
+Author: Umberto
+---PostStart---
+When i first discovered that the creators of the popular HTTP library for python were working on a library to manage HTML pages i was excited!
+Requests is probably one of the libraries i use the most. It handles HTTP requests in an easy and "human-readable" way.
+But the problem with requests was that you had to use another library to manage the html response of the website, but not anymore!
+çThe Basics
+Using this library it's pretty simple and straightforward. First of all we start as usual with pip:
+§general
+§pip install requests-html
+
+Then we make a GET request like this:
+§python
+§from requests_html import HTMLSession
+§session = HTMLSession()
+§
+§r = session.get('https://python.org/')
+
+Now that the page is loaded we can search for html tags using JQuery tags:
+§python
+§about = r.html.find('#about', first=True)
+
+Then we can look at that element attributes or content:
+§python
+§print(about.text)
+§# About
+§about.attrs
+§# {'id': 'about', 'class': ('tier-1', 'element-1'), 'aria-haspopup': 'true'}
+§about.html
+§# '<li aria-haspopup="true" class="tier-1 element-1 " id="about">\n<a class="" href="/about/" title="">About</a>\n<ul aria-hidden="true" class="subnav menu" role="menu">\n<li class="tier-2 element-1" role="treeitem"><a href="/about/apps/" title="">Applications</a></li>\n<li class="tier-2 element-2" role="treeitem"><a href="/about/quotes/" title="">Quotes</a></li>\n<li class="tier-2 element-3" role="treeitem"><a href="/about/gettingstarted/" title="">Getting Started</a></li>\n<li class="tier-2 element-4" role="treeitem"><a href="/about/help/" title="">Help</a></li>\n<li class="tier-2 element-5" role="treeitem"><a href="http://brochure.getpython.info/" title="">Python Brochure</a></li>\n</ul>\n</li>'
+
+And that's the basics. 
+I'll probably make some post in the future about how to use this library on a real-world scenario.

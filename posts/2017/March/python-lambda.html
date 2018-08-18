@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90742675-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-90742675-2');
+    </script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Data Break</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="/css/clean-blog.min.css" rel="stylesheet">
+    <link href="/css/pygmentsmonokai.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="/index.html">Data Break</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="post-heading">
+                        <h1>Python Lambda</h1>
+                        <h2 class="subheading">Also Map, Filter and Reduce</h2>
+                        <span class="meta">Posted by
+                            <a href="#">Umberto</a>
+                            on March, 2017</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-md-10 mx-auto">
+                    <p>Python supports the creation of anonymous functions at runtime, using a construct called "lambda".</p>
+<p>Let's see an example:</p>
+<div class="highlight"><pre><span></span><span class="c1"># Standard way to define a function</span>
+<span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">in_num</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">in_num</span><span class="o">*</span><span class="n">in_num</span>
+<span class="c1"># Lambda way</span>
+<span class="n">my_func_l</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
+</pre></div>
+
+<p>Both of the functions return the same result, but are declared in different ways.</p>
+<a href="#">
+        <img class="img-fluid" src="https://raw.githubusercontent.com/Inzaniak/Inzaniak.github.io/master/img/posts/2017/march/result.png" alt="" style="display: block;margin: 0 auto">
+</a>
+<br>
+<p>So the question is: "When is it useful to use a lambda function?". I find it particularly useful when i'm working on "dynamic" functions:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">*</span><span class="n">n</span>
+<span class="c1"># This creates the anonymous function by defining the n value</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">my_func</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">my_func</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># This calls the function by passing the parameter x</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">g</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># You can also call the function without assigning it</span>
+<span class="n">my_func</span><span class="p">(</span><span class="mi">2</span><span class="p">)(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+
+<p>But Lambdas functions are often used with map, filter and reduce.</p>
+<h2>Map</h2>
+<p>Map applies a function to all the items in an input_list.</p>
+<div class="highlight"><pre><span></span><span class="c1"># Let&#39;s declare a simple list of number</span>
+<span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="c1"># We create a Lambda that does the square for the number</span>
+<span class="c1"># and apply it to the list by using map</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">xx</span><span class="p">,</span><span class="n">items</span><span class="p">))</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">354</span><span class="p">]:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+</pre></div>
+
+<p>This is a really fast way to apply a function on a list. It is really useful if you need to use it once.</p>
+<h2>Filter</h2>
+<p>Filter creates a list of elements for which a function returns true.</p>
+<div class="highlight"><pre><span></span><span class="c1"># Let&#39;s declare a simple list of number</span>
+<span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="c1"># We create a Lambda that check if the number is even</span>
+<span class="c1"># and apply it to the list by using filter</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">items</span><span class="p">))</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">356</span><span class="p">]:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</pre></div>
+
+<p>By using filter you can clean your list easily.</p>
+<h2>Reduce</h2>
+<p>Reduce is a really useful function for performing some computation on a list and returning the result.</p>
+<div class="highlight"><pre><span></span><span class="c1"># We need to import reduce from functools library</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="nb">reduce</span>
+<span class="c1"># Let&#39;s declare a simple list of number</span>
+<span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="c1"># We create a Lambda that compute the product of the integers</span>
+<span class="c1"># and apply it to the list by using reduce</span>
+<span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">xy</span><span class="p">,</span> <span class="n">items</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">363</span><span class="p">]:</span> <span class="mi">120</span>
+</pre></div>
+
+<p> </p>
+<p>And that's all for today!</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

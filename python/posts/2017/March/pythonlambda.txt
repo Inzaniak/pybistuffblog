@@ -1,0 +1,70 @@
+Title: Python Lambda 
+Subhead: Also Map, Filter and Reduce
+Year: 2017
+Month: March
+Date: 2017-03-27
+Author: Umberto
+---PostStart---
+Python supports the creation of anonymous functions at runtime, using a construct called "lambda".
+
+Let's see an example:
+
+§python
+§# Standard way to define a function
+§def my_func(in_num):
+§    return in_num*in_num
+§# Lambda way
+§my_func_l = lambda x: x*x
+
+Both of the functions return the same result, but are declared in different ways.
+|result.png
+So the question is: "When is it useful to use a lambda function?". I find it particularly useful when i'm working on "dynamic" functions:
+
+§python
+§def my_func(n):
+§    return lambda x:x*n
+§# This creates the anonymous function by defining the n value
+§f = my_func(2)
+§g = my_func(4)
+§
+§# This calls the function by passing the parameter x
+§f(5)
+§g(3)
+§
+§# You can also call the function without assigning it
+§my_func(2)(8)
+
+But Lambdas functions are often used with map, filter and reduce.
+çMap
+Map applies a function to all the items in an input_list.
+§python
+§# Let's declare a simple list of number
+§items = [1, 2, 3, 4, 5]
+§# We create a Lambda that does the square for the number
+§# and apply it to the list by using map
+§list(map(lambda x:xx,items))
+§Out[354]: [1, 4, 9, 16, 25]
+This is a really fast way to apply a function on a list. It is really useful if you need to use it once.
+çFilter
+Filter creates a list of elements for which a function returns true.
+§python
+§# Let's declare a simple list of number
+§items = [1, 2, 3, 4, 5]
+§# We create a Lambda that check if the number is even
+§# and apply it to the list by using filter
+§list(filter(lambda x: x%2 == 0, items))
+§Out[356]: [2, 4]
+By using filter you can clean your list easily.
+çReduce
+Reduce is a really useful function for performing some computation on a list and returning the result.
+§python
+§# We need to import reduce from functools library
+§from functools import reduce
+§# Let's declare a simple list of number
+§items = [1, 2, 3, 4, 5]
+§# We create a Lambda that compute the product of the integers
+§# and apply it to the list by using reduce
+§reduce(lambda x,y: xy, items)
+§Out[363]: 120
+ 
+And that's all for today!

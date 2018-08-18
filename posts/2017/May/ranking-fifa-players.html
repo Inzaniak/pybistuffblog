@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90742675-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-90742675-2');
+    </script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Data Break</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="/css/clean-blog.min.css" rel="stylesheet">
+    <link href="/css/pygmentsmonokai.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="/index.html">Data Break</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="post-heading">
+                        <h1>Ranking Fifa players</h1>
+                        <h2 class="subheading">with Random Forest Classifier</h2>
+                        <span class="meta">Posted by
+                            <a href="#">Umberto</a>
+                            on May, 2017</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-md-10 mx-auto">
+                    <p>Hello World!</p>
+<p>Today we are going to create a simple classification model by using a random forest classifier</p>
+<p>We are gonna need the dataset for this tutorial. You can get it from here.</p>
+<p>If you don't know it, Kaggle is an awesome website where you can find all sort of open datasets for datascience and you can also compete with other users to earn prizes.</p>
+<p>The project folder will be like this:</p>
+<a href="#">
+        <img class="img-fluid" src="https://raw.githubusercontent.com/Inzaniak/Inzaniak.github.io/master/img/posts/2017/may/cmd-path.png" alt="" style="display: block;margin: 0 auto">
+</a>
+<br>
+<p>Let's start coding!</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>\<span class="n">n</span>
+<span class="c1"># Let&#39;s open the dataset</span>
+<span class="n">players</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/Fulldata.csv&quot;</span><span class="p">)</span>
+</pre></div>
+
+<p>      </p>
+<p>The first thing to do is to import pandas and numpy and to open the dataset as a pandas DataFrame. Don't worry if you have never used a dataframe before, we are going to take a look at how it works.</p>
+<div class="highlight"><pre><span></span><span class="c1"># To check first 5 rows of the dataset</span>
+<span class="n">players</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># To check some numeric informations about a column</span>
+<span class="n">players</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="c1"># Get column names</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">players</span><span class="p">)</span>
+<span class="c1"># Selection by label</span>
+<span class="n">players</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span><span class="s1">&#39;Rating&#39;</span><span class="p">]]</span>
+<span class="c1"># Selection by index</span>
+<span class="n">players</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">]]</span>
+</pre></div>
+
+<p>These are only a few of the many functions included in Pandas. I really suggest you to check it out.</p>
+<p>Now we can go back to our program:</p>
+<div class="highlight"><pre><span></span><span class="c1"># Add a column that tells us if it&#39;s Training Data or not</span>
+<span class="n">players</span><span class="p">[</span><span class="s1">&#39;is_train&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">players</span><span class="p">))</span> <span class="o">&lt;=</span> <span class="o">.</span><span class="mi">75</span>\<span class="n">n</span>
+<span class="c1"># Divide between training and testing data</span>
+<span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">players</span><span class="p">[</span><span class="n">players</span><span class="p">[</span><span class="s1">&#39;is_train&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">True</span><span class="p">],</span><span class="n">players</span><span class="p">[</span><span class="n">players</span><span class="p">[</span><span class="s1">&#39;is_train&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">False</span><span class="p">]</span>\<span class="n">n</span>
+<span class="c1"># We choose the columns with player stats</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">players</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">17</span><span class="p">:</span><span class="mi">53</span><span class="p">]</span>
+<span class="c1"># Split into Training X(stats) and Y(rating) data</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="n">features</span><span class="p">]</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Rating&#39;</span><span class="p">]</span>
+</pre></div>
+
+<p>    </p>
+<p>In the first part of the code we add a column to tell us if it's train data or not by using a pandas function which creates a series of number with an uniform distribution. Then we divide our dataframe into train and test.</p>
+<p>After this we need to choose which columns we are going to consider to train the model. We are going to use all the columns which contains player stats.</p>
+<p>Then we split the training data into Features and Result.</p>
+<div class="highlight"><pre><span></span><span class="c1"># Initialize the Classifier and train it</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>\<span class="n">n</span>
+<span class="c1"># Get the predictions</span>
+<span class="n">preds</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])</span>
+</pre></div>
+
+<p>    </p>
+<p>We can now initialize the classifier and get the predictions.</p>
+<div class="highlight"><pre><span></span><span class="c1"># Create an output dataframe</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span><span class="s1">&#39;Rating&#39;</span><span class="p">]]</span>
+<span class="n">out</span><span class="p">[</span><span class="s1">&#39;prediction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">preds</span>
+<span class="n">out</span><span class="p">[</span><span class="s1">&#39;diff&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">out</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Rating&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">out</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;prediction&#39;</span><span class="p">]</span>
+<span class="c1"># Let&#39;s print mean difference between predicted and actual</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Mean difference: &#39;</span><span class="p">,</span><span class="n">out</span><span class="p">[</span><span class="s1">&#39;diff&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="c1"># And the number of exact matches</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Exact Matches:&#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="n">out</span><span class="p">[</span><span class="s1">&#39;diff&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+
+<p>    </p>
+<p>With this last step we are going to create an output dataframe from test. Then we add the column prediction and diff(difference between predicted value and rating) and finally we print the mean difference and the number of exact matches.</p>
+<p>Your output should be similar to this:</p>
+<div class="highlight"><pre><span></span><span class="n">Mean</span> <span class="n">difference</span><span class="p">:</span>  <span class="mf">0.5449783648371669</span>
+<span class="n">Exact</span> <span class="n">Matches</span><span class="p">:</span> <span class="mi">821</span>
+</pre></div>
+
+<p>    </p>
+<p>We can also check the content of the output dataframe.</p>
+<div class="highlight"><pre><span></span><span class="c1">#Let&#39;s print the players with rating and prediction</span>
+<span class="k">print</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span><span class="s1">&#39;Rating&#39;</span><span class="p">,</span><span class="s1">&#39;prediction&#39;</span><span class="p">,</span><span class="s1">&#39;diff&#39;</span><span class="p">]])</span>
+<span class="c1"># OUTPUT</span>
+<span class="c1">#    Name                  Rating   prediction  diff</span>
+<span class="c1">#0    Cristiano Ronaldo      94          88     6</span>
+<span class="c1">#3          Luis Suárez      92          88     4</span>
+<span class="c1">#4         Manuel Neuer      92          81    11</span>
+<span class="c1">#8   Zlatan Ibrahimović      90          85     5</span>
+<span class="c1">#10      Jérôme Boateng      89          85     4</span>
+</pre></div>
+
+<p>      </p>
+<p>    </p>
+<p>We can improve our score by using another algorithm, but i think it's enough for today. You can download the code of this post <a href="https://github.com/Inzaniak/pybistuff/tree/master/Fifa" class="url"> here</a></p>
+<p>Have fun experimenting with other datasets!</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

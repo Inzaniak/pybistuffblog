@@ -1,0 +1,50 @@
+Title: Get All columns from Tables/Views
+Subhead: The TSQL Way
+Year: 2017
+Month: February
+Date: 2017-02-02
+Author: Umberto
+---PostStart---
+When developing a database, it can be useful to be aware of column names on tables, in case one wants to check for aliasing errors or search for a specific column.
+
+To retrieve them, you just need to read from some system views.
+<ul>
+	<li>sys.columns: Contains the list of columns contained within the DB.</li>
+	<li>sys.tables: Contains the list of tables contained within the DB.</li>
+	<li>sys.schemas: Contains a list of the schemas contained within the DB.</li>
+	<li>sys.types: Contains the list of data types contained within the DB.</li>
+	<li>sys.views: Contains the list of views contained within the DB.</li>
+</ul>
+
+Launching one of these two scripts you will get the list of tables or views with their schemas and their columns with data types
+
+Version with tables:
+§tsql
+§select   s.name   as [Schema]
+§  ,t.name   as [Table]
+§  ,c.name   as [Column]
+§  ,tp.name  as [Type]
+§  ,c.max_length as [Length]
+§from sys.columns c
+§join sys.tables t
+§on c.object_id = t.object_id
+§join sys.schemas s
+§on s.schema_id = t.schema_id
+§join sys.types tp
+§on c.system_type_id = tp.system_type_id
+ 
+
+Version with Views:
+§tsql
+§select   s.name   as [Schema]
+§  ,v.name   as [View]
+§  ,c.name   as [Column]
+§  ,tp.name  as [Type]
+§  ,c.max_length as [Length]
+§from sys.columns c
+§join sys.views v
+§on c.object_id = v.object_id
+§join sys.schemas s
+§on s.schema_id = v.schema_id
+§join sys.types tp
+§on c.system_type_id = tp.system_type_id

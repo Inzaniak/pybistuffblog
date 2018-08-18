@@ -1,4 +1,0 @@
-Sitemap: https://inzaniak.github.io/pybistuffblog/sitemapindex.xml
-
-User-Agent: *
-Host: inzaniak.github.io

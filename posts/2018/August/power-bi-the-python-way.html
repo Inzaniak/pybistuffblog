@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90742675-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-90742675-2');
+    </script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Data Break</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="/css/clean-blog.min.css" rel="stylesheet">
+    <link href="/css/pygmentsmonokai.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="/index.html">Data Break</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="post-heading">
+                        <h1>Power Bi, The Python Way</h1>
+                        <h2 class="subheading">How to and quickstart</h2>
+                        <span class="meta">Posted by
+                            <a href="#">Umberto</a>
+                            on August, 2018</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-md-10 mx-auto">
+                    <p>Hello World!</p>
+<p>Yesterday the Power Bi team announced that Python is finally available as a preview in Power Bi Desktop.</p>
+<p>For those of you who don't know Power Bi, it's a business analytics service by Microsoft that provides interactive visualizations with self-service business intelligence capabilities.</p>
+<p>Python in Power Bi can be used in two ways: scripting and visualizations.</p>
+<h2>Python as Data Source</h2>
+<p>The first thing we need to do is to enable Python in Power Bi.</p>
+<p>To do this we go to options then preview features and we enable Python Support.</p>
+<a href="#">
+        <img class="img-fluid" src="https://raw.githubusercontent.com/Inzaniak/Inzaniak.github.io/master/img/posts/2018/august/powerbi_preview01.png" alt="" style="display: block;margin: 0 auto">
+</a>
+<br>
+<a href="#">
+        <img class="img-fluid" src="https://raw.githubusercontent.com/Inzaniak/Inzaniak.github.io/master/img/posts/2018/august/powerbi_preview02.png" alt="" style="display: block;margin: 0 auto">
+</a>
+<br>
+<p>Now that we have enabled the feature we can start working with Python.</p>
+<p>To add a new Python Data Source we have to click on Get Data and the select Python Script.</p>
+<p>Power Bi uses Pandas dataframe as python sources. In this example i'm going to use a Pokemon dataset found on Github: https://github.com/fanzeyi/Pokemon-DB .</p>
+<p>Let's start coding:</p>
+<div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/fanzeyi/Pokemon-DB/master/pokedex.json&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>With this simple code we can transform a Json file to a Pandas Dataframe and import it into Power Bi.</p>
+<p>I'm going to remove some columns to keep only the data i want:</p>
+<a href="#">
+        <img class="img-fluid" src="https://raw.githubusercontent.com/Inzaniak/Inzaniak.github.io/master/img/posts/2018/august/powerbi_dataset01.png" alt="" style="display: block;margin: 0 auto">
+</a>
+<br>
+<p>Now we need to convert the base column to a Json, otherwise Power Bi can't read the column correctly.</p>
+<p>To do this we go back to the code and add this 2 lines:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/fanzeyi/Pokemon-DB/master/pokedex.json&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+
+<p>We can now right click on the base column and choose transform->JSON and then expand the selection:</p>
+<a href="#">
+        <img class="img-fluid" src="https://raw.githubusercontent.com/Inzaniak/Inzaniak.github.io/master/img/posts/2018/august/powerbi_dataset02.png" alt="" style="display: block;margin: 0 auto">
+</a>
+<br>
+<p>Now we need to apply the same thing to type and duplicate the query:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/fanzeyi/Pokemon-DB/master/pokedex.json&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+
+<p>Now we duplicate the query, remove all the columns we don't need and finally we expand the column type to new lines:</p>
+<a href="#">
+        <img class="img-fluid" src="https://raw.githubusercontent.com/Inzaniak/Inzaniak.github.io/master/img/posts/2018/august/powerbi_dataset03.png" alt="" style="display: block;margin: 0 auto">
+</a>
+<br>
+<p>Next step we need to import the translation of pokemon types, so we create a new query with this code:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/fanzeyi/Pokemon-DB/master/types.json&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>We can now join the tables to add the english column to the dataset:</p>
+<a href="#">
+        <img class="img-fluid" src="https://raw.githubusercontent.com/Inzaniak/Inzaniak.github.io/master/img/posts/2018/august/powerbi_dataset04.png" alt="" style="display: block;margin: 0 auto">
+</a>
+<br>
+<p>If we want to add more complex logics to our starting dataset we can apply KMeans clustering on the first query:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/fanzeyi/Pokemon-DB/master/pokedex.json&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;HP&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">x</span><span class="p">))[</span><span class="s1">&#39;HP&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Attack&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">x</span><span class="p">))[</span><span class="s1">&#39;Attack&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Defense&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">x</span><span class="p">))[</span><span class="s1">&#39;Defense&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Sp.Atk&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">x</span><span class="p">))[</span><span class="s1">&#39;Sp.Atk&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Sp.Def&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">x</span><span class="p">))[</span><span class="s1">&#39;Sp.Def&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Speed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">x</span><span class="p">))[</span><span class="s1">&#39;Speed&#39;</span><span class="p">])</span>
+<span class="n">train</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;HP&#39;</span><span class="p">,</span><span class="s1">&#39;Attack&#39;</span><span class="p">,</span><span class="s1">&#39;Defense&#39;</span><span class="p">,</span><span class="s1">&#39;Sp.Atk&#39;</span><span class="p">,</span><span class="s1">&#39;Sp.Def&#39;</span><span class="p">,</span><span class="s1">&#39;Speed&#39;</span><span class="p">]]</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+<span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Cluster&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="k">del</span> <span class="n">train</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;HP&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Attack&#39;</span><span class="p">]</span> <span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Defense&#39;</span><span class="p">]</span> <span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Sp.Atk&#39;</span><span class="p">]</span> <span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Sp.Def&#39;</span><span class="p">]</span> <span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Speed&#39;</span><span class="p">]</span> 
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+
+<p>Now we can build the report with our Python Dataset:</p>
+<a href="#">
+        <img class="img-fluid" src="https://raw.githubusercontent.com/Inzaniak/Inzaniak.github.io/master/img/posts/2018/august/powerbi_report01.png" alt="" style="display: block;margin: 0 auto">
+</a>
+<br>
+<p>That's all for today.</p>
+<p>Next time we are going to take a look at Power Bi Python Visualizations.</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

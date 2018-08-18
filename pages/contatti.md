@@ -1,3 +1,0 @@
-<html><body><p>If you want to contact me, just send a mail to inzaniak@gmail.com, <br>
-i'll try to answer as soon as possible!
-</form>

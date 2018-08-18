@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90742675-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-90742675-2');
+    </script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Data Break</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="/css/clean-blog.min.css" rel="stylesheet">
+    <link href="/css/pygmentsmonokai.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="/index.html">Data Break</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="post-heading">
+                        <h1>NLTK Counting Words</h1>
+                        <h2 class="subheading">Word Counting in your data</h2>
+                        <span class="meta">Posted by
+                            <a href="#">Umberto</a>
+                            on February, 2017</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-md-10 mx-auto">
+                    <p>Last time we learned how to use stopwords with NLTK, today we are going to take a look at counting frequencies with NLTK.</p>
+<p>You can find the project <a href="https://github.com/Inzaniak/pybistuff/tree/master/NLTK%20Freq">here</a>.</p>
+<p>To start we need some text to analyze. We could use some of the books which are integrated in NLTK, but I prefer to read from an external file. The best source of free ebooks to practice your text analysis skills is gutenberg. Project Gutenberg is an awesome "open source" project that offers more than 53.000 free ebooks. For this tutorial we are going to use Dracula by Bram Stoker, you can download it as a UTF-8 txt.</p>
+<p>For this project we are going to create the folders like this: </p>
+<a href="#">
+        <img class="img-fluid" src="https://raw.githubusercontent.com/Inzaniak/Inzaniak.github.io/master/img/posts/2017/february/2017-04-20 15_16_25-Prompt-dei-comandi.png" alt="" style="display: block;margin: 0 auto">
+</a>
+<br>
+<p>You just need to download the utf-8 version of a book of your choice and save it as ebook.txt in data folder inside your project. You can download the stopwords from <a href="https://github.com/Inzaniak/pybistuff/tree/master/NLTK%20Freq">here</a>.</p>
+<p>Let's start coding!</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="c1"># Let&#39;s declare a function to get word index</span>
+<span class="k">def</span> <span class="nf">get_index</span><span class="p">(</span><span class="n">in_list</span><span class="p">,</span><span class="n">in_string</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">num</span><span class="p">,</span><span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">in_list</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">in_string</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">num</span>
+
+
+<span class="c1"># Let&#39;s open the book we downloaded</span>
+<span class="n">book</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/ebook.txt&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="c1"># Divide text by rows</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="n">book</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p><p style="color:#bf616a;">import nltk</p> We import the necessary library as usual</p>
+<p><p style="color:#bf616a;">get_index()</p> We define a simple function which helps us find the index of a word inside of a list. We loop for every row and if we find the string we return the index of the string</p>
+<p><p style="color:#bf616a;">open() and split()</p> We load the book into a variable as a string and then we split it into lines</p>
+<div class="highlight"><pre><span></span><span class="c1"># Search for START and END tags to remove useless parts</span>
+<span class="n">start_idx</span> <span class="o">=</span> <span class="n">get_index</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span><span class="s1">&#39; START&#39;</span><span class="p">)</span>
+<span class="n">end_idx</span> <span class="o">=</span> <span class="n">get_index</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span><span class="s1">&#39; END&#39;</span><span class="p">)</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="n">rows</span><span class="p">[</span><span class="n">start_idx</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">end_idx</span><span class="p">]</span>
+<span class="n">Now</span> <span class="n">we</span> <span class="n">look</span> <span class="k">for</span> <span class="n">START</span> <span class="ow">and</span> <span class="n">END</span> <span class="n">tags</span> <span class="ow">in</span> <span class="n">our</span> <span class="nb">list</span> <span class="ow">and</span> <span class="n">we</span> <span class="n">redefine</span> <span class="n">the</span> <span class="nb">list</span> <span class="n">omitting</span> <span class="n">the</span> <span class="n">lines</span> <span class="n">which</span> <span class="n">are</span> <span class="n">added</span> <span class="n">by</span> <span class="n">gutemberg</span><span class="o">.</span><span class="n">org</span><span class="o">.</span>
+<span class="c1"># Create a list of words by converting to lowercase and splitting</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">rows</span> <span class="k">if</span> <span class="n">s</span><span class="p">]</span>
+<span class="c1"># Convert the list of lists into a flat list</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">sublist</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">l</span><span class="p">]</span>
+<span class="c1"># Import the stopwords</span>
+<span class="n">stop</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/stop.txt&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="c1"># Split the stopwords by line</span>
+<span class="n">stop</span> <span class="o">=</span> <span class="n">stop</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Remove punctuation and numbers from words</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">w</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">isalpha</span><span class="p">())</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+<span class="c1"># Remove stopwords and blanks from words</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop</span> <span class="ow">and</span> <span class="n">w</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()]</span>
+</pre></div>
+
+<p>We create a list of words by following these steps:</p>
+<p>• Convert all the rows to lowercase and split the row into words</p>
+<p>• Flatten the list of lists into a single list of words</p>
+<p>• Load the stopwords and split them by line</p>
+<p>• Remove punctuation from words</p>
+<p>• Remove stopwords and empty elements from words</p>
+<div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span class="c1"># Calculate Frequency distribution</span>
+<span class="n">freq</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">FreqDist</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="c1"># Print and plot most common words</span>
+<span class="n">freq</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">freq</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+<p>Now we can load our words into NLTK and calculate the frequencies by using FreqDist(). After this we can use .most_common(20) to show in console 20 most common words or .plot(10) to show a line plot representing word frequencies: </p>
+<a href="#">
+        <img class="img-fluid" src="https://raw.githubusercontent.com/Inzaniak/Inzaniak.github.io/master/img/posts/2017/february/2017-04-20 15_47_21-Figure-1" alt="" style="display: block;margin: 0 auto">
+</a>
+<br>
+<p>Pretty boring words, how can we improve the output? We can use bigrams to show more relevant data. From Wikipedia: A bigram or digram is a sequence of two adjacent elements from a string of tokens, which are typically letters, syllables, or words.</p>
+<div class="highlight"><pre><span></span><span class="c1"># Get Bigrams from text</span>
+<span class="n">bigrams</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">bigrams</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="c1"># Calculate Frequency Distribution for Bigrams</span>
+<span class="n">freq_bi</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">FreqDist</span><span class="p">(</span><span class="n">bigrams</span><span class="p">)</span>
+
+<span class="c1"># Print and plot most common bigrams</span>
+<span class="n">freq_bi</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">freq_bi</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+<p>After creating the bigrams we can plot them: </p>
+<a href="#">
+        <img class="img-fluid" src="https://raw.githubusercontent.com/Inzaniak/Inzaniak.github.io/master/img/posts/2017/february/2017-04-20 15_56_03-Figure-1.png" alt="" style="display: block;margin: 0 auto">
+</a>
+<br>
+<p>Pretty cool, right?</p>
+<p>That's it for today. Have fun experimenting with word frequencies</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

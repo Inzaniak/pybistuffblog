@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90742675-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-90742675-2');
+    </script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Data Break</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="/css/clean-blog.min.css" rel="stylesheet">
+    <link href="/css/pygmentsmonokai.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="/index.html">Data Break</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="post-heading">
+                        <h1>Excel: Format Cleaner Macro</h1>
+                        <h2 class="subheading">Simple and Useful</h2>
+                        <span class="meta">Posted by
+                            <a href="#">Umberto</a>
+                            on February, 2017</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-md-10 mx-auto">
+                    <p>A simple VBA script to clean all the formatting in cells. </p>
+<a href="#">
+        <img class="img-fluid" src="https://raw.githubusercontent.com/Inzaniak/Inzaniak.github.io/master/img/posts/2017/february/textclean.gif" alt="" style="display: block;margin: 0 auto">
+</a>
+<br>
+<div class="highlight"><pre><span></span><span class="k">Sub</span> <span class="nf">CleanTxt</span><span class="p">()</span>
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Bold</span> <span class="o">=</span> <span class="k">False</span>
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Italic</span> <span class="o">=</span> <span class="k">False</span>
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Font</span><span class="p">.</span><span class="n">Underline</span> <span class="o">=</span> <span class="n">xlUnderlineStyleNone</span>
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Borders</span><span class="p">(</span><span class="n">xlDiagonalDown</span><span class="p">).</span><span class="n">LineStyle</span> <span class="o">=</span> <span class="n">xlNone</span>
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Borders</span><span class="p">(</span><span class="n">xlDiagonalUp</span><span class="p">).</span><span class="n">LineStyle</span> <span class="o">=</span> <span class="n">xlNone</span>
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Borders</span><span class="p">(</span><span class="n">xlEdgeLeft</span><span class="p">).</span><span class="n">LineStyle</span> <span class="o">=</span> <span class="n">xlNone</span>
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Borders</span><span class="p">(</span><span class="n">xlEdgeTop</span><span class="p">).</span><span class="n">LineStyle</span> <span class="o">=</span> <span class="n">xlNone</span>
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Borders</span><span class="p">(</span><span class="n">xlEdgeBottom</span><span class="p">).</span><span class="n">LineStyle</span> <span class="o">=</span> <span class="n">xlNone</span>
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Borders</span><span class="p">(</span><span class="n">xlEdgeRight</span><span class="p">).</span><span class="n">LineStyle</span> <span class="o">=</span> <span class="n">xlNone</span>
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Borders</span><span class="p">(</span><span class="n">xlInsideVertical</span><span class="p">).</span><span class="n">LineStyle</span> <span class="o">=</span> <span class="n">xlNone</span>
+    <span class="n">Selection</span><span class="p">.</span><span class="n">Borders</span><span class="p">(</span><span class="n">xlInsideHorizontal</span><span class="p">).</span><span class="n">LineStyle</span> <span class="o">=</span> <span class="n">xlNone</span>
+    <span class="k">With</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Interior</span>
+        <span class="p">.</span><span class="n">Pattern</span> <span class="o">=</span> <span class="n">xlNone</span>
+        <span class="p">.</span><span class="n">TintAndShade</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">.</span><span class="n">PatternTintAndShade</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">End</span> <span class="k">With</span>
+    <span class="k">With</span> <span class="n">Selection</span><span class="p">.</span><span class="n">Font</span>
+        <span class="p">.</span><span class="n">ColorIndex</span> <span class="o">=</span> <span class="n">xlAutomatic</span>
+        <span class="p">.</span><span class="n">TintAndShade</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">End</span> <span class="k">With</span>
+<span class="k">End</span> <span class="k">Sub</span>
+</pre></div>
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
