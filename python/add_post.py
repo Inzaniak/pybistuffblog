@@ -131,7 +131,7 @@ for num,r in enumerate(rows):
     idx_post = idx_post.replace('|SUBTITLE|',r[3])
     idx_post = idx_post.replace('|AUTHOR|',r[4])
     idx_post = idx_post.replace('|DATE|',r[0])
-    idx_post = idx_post.replace('|HREF|',r[1])
+    idx_post = idx_post.replace('|HREF|','pybistuffblog/'+r[1])
     idx_posts_list.append(idx_post)
     # print(idx_post)
 if len(rows) % 5 != 0:
