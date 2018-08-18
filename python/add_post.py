@@ -118,9 +118,9 @@ for num,r in enumerate(rows):
     if (num+1) % 5 == 0:
         idx = idx_template.replace('|POSTS|','\n<hr>\n'.join(idx_posts_list))
         # idx = idx.replace('|NEXTPAGE|','/pages/index/page{}.html'.format(page+1))
-        idx = idx.replace('<!-- NEXTPAGE -->',"""<a class="btn btn-primary float-right" href="/pages/index/page{}.html">Older Posts &rarr;</a>""".format(page+1))
+        idx = idx.replace('<!-- NEXTPAGE -->',"""<a class="btn btn-primary float-right" href="/pybistuffblog/pages/index/page{}.html">Older Posts &rarr;</a>""".format(page+1))
         if page != 1:
-            idx = idx.replace('<!-- PREVPAGE -->',"""<a class="btn btn-primary float-left" href="/pages/index/page{}.html">&larr; Newer Posts</a>""".format(prev_page))
+            idx = idx.replace('<!-- PREVPAGE -->',"""<a class="btn btn-primary float-left" href="/pybistuffblog/pages/index/page{}.html">&larr; Newer Posts</a>""".format(prev_page))
             open(MAIN_DIR+'/pages/index/page{}.html'.format(page),'w',encoding='utf-8').write(idx)
         else:
             open(MAIN_DIR+'/index.html','w',encoding='utf-8').write(idx)        
@@ -139,7 +139,7 @@ if len(rows) % 5 != 0:
     # idx = idx.replace('|NEXTPAGE|','/pages/index/page{}.html'.format(page+1))
     # idx = idx.replace('<!-- NEXTPAGE -->',"""<a class="btn btn-primary float-right" href="/pages/index/page{}.html">Older Posts &rarr;</a>""".format(page+1))
     if page != 1:
-        idx = idx.replace('<!-- PREVPAGE -->',"""<a class="btn btn-primary float-left" href="/pages/index/page{}.html">&larr; Newer Posts</a>""".format(prev_page))
+        idx = idx.replace('<!-- PREVPAGE -->',"""<a class="btn btn-primary float-left" href="/pybistuffblog/pages/index/page{}.html">&larr; Newer Posts</a>""".format(prev_page))
         open(MAIN_DIR+'/pages/index/page{}.html'.format(page),'w',encoding='utf-8').write(idx)
     else:
         open(MAIN_DIR+'/index.html','w',encoding='utf-8').write(idx)    
