@@ -53,7 +53,7 @@ class Post:
                     if r[0] not in special_chars:
                         html_out.append('<p>{}</p>'.format(r))
                     elif r[0] == '|':
-                        img_out = img_template.replace('|IMGPATH|','/img/posts/{}/{}/{}'.format(
+                        img_out = img_template.replace('|IMGPATH|','/pybistuffblog/img/posts/{}/{}/{}'.format(
                             self.year
                             ,self.month.lower()
                             ,r.split('|')[1]

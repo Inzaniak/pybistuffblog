@@ -13,10 +13,10 @@ Let's start coding:
 §nltk.download()
 
 First step is to install the stopwords so we run nltk.download().
-|2017-04-18 12_48_29-NLTK-Downloader.png
+|2017-04-18-12_48_29-nltk-downloader.png
 
 Then we choose Corpora -> Stopwords -> Download
-|2017-04-18 12_50_19-NLTK-Downloader.png
+|2017-04-18-12_50_19-nltk-downloader.png
 
 Back to coding!
 §python
