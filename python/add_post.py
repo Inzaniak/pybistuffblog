@@ -115,7 +115,7 @@ idx_post_template = open('template/sub/index_post.html','r',encoding='utf-8').re
 idx_template = open('template/index.html','r',encoding='utf-8').read()
 prev_page = ''
 for num,r in enumerate(rows):
-    if (num+1) % 8 == 0:
+    if (num+1) % 9 == 0:
         idx = idx_template.replace('|POSTS|','\n<hr>\n'.join(idx_posts_list))
         # idx = idx.replace('|NEXTPAGE|','/pages/index/page{}.html'.format(page+1))
         idx = idx.replace('<!-- NEXTPAGE -->',"""<a class="btn btn-primary float-right" href="/pybistuffblog/pages/index/page{}.html">Older Posts &rarr;</a>""".format(page+1))
@@ -134,7 +134,7 @@ for num,r in enumerate(rows):
     idx_post = idx_post.replace('|HREF|',r[1])
     idx_posts_list.append(idx_post)
     # print(idx_post)
-if len(rows) % 8 != 0:
+if len(rows) % 9 != 0:
     idx = idx_template.replace('|POSTS|','\n<hr>\n'.join(idx_posts_list))
     # idx = idx.replace('|NEXTPAGE|','/pages/index/page{}.html'.format(page+1))
     # idx = idx.replace('<!-- NEXTPAGE -->',"""<a class="btn btn-primary float-right" href="/pages/index/page{}.html">Older Posts &rarr;</a>""".format(page+1))
