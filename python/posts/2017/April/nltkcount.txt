@@ -31,9 +31,9 @@ Let's start coding!
 §# Divide text by rows
 §rows = book.split('\n')
 
-<p style="color:#bf616a;">import nltk</p> We import the necessary library as usual
-<p style="color:#bf616a;">get_index()</p> We define a simple function which helps us find the index of a word inside of a list. We loop for every row and if we find the string we return the index of the string
-<p style="color:#bf616a;">open() and split()</p> We load the book into a variable as a string and then we split it into lines
+<span style="color:#bf616a;">import nltk</span> We import the necessary library as usual
+<span style="color:#bf616a;">get_index()</span> We define a simple function which helps us find the index of a word inside of a list. We loop for every row and if we find the string we return the index of the string
+<span style="color:#bf616a;">open() and split()</span> We load the book into a variable as a string and then we split it into lines
 §python
 §# Search for START and END tags to remove useless parts
 §start_idx = get_index(rows,' START')

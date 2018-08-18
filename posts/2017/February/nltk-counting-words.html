@@ -109,9 +109,9 @@
 <span class="n">rows</span> <span class="o">=</span> <span class="n">book</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
-<p><p style="color:#bf616a;">import nltk</p> We import the necessary library as usual</p>
-<p><p style="color:#bf616a;">get_index()</p> We define a simple function which helps us find the index of a word inside of a list. We loop for every row and if we find the string we return the index of the string</p>
-<p><p style="color:#bf616a;">open() and split()</p> We load the book into a variable as a string and then we split it into lines</p>
+<p><span style="color:#bf616a;">import nltk</span> We import the necessary library as usual</p>
+<p><span style="color:#bf616a;">get_index()</span> We define a simple function which helps us find the index of a word inside of a list. We loop for every row and if we find the string we return the index of the string</p>
+<p><span style="color:#bf616a;">open() and split()</span> We load the book into a variable as a string and then we split it into lines</p>
 <div class="highlight"><pre><span></span><span class="c1"># Search for START and END tags to remove useless parts</span>
 <span class="n">start_idx</span> <span class="o">=</span> <span class="n">get_index</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span><span class="s1">&#39; START&#39;</span><span class="p">)</span>
 <span class="n">end_idx</span> <span class="o">=</span> <span class="n">get_index</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span><span class="s1">&#39; END&#39;</span><span class="p">)</span>
