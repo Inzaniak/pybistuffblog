@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90742675-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-90742675-2');
+    </script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Data Break - NLTK Classify words language</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="/css/clean-blog.min.css" rel="stylesheet">
+    <link href="/css/pygmentsmonokai.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="/pybistuffblog/index.html">Data Break</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pybistuffblog/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="post-heading">
+                        <h1>NLTK Classify words language</h1>
+                        <h2 class="subheading">Italian or English?</h2>
+                        <span class="meta">Posted by
+                            <a href="#">Umberto</a>
+                            on August, 2018</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-md-10 mx-auto">
+                    <p>Today we are gonna take a look at text classification with NLTK.</p>
+<p>First of all we need to gather data for our project. This time i've collected some english and italian words from <a href="http://www.gwicks.net/dictionaries.htm">this website</a>.</p>
+<p>I've downloaded two files:<br> • English Words (converted to utf-8)<br> • Italian Words (converted to utf-8)</p>
+<p>Let's start coding:</p>
+<h2>Data Preparation</h2>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">NaiveBayesClassifier</span>
+<span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">classify</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">ITA</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/italiano_utf.txt&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">ENG</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/english_utf.txt&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>In this snippet we import the libraries we need and store our words into 2 distinct variables.</p>
+<div class="highlight"><pre><span></span><span class="n">labeled_words</span> <span class="o">=</span> <span class="p">([(</span><span class="n">word</span><span class="p">,</span> <span class="s1">&#39;english&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">ENG</span><span class="p">]</span> <span class="o">+</span>
+                 <span class="p">[(</span><span class="n">word</span><span class="p">,</span> <span class="s1">&#39;italian&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">ITA</span><span class="p">])</span>
+<span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">labeled_words</span><span class="p">)</span>
+</pre></div>
+
+<p>Here we create a unique list for all the words and we label them with the correct language. After that we shuffle the list.</p>
+<h2>Feature Creation</h2>
+<p>Now we need to create the function that we will use to extract the features from every word. I'm going to recycle the function of the <a href="https://www.nltk.org/book/ch06.html">official NLTK tutorial</a></p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">language_features</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">features</span><span class="p">[</span><span class="s2">&quot;first_letter&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">features</span><span class="p">[</span><span class="s2">&quot;last_letter&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span><span class="p">:</span>
+        <span class="n">features</span><span class="p">[</span><span class="s2">&quot;count({})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">letter</span><span class="p">)]</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+        <span class="n">features</span><span class="p">[</span><span class="s2">&quot;has({})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">letter</span><span class="p">)]</span> <span class="o">=</span> <span class="p">(</span><span class="n">letter</span> <span class="ow">in</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">features</span>
+</pre></div>
+
+<p>With this function we are going to create a dictionary containing all the features we decided for every single word.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><span class="n">language_features</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="p">{</span><span class="s1">&#39;count(a)&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;count(b)&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;count(c)&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;count(d)&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;count(e)&#39;</span><span class="p">:</span> <span class="mf">1.</span><span class="o">..</span><span class="p">}</span>
+</pre></div>
+
+<p>We can now create our set of features by passing the function to a list comprehension</p>
+<div class="highlight"><pre><span></span><span class="n">featuresets</span> <span class="o">=</span> <span class="p">[(</span><span class="n">language_features</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">language</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">language</span><span class="p">)</span> <span class="ow">in</span> <span class="n">labeled_words</span><span class="p">]</span>
+</pre></div>
+
+<h2>Training and Testing</h2>
+<p>Now we can train the NaiveBayesClassifier, by dividing our featuresets into two parts: training and testing. After this we can check the accuracy of the classifier.</p>
+<div class="highlight"><pre><span></span><span class="n">train_test</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">featuresets</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">train_set</span><span class="p">,</span> <span class="n">test_set</span> <span class="o">=</span> <span class="n">featuresets</span><span class="p">[</span><span class="n">train_test</span><span class="p">:],</span> <span class="n">featuresets</span><span class="p">[:</span><span class="n">train_test</span><span class="p">]</span>
+<span class="n">classifier</span> <span class="o">=</span> <span class="n">NaiveBayesClassifier</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">train_set</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">classify</span><span class="o">.</span><span class="n">accuracy</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">test_set</span><span class="p">))</span>
+<span class="c1"># Accuracy: 0.9022325311684546</span>
+</pre></div>
+
+<p>We easily reach an accuracy of 90%! That's pretty good. Let's check what are the most informative features to determine the language.</p>
+<div class="highlight"><pre><span></span><span class="n">classifier</span><span class="o">.</span><span class="n">show_most_informative_features</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1"># Most Informative Features</span>
+<span class="c1"># count(y) = 2 english : italian = 113.9 : 1.0</span>
+<span class="c1"># last_letter = &#39;y&#39; english : italian = 110.3 : 1.0</span>
+<span class="c1"># has(y) = True english : italian = 95.1 : 1.0</span>
+<span class="c1"># count(y) = 1 english : italian = 93.9 : 1.0</span>
+<span class="c1"># last_letter = &#39;s&#39; english : italian = 86.6 : 1.0</span>
+<span class="c1"># last_letter = &#39;g&#39; english : italian = 61.8 : 1.0</span>
+<span class="c1"># count(h) = 2 english : italian = 61.4 : 1.0</span>
+<span class="c1"># last_letter = &#39;d&#39; english : italian = 61.3 : 1.0</span>
+<span class="c1"># count(w) = 1 english : italian = 52.1 : 1.0</span>
+<span class="c1"># has(w) = True english : italian = 51.9 : 1.0</span>
+</pre></div>
+
+<p>The most important letters are y and w which are frequently present in the english language, but not in italian.</p>
+<p>We can also test the model with our words:</p>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">classifier</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="n">language_features</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)))</span> <span class="c1"># CORRECT</span>
+<span class="k">print</span><span class="p">(</span><span class="n">classifier</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="n">language_features</span><span class="p">(</span><span class="s1">&#39;Ciao&#39;</span><span class="p">)))</span> <span class="c1"># CORRECT</span>
+<span class="k">print</span><span class="p">(</span><span class="n">classifier</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="n">language_features</span><span class="p">(</span><span class="s1">&#39;Incredibile&#39;</span><span class="p">)))</span> <span class="c1"># WRONG (Really similar between italian and english)</span>
+<span class="c1"># Let&#39;s check the model&#39;s confidence about this prediction</span>
+<span class="k">print</span><span class="p">(</span><span class="n">classifier</span><span class="o">.</span><span class="n">prob_classify</span><span class="p">(</span><span class="n">language_features</span><span class="p">(</span><span class="s1">&#39;Incredibile&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">prob</span><span class="p">(</span><span class="s2">&quot;english&quot;</span><span class="p">))</span> 
+</pre></div>
+
+<p># 0.7238920683977703 (confidence level is much lower than expected because the 2 words are similar)</p>
+<h2>Testing our model on Sentences</h2>
+<p>We can now test our model on a block of text to determine its language. For this example i've collected the introduction of "English" Wikipedia Page.</p>
+<p>Let's import the data:</p>
+<div class="highlight"><pre><span></span><span class="n">wiki_eng</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/wiki_eng.txt&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="n">wiki_eng</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">wiki_eng</span><span class="p">))</span>
+</pre></div>
+
+<p>I've used set in this part to remove all the duplicated words in the text. Now we can apply our model on the text:</p>
+<div class="highlight"><pre><span></span><span class="n">wiki_lang</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">wiki_eng</span><span class="p">:</span>
+    <span class="n">wiki_lang</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">w</span><span class="p">,</span><span class="n">classifier</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="n">language_features</span><span class="p">(</span><span class="n">w</span><span class="p">))])</span>
+<span class="n">words_ita</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">wiki_lang</span> <span class="k">if</span> <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;italian&#39;</span><span class="p">])</span>
+<span class="n">words_eng</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">wiki_lang</span> <span class="k">if</span> <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;english&#39;</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Italian: {} | English: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">words_ita</span><span class="p">,</span><span class="n">words_eng</span><span class="p">))</span>
+<span class="c1"># Italian: 52 | English: 221</span>
+</pre></div>
+
+<p>That's all for today!</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Data Break 2018</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

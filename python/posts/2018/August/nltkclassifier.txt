@@ -1,0 +1,93 @@
+Title: NLTK Classify words language
+Subhead: Italian or English?
+Year: 2018
+Month: August
+Date: 2018-08-18
+Author: Umberto
+---PostStart---
+Today we are gonna take a look at text classification with NLTK.
+
+First of all we need to gather data for our project. This time i've collected some english and italian words from <a href="http://www.gwicks.net/dictionaries.htm">this website</a>.
+I've downloaded two files:<br> • English Words (converted to utf-8)<br> • Italian Words (converted to utf-8)
+
+Let's start coding:
+çData Preparation
+§python
+§from nltk import NaiveBayesClassifier
+§from nltk import classify
+§import random
+§
+§ITA = open('data/italiano_utf.txt','r',encoding='utf-8').read().split('\n')
+§ENG = open('data/english_utf.txt','r',encoding='utf-8').read().split('\n')
+In this snippet we import the libraries we need and store our words into 2 distinct variables.
+§python
+§labeled_words = ([(word, 'english') for word in ENG] +
+§                 [(word, 'italian') for word in ITA])
+§random.shuffle(labeled_words)
+Here we create a unique list for all the words and we label them with the correct language. After that we shuffle the list.
+çFeature Creation
+Now we need to create the function that we will use to extract the features from every word. I'm going to recycle the function of the <a href="https://www.nltk.org/book/ch06.html">official NLTK tutorial</a>
+§python
+§def language_features(name):
+§    features = {}
+§    features["first_letter"] = name[0].lower()
+§    features["last_letter"] = name[-1].lower()
+§    for letter in 'abcdefghijklmnopqrstuvwxyz':
+§        features["count({})".format(letter)] = name.lower().count(letter)
+§        features["has({})".format(letter)] = (letter in name.lower())
+§    return features
+With this function we are going to create a dictionary containing all the features we decided for every single word.
+For example:
+§python
+§language_features('Hello')
+§{'count(a)': 0, 'count(b)': 0, 'count(c)': 0, 'count(d)': 0, 'count(e)': 1...}
+We can now create our set of features by passing the function to a list comprehension
+§python
+§featuresets = [(language_features(n), language) for (n, language) in labeled_words]
+çTraining and Testing
+Now we can train the NaiveBayesClassifier, by dividing our featuresets into two parts: training and testing. After this we can check the accuracy of the classifier.
+§python
+§train_test = int(len(featuresets)/2)
+§train_set, test_set = featuresets[train_test:], featuresets[:train_test]
+§classifier = NaiveBayesClassifier.train(train_set)
+§print(classify.accuracy(classifier, test_set))
+§# Accuracy: 0.9022325311684546
+We easily reach an accuracy of 90%! That's pretty good. Let's check what are the most informative features to determine the language.
+§python
+§classifier.show_most_informative_features(10)
+§# Most Informative Features
+§# count(y) = 2 english : italian = 113.9 : 1.0
+§# last_letter = 'y' english : italian = 110.3 : 1.0
+§# has(y) = True english : italian = 95.1 : 1.0
+§# count(y) = 1 english : italian = 93.9 : 1.0
+§# last_letter = 's' english : italian = 86.6 : 1.0
+§# last_letter = 'g' english : italian = 61.8 : 1.0
+§# count(h) = 2 english : italian = 61.4 : 1.0
+§# last_letter = 'd' english : italian = 61.3 : 1.0
+§# count(w) = 1 english : italian = 52.1 : 1.0
+§# has(w) = True english : italian = 51.9 : 1.0
+The most important letters are y and w which are frequently present in the english language, but not in italian.
+We can also test the model with our words:
+§python
+§print(classifier.classify(language_features('Hello'))) # CORRECT
+§print(classifier.classify(language_features('Ciao'))) # CORRECT
+§print(classifier.classify(language_features('Incredibile'))) # WRONG (Really similar between italian and english)
+§# Let's check the model's confidence about this prediction
+§print(classifier.prob_classify(language_features('Incredibile')).prob("english")) 
+# 0.7238920683977703 (confidence level is much lower than expected because the 2 words are similar)
+çTesting our model on Sentences
+We can now test our model on a block of text to determine its language. For this example i've collected the introduction of "English" Wikipedia Page.
+Let's import the data:
+§python
+§wiki_eng = open('data/wiki_eng.txt','r',encoding='utf-8').read().split()
+§wiki_eng = list(set(wiki_eng))
+I've used set in this part to remove all the duplicated words in the text. Now we can apply our model on the text:
+§python
+§wiki_lang = []
+§for w in wiki_eng:
+§    wiki_lang.append([w,classifier.classify(language_features(w))])
+§words_ita = len([w for w in wiki_lang if w[1] == 'italian'])
+§words_eng = len([w for w in wiki_lang if w[1] == 'english'])
+§print('Italian: {} | English: {}'.format(words_ita,words_eng))
+§# Italian: 52 | English: 221
+That's all for today!
