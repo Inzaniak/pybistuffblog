@@ -4,6 +4,7 @@ Year: 2017
 Month: February
 Date: 2017-02-02
 Author: Umberto
+Tags: excel, macro, vb, vba, visual basic
 ---PostStart---
 A simple VBA script to clean all the formatting in cells. 
 

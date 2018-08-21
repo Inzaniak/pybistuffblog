@@ -4,6 +4,7 @@ Year: 2017
 Month: April
 Date: 2017-04-18
 Author: Umberto
+Tags: sql, running queries, tsql
 ---PostStart---
 Today i want to share a simple snippet of code which I find useful from time to time. With this code you can check if a query is running on your db in a quick and effective way.
 

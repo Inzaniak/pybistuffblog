@@ -4,6 +4,7 @@ Year: 2017
 Month: May
 Date: 2017-05-01
 Author: Umberto
+Tags: fifa, machine learning, random forest, RandomForestClassifier, python
 ---PostStart---
 Hello World!
 Today we are going to create a simple classification model by using a random forest classifier

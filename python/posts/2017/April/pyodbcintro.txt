@@ -4,6 +4,7 @@ Year: 2017
 Month: April
 Date: 2017-04-11
 Author: Umberto
+Tags: pyodbc, sql, python
 ---PostStart---
 As a SQL/Python coder, one of the library i use the most is pyodbc. pyodbc is an open source Python module that makes accessing ODBC databases simple. It implements the DB API 2.0 specification but is packed with even more Pythonic convenience.
 

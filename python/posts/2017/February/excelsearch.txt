@@ -4,6 +4,7 @@ Year: 2017
 Month: February
 Date: 2017-02-02
 Author: Umberto
+Tags: excel, macro, vb, vba, visual basic
 ---PostStart---
 With this VB script you can create a simple searchbox:
 

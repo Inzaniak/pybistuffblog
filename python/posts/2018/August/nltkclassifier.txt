@@ -4,6 +4,7 @@ Year: 2018
 Month: August
 Date: 2018-08-18
 Author: Umberto
+Tags: nltk, machine learning, classification, python, NaiveBayesClassifier
 ---PostStart---
 Today we are gonna take a look at text classification with NLTK.
 

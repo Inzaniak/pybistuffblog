@@ -4,6 +4,7 @@ Year: 2017
 Month: February
 Date: 2017-02-02
 Author: Umberto
+Tags: query, all columns, mssql, tsql, sql
 ---PostStart---
 When developing a database, it can be useful to be aware of column names on tables, in case one wants to check for aliasing errors or search for a specific column.
 

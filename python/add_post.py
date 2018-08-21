@@ -33,6 +33,7 @@ class Post:
         self.date = arrow.get(self.date_str)
         self.author = self.header_list[5].split(': ',1)[1].strip()
         self.url = '/posts/{}/{}/{}.html'.format(self.year,self.month,self.html_title)
+        self.tags = self.header_list[6].split(':',1)[1].strip()
 
     def decode_content(self):
         html_out = []
@@ -101,6 +102,7 @@ for post in posts_list:
     page = page.replace('|MONTH|',post.month)
     page = page.replace('|YEAR|',post.year)
     page = page.replace('|POST|',post_content)
+    page = page.replace('|KEYWORDS|',post.tags)
     open(curr_path+'/{}.html'.format(post.html_title),'w',encoding='utf-8').write(page)
     conn.execute('insert into t values(?,?,?,?,?)',
         (post.date_str,post.url,post.title,post.subtitle,post.author))

@@ -4,6 +4,7 @@ Year: 2017
 Month: February
 Date: 2017-02-20
 Author: Umberto
+Tags: nltk, python, words counting, frequencies
 ---PostStart---
 Last time we learned how to use stopwords with NLTK, today we are going to take a look at counting frequencies with NLTK.
 

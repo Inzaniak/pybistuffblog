@@ -4,6 +4,7 @@ Year: 2018
 Month: March
 Date: 2018-03-19
 Author: Umberto
+Tags: web scraping, python, requests, requests-html, beautifulsoup
 ---PostStart---
 When i first discovered that the creators of the popular HTTP library for python were working on a library to manage HTML pages i was excited!
 Requests is probably one of the libraries i use the most. It handles HTTP requests in an easy and "human-readable" way.

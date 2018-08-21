@@ -4,6 +4,7 @@ Year: 2017
 Month: March
 Date: 2017-03-24
 Author: Umberto
+Tags: python, json, dictionaries
 ---PostStart---
 One of the most used format these days (especially online) is the Javascript Object Notation (JSON). At first sight it can be a little confusing, but after using it a few times it won't be a problem anymore.
 

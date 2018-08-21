@@ -4,6 +4,7 @@ Year: 2017
 Month: March
 Date: 2017-03-16
 Author: Umberto
+Tags: python, dictionaries
 ---PostStart---
 One of the most annoying things that happens to me when i'm working with json extracted from social networks is the absence of some of the keys from the json.
 

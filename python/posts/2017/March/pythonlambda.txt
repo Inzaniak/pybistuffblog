@@ -4,6 +4,7 @@ Year: 2017
 Month: March
 Date: 2017-03-27
 Author: Umberto
+Tags: python, lambda, map, filter, reduce
 ---PostStart---
 Python supports the creation of anonymous functions at runtime, using a construct called "lambda".
 

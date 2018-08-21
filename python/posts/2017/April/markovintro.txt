@@ -4,6 +4,7 @@ Year: 2017
 Month: April
 Date: 2017-04-26
 Author: Umberto
+Tags: markov chain, nltk, markovify, python
 ---PostStart---
 Hello World!
 Today we are going to take a look at how to create a simple Markov chain generator, by using markovify.

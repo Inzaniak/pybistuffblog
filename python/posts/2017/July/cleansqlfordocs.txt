@@ -4,6 +4,7 @@ Year: 2017
 Month: July
 Date: 2017-02-07
 Author: Umberto
+Tags: query, all columns, mssql, tsql, sql, python
 ---PostStart---
 
 One of the most tedious tasks of working with databases is to write and maintain documentation, in particular writing reports from tables and views.

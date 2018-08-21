@@ -4,6 +4,7 @@ Year: 2018
 Month: August
 Date: 2018-08-09
 Author: Umberto
+Tags: python, power bi, clustering, kmeans, pandas
 ---PostStart---
 Hello World!
 Yesterday the Power Bi team announced that Python is finally available as a preview in Power Bi Desktop.

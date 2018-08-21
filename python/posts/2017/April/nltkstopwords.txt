@@ -4,6 +4,7 @@ Year: 2017
 Month: April
 Date: 2017-04-19
 Author: Umberto
+Tags: nltk, stopwords, python, data cleaning
 ---PostStart---
 One of the most tedious task in Text Analytics is cleaning raw text. Fortunately NLTK has a lot of tools to help you in this task. One of the most important is nltk.corpus.stopwords which contains stopwords for 11 languages.
 
