@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90742675-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-90742675-2');
+    </script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A blog about Business Intelligence, Python and Data Science">
+    <meta name="keywords" content="Tutorials, Guides, Data Science, Programming, pyodbc, sql, python">
+    <meta name="author" content="Umberto Grando">
+
+    <title>Data Break - Pyodbc Intro</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/pybistuffblog/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/pybistuffblog/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="/pybistuffblog/css/clean-blog.min.css" rel="stylesheet">
+    <link href="/pybistuffblog/css/pygmentsmonokai.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="/pybistuffblog/index.html">Data Break</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pybistuffblog/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="post-heading">
+                        <h1>Pyodbc Intro</h1>
+                        <h2 class="subheading">How to connect to SQL</h2>
+                        <span class="meta">Posted by
+                            <a href="#">Umberto</a>
+                            on April, 2017</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-md-10 mx-auto">
+                    <p>As a SQL/Python coder, one of the library i use the most is pyodbc. pyodbc is an open source Python module that makes accessing ODBC databases simple. It implements the DB API 2.0 specification but is packed with even more Pythonic convenience.</p>
+<p>Let's start coding then!</p>
+<div class="highlight"><pre><span></span><span class="c1"># Let&#39;s import the library</span>
+<span class="kn">import</span> <span class="nn">pyodbc</span>
+<span class="c1"># Here we set the connection variables</span>
+<span class="n">server</span> <span class="o">=</span> <span class="s1">&#39;your_server_name&#39;</span>
+<span class="n">database</span> <span class="o">=</span> <span class="s1">&#39;your_db_name&#39;</span>
+<span class="c1"># Username and password if you use a SQL account. Otherwise it will use</span>
+<span class="c1"># Windows Authentication</span>
+<span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;your_username&#39;</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;your_password&#39;</span>
+<span class="c1"># The driver you are going to use.</span>
+<span class="n">driver</span><span class="o">=</span> <span class="s1">&#39;{ODBC Driver 13 for SQL Server}&#39;</span>
+
+
+<span class="c1"># Let&#39;s Create a connection and a cursor</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">pyodbc</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;DRIVER=&#39;</span><span class="o">+</span><span class="n">driver</span>
+                      <span class="o">+</span><span class="s1">&#39;;PORT=1433;SERVER=&#39;</span><span class="o">+</span><span class="n">server</span>
+                      <span class="o">+</span><span class="s1">&#39;;DATABASE=&#39;</span><span class="o">+</span><span class="n">database</span>
+                      <span class="o">+</span><span class="s1">&#39;;UID=&#39;</span><span class="o">+</span><span class="n">username</span><span class="o">+</span><span class="s1">&#39;;PWD=&#39;</span><span class="o">+</span> <span class="n">password</span><span class="p">)</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+</pre></div>
+
+<p>The first step is to import the library. If you need to install it: pip install pyodbc.</p>
+<p>After importing the library we need to set up the connection variables. You'll need you server name, database name and username and password. If you don't have a User because you are using Windows Authentication, just remove the variables from the connection string. The driver variable is the driver version you are using to connect to SQL. If you can't connect because of a driver error, just Google download odbc driver 13 :) .</p>
+<p>To connect to SQL we need to pass the variables to the pyodbc.connect() function. Then we need to create a cursor by using the conn.cursor()</p>
+<h2>Select</h2>
+<div class="highlight"><pre><span></span><span class="c1"># SELECT</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT FROM dbo.your_table&quot;</span><span class="p">)</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">To</span> <span class="n">communicate</span> <span class="k">with</span> <span class="n">SQL</span><span class="p">,</span> <span class="n">we</span> <span class="n">use</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span><span class="o">.</span> <span class="n">You</span> <span class="n">just</span> <span class="n">need</span> <span class="n">to</span> <span class="k">pass</span> <span class="n">a</span> <span class="n">query</span> <span class="ow">and</span> <span class="n">use</span> <span class="n">fetchone</span><span class="p">()</span> <span class="ow">or</span> <span class="n">fetchall</span><span class="p">()</span> <span class="n">to</span> <span class="k">return</span> <span class="n">the</span> <span class="n">result</span><span class="o">.</span> <span class="n">With</span> <span class="n">fetchall</span><span class="p">()</span> <span class="n">you</span> <span class="n">can</span> <span class="n">loop</span> <span class="n">over</span> <span class="n">the</span> <span class="n">rows</span> <span class="n">by</span> <span class="n">using</span> <span class="n">a</span> <span class="k">for</span> <span class="n">loop</span><span class="o">.</span>
+</pre></div>
+
+<h2>Insert/Update/Delete etc...</h2>
+<div class="highlight"><pre><span></span><span class="c1"># INSERT</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;INSERT into dbo.your_table VALUES (&#39;test&#39;)&quot;</span><span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="n">To</span> <span class="n">run</span> <span class="n">an</span> <span class="n">insert</span><span class="p">,</span><span class="n">update</span> <span class="ow">or</span> <span class="n">delete</span> <span class="n">you</span> <span class="n">just</span> <span class="n">need</span> <span class="n">to</span> <span class="n">execute</span> <span class="n">the</span> <span class="n">statement</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">commit</span> <span class="n">it</span> <span class="n">to</span> <span class="n">the</span> <span class="n">server</span><span class="o">.</span>
+<span class="n">That</span><span class="s1">&#39;s all for today!</span>
+</pre></div>
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Data Break 2018</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/pybistuffblog/vendor/jquery/jquery.min.js"></script>
+    <script src="/pybistuffblog/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="/pybistuffblog/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
