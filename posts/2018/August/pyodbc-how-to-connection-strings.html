@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90742675-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-90742675-2');
+    </script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A blog about Business Intelligence, Python and Data Science">
+    <meta name="keywords" content="Tutorials, Guides, Data Science, Programming, python, pyodbc, windows authentication, windows, trusted connection">
+    <meta name="author" content="Umberto Grando">
+
+    <title>Data Break - Pyodbc how to: Connection Strings</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/pybistuffblog/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/pybistuffblog/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="/pybistuffblog/css/clean-blog.min.css" rel="stylesheet">
+    <link href="/pybistuffblog/css/pygmentsmonokai.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="/pybistuffblog/index.html">Data Break</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pybistuffblog/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="post-heading">
+                        <h1>Pyodbc how to: Connection Strings</h1>
+                        <h2 class="subheading">Windows and SQL Authentication</h2>
+                        <span class="meta">Posted by
+                            <a href="#">Umberto</a>
+                            on August, 2018</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-md-10 mx-auto">
+                    <p>With pyodbc you have two choices for authentication:<br>• SQL Authentication<br>• Windows Authentication</p>
+<h2>Windows Authentication</h2>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyodbc</span>
+
+<span class="n">conn_str</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="sa">r</span><span class="s1">&#39;Driver={ODBC Driver 17 for SQL Server};&#39;</span>  <span class="c1"># Just an Example (SQL2008-2018)</span>
+    <span class="sa">r</span><span class="s1">&#39;Server=SERVERNAME;&#39;</span> <span class="c1"># Here you insert you servername</span>
+    <span class="sa">r</span><span class="s1">&#39;Database=DBNAME;&#39;</span> <span class="c1"># Here you insert your db Name</span>
+    <span class="sa">r</span><span class="s1">&#39;Trusted_Connection=yes;&#39;</span> <span class="c1"># This flag enables windows authentication</span>
+    <span class="p">)</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">pyodbc</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">conn_str</span><span class="p">)</span>
+</pre></div>
+
+<h2>SQL Authentication</h2>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyodbc</span>
+
+<span class="n">conn_str</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="sa">r</span><span class="s1">&#39;Driver={ODBC Driver 17 for SQL Server};&#39;</span>  <span class="c1"># Just an Example (SQL2008-2018)</span>
+    <span class="sa">r</span><span class="s1">&#39;Server=SERVERNAME;&#39;</span> <span class="c1"># Here you insert you servername</span>
+    <span class="sa">r</span><span class="s1">&#39;Database=DBNAME;&#39;</span> <span class="c1"># Here you insert your db Name</span>
+    <span class="sa">r</span><span class="s1">&#39;UID=USERNAME;&#39;</span> <span class="c1"># Here you insert the SQL User to auth</span>
+    <span class="sa">r</span><span class="s1">&#39;PWD=PASSWORD;&#39;</span> <span class="c1"># Here you insert the User&#39;s password</span>
+    <span class="p">)</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">pyodbc</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">conn_str</span><span class="p">)</span>
+</pre></div>
+
+<p>That's all.</p>
+<p><a href="https://github.com/mkleehammer/pyodbc/wiki/Connecting-to-SQL-Server-from-Windows">Here</a> you'll find more details about SQL Drivers and connection string.</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Data Break 2018</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/pybistuffblog/vendor/jquery/jquery.min.js"></script>
+    <script src="/pybistuffblog/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="/pybistuffblog/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

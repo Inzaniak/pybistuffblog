@@ -1,0 +1,38 @@
+Title: Pyodbc how to: Connection Strings
+Subhead: Windows and SQL Authentication
+Year: 2018
+Month: August
+Date: 2018-08-24
+Author: Umberto
+Tags: python, pyodbc, windows authentication, windows, trusted connection
+---PostStart---
+With pyodbc you have two choices for authentication:<br>• SQL Authentication<br>• Windows Authentication
+çWindows Authentication
+§python
+§import pyodbc
+§
+§conn_str = (
+§    r'Driver={ODBC Driver 17 for SQL Server};'  # Just an Example (SQL2008-2018)
+§    r'Server=SERVERNAME;' # Here you insert you servername
+§    r'Database=DBNAME;' # Here you insert your db Name
+§    r'Trusted_Connection=yes;' # This flag enables windows authentication
+§    )
+§
+§conn = pyodbc.connect(conn_str)
+
+çSQL Authentication
+§python
+§import pyodbc
+§
+§conn_str = (
+§    r'Driver={ODBC Driver 17 for SQL Server};'  # Just an Example (SQL2008-2018)
+§    r'Server=SERVERNAME;' # Here you insert you servername
+§    r'Database=DBNAME;' # Here you insert your db Name
+§    r'UID=USERNAME;' # Here you insert the SQL User to auth
+§    r'PWD=PASSWORD;' # Here you insert the User's password
+§    )
+§
+§conn = pyodbc.connect(conn_str)
+
+That's all.
+<a href="https://github.com/mkleehammer/pyodbc/wiki/Connecting-to-SQL-Server-from-Windows">Here</a> you'll find more details about SQL Drivers and connection string.
