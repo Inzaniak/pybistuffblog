@@ -1,0 +1,104 @@
+Title: Markov Chains on Wikipedia
+Subhead: Markovify, requests-html and functions
+Year: 2018
+Month: August
+Date: 2018-08-24
+Author: Umberto
+Tags: python, markovify, requests-html, functions, scraping
+---PostStart---
+Markov Chains are really fun to use and Markovify providea a simple library to play with them.
+We've seen in a previous post how to use them to generate new sentences from books, today we are going to create a more complex application focusing on three elements: <br>• Markovify<br>• Requests-Html<br>• Object Programming (functions)
+Let's start by creating the DB to store the data:
+çSQLite: Our Data container
+§python
+§import sqlite3
+§
+§conn = sqlite3.connect('data/db.db')
+§
+§def create_sql_table():
+§    try:
+§        conn.execute('CREATE TABLE `Articles` ( `ArticleName` TEXT, `ArticleText` TEXT, PRIMARY KEY(`ArticleName`) )')
+§    except sqlite3.OperationalError:
+§        print('Table already in DB')
+We are going to use SQLite as our data container because it's a really fast and small Relational Database and Python has a std library to interact with it.
+In this code snippet we import our library, then we create the connection to the DB (python creates the DB if it does not exist). Then we create a function with no parameters in which we create the table Articles only if it does not exist in the Database.
+çRequests-html: Our Web Scraper
+§python
+§import requests_html
+§def get_pages(num_pages=10):
+§    for i in range(0,num_pages):
+§        sess = requests_html.HTMLSession()
+§        print('Page:',i)
+§        res = sess.get("https://en.wikipedia.org/wiki/Special:Random")
+§        title = res.html.find('.firstHeading')[0].text
+§        text = ' '.join([p.text for p in res.html.find('p') if len(p.text) > 30])
+§        try:
+§            conn.execute('INSERT INTO Articles VALUES (?,?)'
+§                            ,(
+§                                title
+§                                ,text
+§                            )
+§                        )
+§            conn.commit()
+§        except sqlite3.IntegrityError:
+§            print('Riga già presente')
+If you've read my previous post about requests-html, you already know that i'm a big fan of this popular library. In this snippet we create a new function get_pages with one parameter to choose how many pages we want to download from Wikipedia (default to 10).
+Let's have a deeper look at the code:
+§python
+§sess = requests_html.HTMLSession()
+Here we create a new HtmlSession for requests, which is fundamental to create GET requests.
+§python
+§res = sess.get("https://en.wikipedia.org/wiki/Special:Random")
+After we have created the Session we send a GET request to the random Wikipedia page URL and we store the response into a variable.
+§python
+§title = res.html.find('.firstHeading')[0].text
+§text = ' '.join([p.text for p in res.html.find('p') if len(p.text) > 30])
+Finally we scrape the page to extract the content we are going to use in our script. 
+For the title we are going to look for text contained in every html object with class=firstHeading.
+For the article content we are going to look for every <p> object contained in the page, but only if the object contains at least 30 characters (we exclude single words and short sentences).
+çMarkovify: The Markov Chain Algorithm
+§python
+§def generate_markov(num_sentences=1):
+§    rows = conn.execute('SELECT ArticleText FROM Articles').fetchall()
+§    rows = '. '.join([r[0] for r in rows])
+§    text_model = markovify.Text(rows)
+§    for i in range(0,num_sentences):
+§        print(text_model.make_sentence())
+We can now use the data we extracted from Wikipedia.
+§python
+§rows = conn.execute('SELECT ArticleText FROM Articles').fetchall()
+§rows = '. '.join([r[0] for r in rows])
+First of all we read from our DB the text and we create a string by joining all the paragraphs from the articles into a single one separated by ".".
+§python
+§text_model = markovify.Text(rows)
+§for i in range(0,num_sentences):
+§    print(text_model.make_sentence())
+After that we can train our model by passing to markovify.Text() our string.
+Now we can create new sentences by using .make_sentence().
+I've also created another function to create longer sentences (you can find it on the github code at the end of the article)
+çThe Final Touches
+§python
+§def main():
+§    create_sql_table()
+§    get_pages(10)
+§    generate_markov(10)
+§
+§if __name__ == '__main__':
+§    main()
+To complete our script we create a main function in which we can call the previous functions.
+Then we can run the program to get a similar result:
+§python
+§------------------------
+§The Portrait of Philip IV in Brown and Silver is a moth in the tunnels at once.
+§------------------------
+§------------------------
+§Explaining his actions, and was admitted to psychiatric hospitals because of Davis's strong language and culture.
+§------------------------
+§------------------------
+§Arriving on 22 May 1809, and served as a heel against El Ligero.
+§------------------------
+§------------------------
+§The child grows into a true ghost and his godmother, the widow of the Podbara, Salajka and Stari Grad neighborhoods.
+§------------------------
+
+That's all for today. As always you can find the code on github <a href="https://github.com/Inzaniak/pybistuff/tree/master/Markov%20Wikipedia">here</a>

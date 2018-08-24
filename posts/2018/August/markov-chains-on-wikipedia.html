@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90742675-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-90742675-2');
+    </script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A blog about Business Intelligence, Python and Data Science">
+    <meta name="keywords" content="Tutorials, Guides, Data Science, Programming, python, markovify, requests-html, functions, scraping">
+    <meta name="author" content="Umberto Grando">
+
+    <title>Data Break - Markov Chains on Wikipedia</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/pybistuffblog/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/pybistuffblog/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="/pybistuffblog/css/clean-blog.min.css" rel="stylesheet">
+    <link href="/pybistuffblog/css/pygmentsmonokai.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="/pybistuffblog/index.html">Data Break</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pybistuffblog/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="post-heading">
+                        <h1>Markov Chains on Wikipedia</h1>
+                        <h2 class="subheading">Markovify, requests-html and functions</h2>
+                        <span class="meta">Posted by
+                            <a href="#">Umberto</a>
+                            on August, 2018</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-md-10 mx-auto">
+                    <p>Markov Chains are really fun to use and Markovify providea a simple library to play with them.</p>
+<p>We've seen in a previous post how to use them to generate new sentences from books, today we are going to create a more complex application focusing on three elements: <br>• Markovify<br>• Requests-Html<br>• Object Programming (functions)</p>
+<p>Let's start by creating the DB to store the data:</p>
+<h2>SQLite: Our Data container</h2>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;data/db.db&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">create_sql_table</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;CREATE TABLE `Articles` ( `ArticleName` TEXT, `ArticleText` TEXT, PRIMARY KEY(`ArticleName`) )&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">OperationalError</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Table already in DB&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>We are going to use SQLite as our data container because it's a really fast and small Relational Database and Python has a std library to interact with it.</p>
+<p>In this code snippet we import our library, then we create the connection to the DB (python creates the DB if it does not exist). Then we create a function with no parameters in which we create the table Articles only if it does not exist in the Database.</p>
+<h2>Requests-html: Our Web Scraper</h2>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests_html</span>
+<span class="k">def</span> <span class="nf">get_pages</span><span class="p">(</span><span class="n">num_pages</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">num_pages</span><span class="p">):</span>
+        <span class="n">sess</span> <span class="o">=</span> <span class="n">requests_html</span><span class="o">.</span><span class="n">HTMLSession</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Page:&#39;</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://en.wikipedia.org/wiki/Special:Random&quot;</span><span class="p">)</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;.firstHeading&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">res</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">])</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;INSERT INTO Articles VALUES (?,?)&#39;</span>
+                            <span class="p">,(</span>
+                                <span class="n">title</span>
+                                <span class="p">,</span><span class="n">text</span>
+                            <span class="p">)</span>
+                        <span class="p">)</span>
+            <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">IntegrityError</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Riga già presente&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>If you've read my previous post about requests-html, you already know that i'm a big fan of this popular library. In this snippet we create a new function get_pages with one parameter to choose how many pages we want to download from Wikipedia (default to 10).</p>
+<p>Let's have a deeper look at the code:</p>
+<div class="highlight"><pre><span></span><span class="n">sess</span> <span class="o">=</span> <span class="n">requests_html</span><span class="o">.</span><span class="n">HTMLSession</span><span class="p">()</span>
+</pre></div>
+
+<p>Here we create a new HtmlSession for requests, which is fundamental to create GET requests.</p>
+<div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://en.wikipedia.org/wiki/Special:Random&quot;</span><span class="p">)</span>
+</pre></div>
+
+<p>After we have created the Session we send a GET request to the random Wikipedia page URL and we store the response into a variable.</p>
+<div class="highlight"><pre><span></span><span class="n">title</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;.firstHeading&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">res</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">])</span>
+</pre></div>
+
+<p>Finally we scrape the page to extract the content we are going to use in our script. </p>
+<p>For the title we are going to look for text contained in every html object with class=firstHeading.</p>
+<p>For the article content we are going to look for every <p> object contained in the page, but only if the object contains at least 30 characters (we exclude single words and short sentences).</p>
+<h2>Markovify: The Markov Chain Algorithm</h2>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_markov</span><span class="p">(</span><span class="n">num_sentences</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT ArticleText FROM Articles&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="s1">&#39;. &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">])</span>
+    <span class="n">text_model</span> <span class="o">=</span> <span class="n">markovify</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">num_sentences</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">text_model</span><span class="o">.</span><span class="n">make_sentence</span><span class="p">())</span>
+</pre></div>
+
+<p>We can now use the data we extracted from Wikipedia.</p>
+<div class="highlight"><pre><span></span><span class="n">rows</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT ArticleText FROM Articles&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="s1">&#39;. &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">])</span>
+</pre></div>
+
+<p>First of all we read from our DB the text and we create a string by joining all the paragraphs from the articles into a single one separated by ".".</p>
+<div class="highlight"><pre><span></span><span class="n">text_model</span> <span class="o">=</span> <span class="n">markovify</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">num_sentences</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">text_model</span><span class="o">.</span><span class="n">make_sentence</span><span class="p">())</span>
+</pre></div>
+
+<p>After that we can train our model by passing to markovify.Text() our string.</p>
+<p>Now we can create new sentences by using .make_sentence().</p>
+<p>I've also created another function to create longer sentences (you can find it on the github code at the end of the article)</p>
+<h2>The Final Touches</h2>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">create_sql_table</span><span class="p">()</span>
+    <span class="n">get_pages</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">generate_markov</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+<p>To complete our script we create a main function in which we can call the previous functions.</p>
+<p>Then we can run the program to get a similar result:</p>
+<div class="highlight"><pre><span></span><span class="o">------------------------</span>
+<span class="n">The</span> <span class="n">Portrait</span> <span class="n">of</span> <span class="n">Philip</span> <span class="n">IV</span> <span class="ow">in</span> <span class="n">Brown</span> <span class="ow">and</span> <span class="n">Silver</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">moth</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">tunnels</span> <span class="n">at</span> <span class="n">once</span><span class="o">.</span>
+<span class="o">------------------------</span>
+<span class="o">------------------------</span>
+<span class="n">Explaining</span> <span class="n">his</span> <span class="n">actions</span><span class="p">,</span> <span class="ow">and</span> <span class="n">was</span> <span class="n">admitted</span> <span class="n">to</span> <span class="n">psychiatric</span> <span class="n">hospitals</span> <span class="n">because</span> <span class="n">of</span> <span class="n">Davis</span><span class="s1">&#39;s strong language and culture.</span>
+<span class="o">------------------------</span>
+<span class="o">------------------------</span>
+<span class="n">Arriving</span> <span class="n">on</span> <span class="mi">22</span> <span class="n">May</span> <span class="mi">1809</span><span class="p">,</span> <span class="ow">and</span> <span class="n">served</span> <span class="k">as</span> <span class="n">a</span> <span class="n">heel</span> <span class="n">against</span> <span class="n">El</span> <span class="n">Ligero</span><span class="o">.</span>
+<span class="o">------------------------</span>
+<span class="o">------------------------</span>
+<span class="n">The</span> <span class="n">child</span> <span class="n">grows</span> <span class="n">into</span> <span class="n">a</span> <span class="n">true</span> <span class="n">ghost</span> <span class="ow">and</span> <span class="n">his</span> <span class="n">godmother</span><span class="p">,</span> <span class="n">the</span> <span class="n">widow</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Podbara</span><span class="p">,</span> <span class="n">Salajka</span> <span class="ow">and</span> <span class="n">Stari</span> <span class="n">Grad</span> <span class="n">neighborhoods</span><span class="o">.</span>
+<span class="o">------------------------</span>
+</pre></div>
+
+<p>That's all for today. As always you can find the code on github <a href="https://github.com/Inzaniak/pybistuff/tree/master/Markov%20Wikipedia">here</a></p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Data Break 2018</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/pybistuffblog/vendor/jquery/jquery.min.js"></script>
+    <script src="/pybistuffblog/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="/pybistuffblog/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

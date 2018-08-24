@@ -8,7 +8,7 @@ import os.path
 class Root:
     @cherrypy.expose
     def index(self, name):
-        return serve_file(os.path.join(static_dir, name))
+        return 'serve_file(os.path.join(static_dir, name))'
 
 if __name__=='__main__':
     static_dir = os.path.dirname(os.path.abspath(__file__))  # Root static dir is this file's directory.
