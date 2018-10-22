@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90742675-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-90742675-2');
+    </script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A blog about Business Intelligence, Python and Data Science">
+    <meta name="keywords" content="Tutorials, Guides, Data Science, Programming, python, power bi, seaborn, barplot, pandas">
+    <meta name="author" content="Umberto Grando">
+
+    <title>Data Break - Power Bi, The Python Way: Bar Chart</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/pybistuffblog/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/pybistuffblog/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="/pybistuffblog/css/clean-blog.min.css" rel="stylesheet">
+    <link href="/pybistuffblog/css/pygmentsmonokai.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/pybistuffblog/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/pybistuffblog/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="/pybistuffblog/index.html">Data Break</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pybistuffblog/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="post-heading">
+                        <h1>Power Bi, The Python Way: Bar Chart</h1>
+                        <h2 class="subheading">A simple Bar Chart</h2>
+                        <span class="meta">Posted by
+                            <a href="#">Umberto</a>
+                            on October, 2018</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-md-10 mx-auto">
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    <p>Hello World!</p>
+<p>Today we are going to create a simple bar plot in Power Bi.</p>
+<p>The first thing we need to do is to add a new Python Data Source.</p>
+<p>To do this we have to click on Get Data and the select Python Script.</p>
+<p>Let's start coding:</p>
+<h2>Python as data source</h2>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">d_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">d_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">i</span><span class="p">))</span>
+
+<span class="n">data_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">curr_temp</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">d_list</span><span class="p">:</span>
+    <span class="n">curr_temp</span> <span class="o">+=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">data_list</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">d</span><span class="p">,</span><span class="s2">&quot;Temperature&quot;</span><span class="p">,</span> <span class="n">curr_temp</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data_list</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="s1">&#39;Metric&#39;</span><span class="p">,</span> <span class="s1">&#39;Temperature&#39;</span><span class="p">])</span>
+</pre></div>
+
+<p>With this simple code we create a simple DatFrame with daily Temperature data and assign it to the df object.</p>
+<h2>Python as Visualization</h2>
+<p>With this dataset we can now build our Visualization:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Date&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;Temperature&quot;</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Metric&quot;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">dataset</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+<p>We are going to use seaborn for this example.</p>
+<p>The function we are going to use is <b>.barplot</b></p>
+<p>This function need 3 parameters: </p>
+<p><b>1.</b> x = The element of the dataframe to use as x axis</p>
+<p><b>2.</b> y = The element of the dataframe to use as x axis</p>
+<p><b>3.</b> hue = The field to choose the color for data categories</p>
+<p><b>4.</b> data = The dataframe containing the data</p>
+<p>plt.show() is fundamental to show the graph on Power Bi:</p>
+<a href="#">
+        <img class="img-fluid" src="https://raw.githubusercontent.com/Inzaniak/pybistuffblog/gh-pages/img/posts/2018/october/PBIDesktopBarPlot.png" alt="" style="display: block;margin: 0 auto">
+</a>
+<br>
+<p>That's all for today.</p>
+<p>Next time we are going to take a look at Power Bi Python Visualizations.</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="https://twitter.com/databreak1">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://github.com/Inzaniak/pybistuff">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Data Break 2018</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/pybistuffblog/vendor/jquery/jquery.min.js"></script>
+    <script src="/pybistuffblog/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="/pybistuffblog/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

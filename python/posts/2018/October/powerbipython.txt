@@ -1,0 +1,51 @@
+Title: Power Bi, The Python Way: Bar Chart
+Subhead: A simple Bar Chart
+Year: 2018
+Month: October
+Date: 2018-10-22
+Author: Umberto
+Tags: python, power bi, seaborn, barplot, pandas
+---PostStart---
+Hello World!
+Today we are going to create a simple bar plot in Power Bi.
+The first thing we need to do is to add a new Python Data Source.
+To do this we have to click on Get Data and the select Python Script.
+
+Let's start coding:
+çPython as data source
+§python
+§import pandas as pd
+§from datetime import date, timedelta
+§import random
+§
+§d_list = []
+§for i in range(0,10):
+§    d_list.append(date.today() - timedelta(days=i))
+§
+§data_list = []
+§curr_temp = 30
+§for d in d_list:
+§    curr_temp += random.randint(-1,1)
+§    data_list.append([d,"Temperature", curr_temp])
+§df = pd.DataFrame(data_list, columns = ['Date', 'Metric', 'Temperature'])
+With this simple code we create a simple DatFrame with daily Temperature data and assign it to the df object.
+
+çPython as Visualization
+With this dataset we can now build our Visualization:
+§python
+§import seaborn as sns
+§import matplotlib.pyplot as plt
+§sns.barplot(x="Date",y="Temperature",hue="Metric",data=dataset)
+§plt.show()
+We are going to use seaborn for this example.
+The function we are going to use is <b>.barplot</b>
+This function need 3 parameters: 
+<b>1.</b> x = The element of the dataframe to use as x axis
+<b>2.</b> y = The element of the dataframe to use as x axis
+<b>3.</b> hue = The field to choose the color for data categories
+<b>4.</b> data = The dataframe containing the data
+plt.show() is fundamental to show the graph on Power Bi:
+|PBIDesktopBarPlot.png
+
+That's all for today.
+Next time we are going to take a look at Power Bi Python Visualizations.
