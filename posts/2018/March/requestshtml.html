@@ -106,11 +106,11 @@
 </pre></div>
 
 <p>Now that the page is loaded we can search for html tags using JQuery tags:</p>
-<div class="highlight"><pre><span></span><span class="n">about</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;#about&#39;</span><span class="p">,</span> <span class="n">first</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">about</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;#about&#39;</span><span class="p">,</span> <span class="n">first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
 <p>Then we can look at that element attributes or content:</p>
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">about</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">about</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 <span class="c1"># About</span>
 <span class="n">about</span><span class="o">.</span><span class="n">attrs</span>
 <span class="c1"># {&#39;id&#39;: &#39;about&#39;, &#39;class&#39;: (&#39;tier-1&#39;, &#39;element-1&#39;), &#39;aria-haspopup&#39;: &#39;true&#39;}</span>

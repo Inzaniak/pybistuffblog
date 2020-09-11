@@ -109,9 +109,9 @@
 <p>Back to coding!</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
 <span class="n">stop</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">stop</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stop</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
 <span class="c1"># [&#39;i&#39;, &#39;me&#39;, &#39;my&#39;, &#39;myself&#39;, &#39;we&#39;]</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">stop</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">stop</span><span class="p">))</span>
 <span class="c1"># &lt;class &#39;list&#39;&gt;</span>
 </pre></div>
 
@@ -120,14 +120,14 @@
 <div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s1">&#39;NLTK is a leading platform for building Python programs to work with human language data.&#39;</span>
 <span class="c1"># With Generator</span>
 <span class="n">keywords</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">if</span> <span class="n">w</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">keywords</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">keywords</span><span class="p">)</span>
 <span class="c1"># [&#39;NLTK&#39;, &#39;leading&#39;, &#39;platform&#39;, &#39;building&#39;, &#39;Python&#39;, &#39;programs&#39;, &#39;work&#39;, &#39;human&#39;, &#39;language&#39;, &#39;data.&#39;]</span>
 <span class="c1"># Without Generator</span>
 <span class="n">keywords</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop</span><span class="p">:</span>
         <span class="n">keywords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">keywords</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">keywords</span><span class="p">)</span>
 <span class="c1"># [&#39;NLTK&#39;, &#39;leading&#39;, &#39;platform&#39;, &#39;building&#39;, &#39;Python&#39;, &#39;programs&#39;, &#39;work&#39;, &#39;human&#39;, &#39;language&#39;, &#39;data.&#39;]</span>
 </pre></div>
 

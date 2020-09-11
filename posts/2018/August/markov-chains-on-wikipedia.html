@@ -102,7 +102,7 @@
     <span class="k">try</span><span class="p">:</span>
         <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;CREATE TABLE `Articles` ( `ArticleName` TEXT, `ArticleText` TEXT, PRIMARY KEY(`ArticleName`) )&#39;</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">OperationalError</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Table already in DB&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Table already in DB&#39;</span><span class="p">)</span>
 </pre></div>
 
 <p>We are going to use SQLite as our data container because it's a really fast and small Relational Database and Python has a std library to interact with it.</p>
@@ -112,7 +112,7 @@
 <span class="k">def</span> <span class="nf">get_pages</span><span class="p">(</span><span class="n">num_pages</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">num_pages</span><span class="p">):</span>
         <span class="n">sess</span> <span class="o">=</span> <span class="n">requests_html</span><span class="o">.</span><span class="n">HTMLSession</span><span class="p">()</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Page:&#39;</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Page:&#39;</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
         <span class="n">res</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://en.wikipedia.org/wiki/Special:Random&quot;</span><span class="p">)</span>
         <span class="n">title</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;.firstHeading&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
         <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">res</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">])</span>
@@ -125,7 +125,7 @@
                         <span class="p">)</span>
             <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
         <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">IntegrityError</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Riga già presente&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Riga già presente&#39;</span><span class="p">)</span>
 </pre></div>
 
 <p>If you've read my previous post about requests-html, you already know that i'm a big fan of this popular library. In this snippet we create a new function get_pages with one parameter to choose how many pages we want to download from Wikipedia (default to 10).</p>
@@ -151,7 +151,7 @@
     <span class="n">rows</span> <span class="o">=</span> <span class="s1">&#39;. &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">])</span>
     <span class="n">text_model</span> <span class="o">=</span> <span class="n">markovify</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">num_sentences</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">text_model</span><span class="o">.</span><span class="n">make_sentence</span><span class="p">())</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">text_model</span><span class="o">.</span><span class="n">make_sentence</span><span class="p">())</span>
 </pre></div>
 
 <p>We can now use the data we extracted from Wikipedia.</p>
@@ -162,7 +162,7 @@
 <p>First of all we read from our DB the text and we create a string by joining all the paragraphs from the articles into a single one separated by ".".</p>
 <div class="highlight"><pre><span></span><span class="n">text_model</span> <span class="o">=</span> <span class="n">markovify</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">num_sentences</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">text_model</span><span class="o">.</span><span class="n">make_sentence</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">text_model</span><span class="o">.</span><span class="n">make_sentence</span><span class="p">())</span>
 </pre></div>
 
 <p>After that we can train our model by passing to markovify.Text() our string.</p>

@@ -1,0 +1,25 @@
+Title: Power Bi, The Python Way: SQLite
+Subhead: How to connect
+Year: 2020
+Month: September
+Date: 2020-09-11
+Author: Umberto
+Tags: python, power bi, sqlite
+---PostStart---
+Hello World!
+Today we are going to connect Power Bi to a SQLite database using Python.
+There are usually 2 ways to connect: <br>• ODBC <br>• Python
+
+ODBC requires you to setup the ODBC drivers for sqlite, which you can find <a href="http://www.ch-werner.de/sqliteodbc/">here</a>.
+
+Doing this in Python is pretty easy, becaus Python has a standard library to read and edit SQLite databases.
+
+Let's start coding:
+çSQLite Connection
+§import sqlite3
+§import pandas as pd
+§conn = sqlite3.connect("PATH TO YOUR DB")
+§df = pd.read_sql_query("SELECT * from TABLE", conn)
+Now we have a connection to the table that we can edit by using Power Query.
+
+That's all for today.

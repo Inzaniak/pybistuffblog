@@ -101,8 +101,8 @@
 <br>
 <p>Let's start coding!</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>\<span class="n">n</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>\<span class="n">n</span>
 <span class="c1"># Let&#39;s open the dataset</span>
 <span class="n">players</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/Fulldata.csv&quot;</span><span class="p">)</span>
 </pre></div>
@@ -126,7 +126,7 @@
 <div class="highlight"><pre><span></span><span class="c1"># Add a column that tells us if it&#39;s Training Data or not</span>
 <span class="n">players</span><span class="p">[</span><span class="s1">&#39;is_train&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">players</span><span class="p">))</span> <span class="o">&lt;=</span> <span class="o">.</span><span class="mi">75</span>\<span class="n">n</span>
 <span class="c1"># Divide between training and testing data</span>
-<span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">players</span><span class="p">[</span><span class="n">players</span><span class="p">[</span><span class="s1">&#39;is_train&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">True</span><span class="p">],</span><span class="n">players</span><span class="p">[</span><span class="n">players</span><span class="p">[</span><span class="s1">&#39;is_train&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">False</span><span class="p">]</span>\<span class="n">n</span>
+<span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">players</span><span class="p">[</span><span class="n">players</span><span class="p">[</span><span class="s1">&#39;is_train&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">],</span><span class="n">players</span><span class="p">[</span><span class="n">players</span><span class="p">[</span><span class="s1">&#39;is_train&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">False</span><span class="p">]</span>\<span class="n">n</span>
 <span class="c1"># We choose the columns with player stats</span>
 <span class="n">features</span> <span class="o">=</span> <span class="n">players</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">17</span><span class="p">:</span><span class="mi">53</span><span class="p">]</span>
 <span class="c1"># Split into Training X(stats) and Y(rating) data</span>
@@ -152,9 +152,9 @@
 <span class="n">out</span><span class="p">[</span><span class="s1">&#39;prediction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">preds</span>
 <span class="n">out</span><span class="p">[</span><span class="s1">&#39;diff&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">out</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Rating&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">out</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;prediction&#39;</span><span class="p">]</span>
 <span class="c1"># Let&#39;s print mean difference between predicted and actual</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Mean difference: &#39;</span><span class="p">,</span><span class="n">out</span><span class="p">[</span><span class="s1">&#39;diff&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean difference: &#39;</span><span class="p">,</span><span class="n">out</span><span class="p">[</span><span class="s1">&#39;diff&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
 <span class="c1"># And the number of exact matches</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Exact Matches:&#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="n">out</span><span class="p">[</span><span class="s1">&#39;diff&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Exact Matches:&#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="n">out</span><span class="p">[</span><span class="s1">&#39;diff&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">]))</span>
 </pre></div>
 
 <p>    </p>
@@ -167,7 +167,7 @@
 <p>    </p>
 <p>We can also check the content of the output dataframe.</p>
 <div class="highlight"><pre><span></span><span class="c1">#Let&#39;s print the players with rating and prediction</span>
-<span class="k">print</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span><span class="s1">&#39;Rating&#39;</span><span class="p">,</span><span class="s1">&#39;prediction&#39;</span><span class="p">,</span><span class="s1">&#39;diff&#39;</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span><span class="s1">&#39;Rating&#39;</span><span class="p">,</span><span class="s1">&#39;prediction&#39;</span><span class="p">,</span><span class="s1">&#39;diff&#39;</span><span class="p">]])</span>
 <span class="c1"># OUTPUT</span>
 <span class="c1">#    Name                  Rating   prediction  diff</span>
 <span class="c1">#0    Cristiano Ronaldo      94          88     6</span>

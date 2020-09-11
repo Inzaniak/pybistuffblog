@@ -16,10 +16,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="A blog about Business Intelligence, Python and Data Science">
-    <meta name="keywords" content="Tutorials, Guides, Data Science, Programming, python, dictionaries">
+    <meta name="keywords" content="Tutorials, Guides, Data Science, Programming, python, power bi, sqlite">
     <meta name="author" content="Umberto Grando">
 
-    <title>Data Break - Python .get() Method</title>
+    <title>Data Break - Power Bi, The Python Way: SQLite</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/pybistuffblog/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -73,11 +73,11 @@
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="post-heading">
-                        <h1>Python .get() Method</h1>
-                        <h2 class="subheading">Better Json referencing</h2>
+                        <h1>Power Bi, The Python Way: SQLite</h1>
+                        <h2 class="subheading">How to connect</h2>
                         <span class="meta">Posted by
                             <a href="#">Umberto</a>
-                            on March, 2017</span>
+                            on September, 2020</span>
                     </div>
                 </div>
             </div>
@@ -90,40 +90,20 @@
             <div class="row">
                 <div class="col-lg-10 col-md-10 mx-auto">
                         <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    <p>One of the most annoying things that happens to me when i'm working with json extracted from social networks is the absence of some of the keys from the json.</p>
-<p>If you try to read that the usual way:</p>
-<div class="highlight"><pre><span></span><span class="n">user_id</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="mi">101</span><span class="p">:</span> <span class="s2">&quot;Mario&quot;</span><span class="p">,</span>
-    <span class="mi">102</span><span class="p">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
-    <span class="mi">103</span><span class="p">:</span> <span class="s2">&quot;Lewis&quot;</span><span class="p">,</span>
-    <span class="mi">105</span><span class="p">:</span> <span class="s2">&quot;Andrew&quot;</span>
-<span class="p">}</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="mi">106</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">user_id</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                    <p>Hello World!</p>
+<p>Today we are going to connect Power Bi to a SQLite database using Python.</p>
+<p>There are usually 2 ways to connect: <br>• ODBC <br>• Python</p>
+<p>ODBC requires you to setup the ODBC drivers for sqlite, which you can find <a href="http://www.ch-werner.de/sqliteodbc/">here</a>.</p>
+<p>Doing this in Python is pretty easy, becaus Python has a standard library to read and edit SQLite databases.</p>
+<p>Let's start coding:</p>
+<h2>SQLite Connection</h2>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;PATH TO YOUR DB&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s2">&quot;SELECT * from TABLE&quot;</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
 </pre></div>
 
-<p>You will encounter this error:</p>
-<a href="#">
-        <img class="img-fluid" src="https://raw.githubusercontent.com/Inzaniak/pybistuffblog/gh-pages/img/posts/2017/march/jsonerror.png" alt="" style="display: block;margin: 0 auto">
-</a>
-<br>
-<p>Because you are referencing an element that doesn't exists.</p>
-<p>You could solve this problem by using a Try - Except statement, but that will make the code longer and less readable.</p>
-<p>The best way to fix this is by using .get():</p>
-<div class="highlight"><pre><span></span><span class="n">user_id</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="mi">101</span><span class="p">:</span> <span class="s2">&quot;Mario&quot;</span><span class="p">,</span>
-    <span class="mi">102</span><span class="p">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
-    <span class="mi">103</span><span class="p">:</span> <span class="s2">&quot;Lewis&quot;</span><span class="p">,</span>
-    <span class="mi">105</span><span class="p">:</span> <span class="s2">&quot;Andrew&quot;</span>
-<span class="p">}</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="mi">106</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">user_id</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="s2">&quot;ND&quot;</span><span class="p">))</span>
-</pre></div>
-
-<p>The method: ".get()" extract the element from the json as usual, but when the value doesn't exit it returns a value chosen by the user.</p>
-<p>This is really lifesaving when working with json.</p>
+<p>Now we have a connection to the table that we can edit by using Power Query.</p>
+<p>That's all for today.</p>
                 </div>
             </div>
         </div>

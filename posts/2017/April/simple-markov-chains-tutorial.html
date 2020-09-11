@@ -130,10 +130,10 @@
 <span class="n">text_model_a</span> <span class="o">=</span> <span class="n">markovify</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">ebook_a</span><span class="p">)</span>
 <span class="c1"># 2. Print five randomly-generated sentences</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">text_model_a</span><span class="o">.</span><span class="n">make_sentence</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">text_model_a</span><span class="o">.</span><span class="n">make_sentence</span><span class="p">())</span>
 <span class="c1"># 3. Print three randomly-generated sentences of no more than 140 characters</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">text_model_a</span><span class="o">.</span><span class="n">make_short_sentence</span><span class="p">(</span><span class="mi">140</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">text_model_a</span><span class="o">.</span><span class="n">make_short_sentence</span><span class="p">(</span><span class="mi">140</span><span class="p">))</span>
 </pre></div>
 
 <p>Markovify is a really easy-to-use library. After importing we just need to create the model and we can start using it.</p>
@@ -144,7 +144,7 @@
 <div class="highlight"><pre><span></span><span class="c1"># Recreate the model using 3 sentences</span>
 <span class="n">three_model</span> <span class="o">=</span> <span class="n">markovify</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">ebook_a</span><span class="p">,</span><span class="n">state_size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">three_model</span><span class="o">.</span><span class="n">make_sentence</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">three_model</span><span class="o">.</span><span class="n">make_sentence</span><span class="p">())</span>
 </pre></div>
 
 <p>We can also use more than 2 sentences to create markov chains by using the state_size variable.</p>
@@ -152,12 +152,12 @@
 <span class="n">ebook_b</span> <span class="o">=</span> <span class="n">clean_book</span><span class="p">(</span><span class="s1">&#39;data/ebook2.txt&#39;</span><span class="p">)</span>
 <span class="n">text_model_b</span> <span class="o">=</span> <span class="n">markovify</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">ebook_b</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">text_model_b</span><span class="o">.</span><span class="n">make_sentence</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">text_model_b</span><span class="o">.</span><span class="n">make_sentence</span><span class="p">())</span>
 
 <span class="c1"># Combine the models into a single one</span>
 <span class="n">both_models</span> <span class="o">=</span> <span class="n">markovify</span><span class="o">.</span><span class="n">combine</span><span class="p">([</span><span class="n">text_model_a</span><span class="p">,</span><span class="n">text_model_b</span><span class="p">])</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">both_models</span><span class="o">.</span><span class="n">make_sentence</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">both_models</span><span class="o">.</span><span class="n">make_sentence</span><span class="p">())</span>
 </pre></div>
 
 <p>    </p>

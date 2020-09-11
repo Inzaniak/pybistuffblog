@@ -106,7 +106,7 @@
   <span class="p">,</span><span class="n">c</span><span class="o">.</span><span class="n">name</span>   <span class="k">as</span> <span class="p">[</span><span class="n">Column</span><span class="p">]</span>
   <span class="p">,</span><span class="n">tp</span><span class="o">.</span><span class="n">name</span>  <span class="k">as</span> <span class="p">[</span><span class="n">Type</span><span class="p">]</span>
   <span class="p">,</span><span class="n">c</span><span class="o">.</span><span class="n">max_length</span> <span class="k">as</span> <span class="p">[</span><span class="n">Length</span><span class="p">]</span>
-<span class="kn">from</span> <span class="nn">sys.columns</span> <span class="nn">c</span>
+<span class="kn">from</span> <span class="nn">sys.columns</span> <span class="n">c</span>
 <span class="n">join</span> <span class="n">sys</span><span class="o">.</span><span class="n">tables</span> <span class="n">t</span>
 <span class="n">on</span> <span class="n">c</span><span class="o">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">object_id</span>
 <span class="n">join</span> <span class="n">sys</span><span class="o">.</span><span class="n">schemas</span> <span class="n">s</span>

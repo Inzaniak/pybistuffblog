@@ -10,9 +10,9 @@ conn = sqlite3.connect(':memory:')
 conn.execute('create table t(date,url,title,subtitle,author)')
 conn.commit()
 
-os.chdir(R'H:\Python\BlogRepos\pybistuffblog\python')
+MAIN_DIR = R"C:\Users\inzan\OneDrive\pybistuffblog"
+os.chdir(MAIN_DIR+R'\python')
 
-MAIN_DIR = R"H:\Python\BlogRepos\pybistuffblog"
 
 class Post:
     def __init__(self,filepath):
