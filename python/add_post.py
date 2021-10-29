@@ -10,7 +10,7 @@ conn = sqlite3.connect(':memory:')
 conn.execute('create table t(date,url,title,subtitle,author)')
 conn.commit()
 
-MAIN_DIR = R"C:\Users\inzan\OneDrive\pybistuffblog"
+MAIN_DIR = R"C:\Users\UmbertoGrando\OneDrive\Python\pybistuffblog"
 os.chdir(MAIN_DIR+R'\python')
 
 

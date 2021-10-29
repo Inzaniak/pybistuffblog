@@ -1,0 +1,89 @@
+Title: Power Bi, How to connect to the Admin Rest API
+Subhead: Using Python
+Year: 2021
+Month: October
+Date: 2021-10-29
+Author: Umberto
+Tags: python, power bi, api
+---PostStart---
+Hello World!
+Today we are going to connect to the Power Bi REST Admin API.
+Before we make the first http request, we need to do 3 things:
+<b>1.</b> Create an Azure AD Application
+<b>2.</b> Add the application to a AD Security Group
+<b>3.</b> Add the Security Group to the Admin API settings
+
+To do this step we need:
+<b>1.</b> An Azure AD user with permissions to create App Registrations and Security Groups
+<b>2.</b> A Power BI or Office 365 Admin to change the Admin API Settings
+
+çAzure AD App Registration
+To create the Azure App, you'll need to go to the Azure Portal and search for App Registrations.
+Once there you'll need to create a new AppRegistration
+|appreg.png
+<b>1.</b> The name of your application
+<b>2.</b> The type of users who can access this application (not important for this case)
+<b>3.</b> The return url for the authentication (not important for this case)
+You don't need to setup any permission for this app, because this will be managed from Power BI.
+For this to work correctly, DON'T enable the tenant.read and tenant.readwrite. If you enable them you'll need to create a new application.
+We also need to write down the application key (look for Application (client) ID on your app page) and create a secret key:
+|appsec.png
+Once you've created the secret key, you'll need to write it down because it will be hidden the next time you'll access it.
+
+çAzure AD Security Group
+Once you've created the AppRegistration you'll need to add it to a Security Group. 
+Search for Groups in the portal and then click on New Group:
+|secgro.png
+<b>1.</b> The type of your registration (security in this case)
+<b>2.</b> The name of your security group
+<b>3.</b> An optional description
+<b>4.</b> The membership type (leave assigned if you don't know what this is)
+<b>5.</b> Owner of the security group (add yourself)
+<b>6.</b> Members of the security group (Add the app created on the previous step)
+
+çAdding the group to Power BI
+Now that we've created all we need in the Azure AD Portal we can connect to Power Bi and go to the admin Settings.
+Once there scroll down until you'll find:
+|powapi.png
+
+çPython Code
+We can now finally start coding:
+§import msal         # Library for Auth
+§import requests     # Library for http requests
+§
+§# Credentials
+§client_id = 'REPLACE WITH CLIENT ID'
+§client_secret = 'REPLACE WITH CLIENT SECRET'
+§
+§# Authentication
+§authority_url = 'https://login.microsoftonline.com/nttos.onmicrosoft.com'
+§scope = ["https://analysis.windows.net/powerbi/api/.default"]
+§url_groups = 'https://api.powerbi.com/v1.0/myorg/groups'
+§
+§app = msal.ConfidentialClientApplication(
+§    client_id, 
+§    authority=authority_url,
+§    client_credential=client_secret)
+§result = app.acquire_token_for_client(scopes=scope)
+§
+§if 'access_token' in result:
+§    access_token = result['access_token']
+§    header = {'Content-Type':'application/json','Authorization': f'Bearer {access_token}'}
+§    api_out = requests.get(url=url_groups, headers=header)
+§    print(api_out.json())
+§else:
+§    print(result.get("error"))
+§    print(result.get("error_description"))
+§
+§token = access_token
+§headers = {
+§    "Authorization": f"Bearer {token}"
+§}
+§
+§# API Request to Power BI Workspaces
+§groups_url = 'https://api.powerbi.com/v1.0/myorg/admin/groups?$top=10'
+§groups = requests.get(groups_url, headers=headers)
+§groups_dict = groups.json()
+In this code we are using MSAL to manage the authentication process. Once we retrieve the token, we can start using the Admin REST API.
+
+That's all for today.

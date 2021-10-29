@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90742675-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-90742675-2');
+    </script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A blog about Business Intelligence, Python and Data Science">
+    <meta name="keywords" content="Tutorials, Guides, Data Science, Programming, python, power bi, api">
+    <meta name="author" content="Umberto Grando">
+
+    <title>Data Break - Power Bi, How to connect to the Admin Rest API</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/pybistuffblog/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/pybistuffblog/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="/pybistuffblog/css/clean-blog.min.css" rel="stylesheet">
+    <link href="/pybistuffblog/css/pygmentsmonokai.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/pybistuffblog/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/pybistuffblog/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="/pybistuffblog/index.html">Data Break</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pybistuffblog/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="post-heading">
+                        <h1>Power Bi, How to connect to the Admin Rest API</h1>
+                        <h2 class="subheading">Using Python</h2>
+                        <span class="meta">Posted by
+                            <a href="#">Umberto</a>
+                            on October, 2021</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-md-10 mx-auto">
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    <p>Hello World!</p>
+<p>Today we are going to connect to the Power Bi REST Admin API.</p>
+<p>Before we make the first http request, we need to do 3 things:</p>
+<p><b>1.</b> Create an Azure AD Application</p>
+<p><b>2.</b> Add the application to a AD Security Group</p>
+<p><b>3.</b> Add the Security Group to the Admin API settings</p>
+<p>To do this step we need:</p>
+<p><b>1.</b> An Azure AD user with permissions to create App Registrations and Security Groups</p>
+<p><b>2.</b> A Power BI or Office 365 Admin to change the Admin API Settings</p>
+<h2>Azure AD App Registration</h2>
+<p>To create the Azure App, you'll need to go to the Azure Portal and search for App Registrations.</p>
+<p>Once there you'll need to create a new AppRegistration</p>
+<a href="#">
+        <img class="img-fluid" src="https://raw.githubusercontent.com/Inzaniak/pybistuffblog/gh-pages/img/posts/2021/october/appreg.png" alt="" style="display: block;margin: 0 auto">
+</a>
+<br>
+<p><b>1.</b> The name of your application</p>
+<p><b>2.</b> The type of users who can access this application (not important for this case)</p>
+<p><b>3.</b> The return url for the authentication (not important for this case)</p>
+<p>You don't need to setup any permission for this app, because this will be managed from Power BI.</p>
+<p>For this to work correctly, DON'T enable the tenant.read and tenant.readwrite. If you enable them you'll need to create a new application.</p>
+<p>We also need to write down the application key (look for Application (client) ID on your app page) and create a secret key:</p>
+<a href="#">
+        <img class="img-fluid" src="https://raw.githubusercontent.com/Inzaniak/pybistuffblog/gh-pages/img/posts/2021/october/appsec.png" alt="" style="display: block;margin: 0 auto">
+</a>
+<br>
+<p>Once you've created the secret key, you'll need to write it down because it will be hidden the next time you'll access it.</p>
+<h2>Azure AD Security Group</h2>
+<p>Once you've created the AppRegistration you'll need to add it to a Security Group. </p>
+<p>Search for Groups in the portal and then click on New Group:</p>
+<a href="#">
+        <img class="img-fluid" src="https://raw.githubusercontent.com/Inzaniak/pybistuffblog/gh-pages/img/posts/2021/october/secgro.png" alt="" style="display: block;margin: 0 auto">
+</a>
+<br>
+<p><b>1.</b> The type of your registration (security in this case)</p>
+<p><b>2.</b> The name of your security group</p>
+<p><b>3.</b> An optional description</p>
+<p><b>4.</b> The membership type (leave assigned if you don't know what this is)</p>
+<p><b>5.</b> Owner of the security group (add yourself)</p>
+<p><b>6.</b> Members of the security group (Add the app created on the previous step)</p>
+<h2>Adding the group to Power BI</h2>
+<p>Now that we've created all we need in the Azure AD Portal we can connect to Power Bi and go to the admin Settings.</p>
+<p>Once there scroll down until you'll find:</p>
+<a href="#">
+        <img class="img-fluid" src="https://raw.githubusercontent.com/Inzaniak/pybistuffblog/gh-pages/img/posts/2021/october/powapi.png" alt="" style="display: block;margin: 0 auto">
+</a>
+<br>
+<h2>Python Code</h2>
+<p>We can now finally start coding:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>     <span class="c1"># Library for http requests</span>
+
+<span class="c1"># Credentials</span>
+<span class="n">client_id</span> <span class="o">=</span> <span class="s1">&#39;REPLACE WITH CLIENT ID&#39;</span>
+<span class="n">client_secret</span> <span class="o">=</span> <span class="s1">&#39;REPLACE WITH CLIENT SECRET&#39;</span>
+
+<span class="c1"># Authentication</span>
+<span class="n">authority_url</span> <span class="o">=</span> <span class="s1">&#39;https://login.microsoftonline.com/nttos.onmicrosoft.com&#39;</span>
+<span class="n">scope</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;https://analysis.windows.net/powerbi/api/.default&quot;</span><span class="p">]</span>
+<span class="n">url_groups</span> <span class="o">=</span> <span class="s1">&#39;https://api.powerbi.com/v1.0/myorg/groups&#39;</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">msal</span><span class="o">.</span><span class="n">ConfidentialClientApplication</span><span class="p">(</span>
+    <span class="n">client_id</span><span class="p">,</span> 
+    <span class="n">authority</span><span class="o">=</span><span class="n">authority_url</span><span class="p">,</span>
+    <span class="n">client_credential</span><span class="o">=</span><span class="n">client_secret</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">acquire_token_for_client</span><span class="p">(</span><span class="n">scopes</span><span class="o">=</span><span class="n">scope</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="s1">&#39;access_token&#39;</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+    <span class="n">access_token</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;access_token&#39;</span><span class="p">]</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span><span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;Bearer </span><span class="si">{</span><span class="n">access_token</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">}</span>
+    <span class="n">api_out</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url_groups</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">api_out</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;error_description&quot;</span><span class="p">))</span>
+
+<span class="n">token</span> <span class="o">=</span> <span class="n">access_token</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="c1"># API Request to Power BI Workspaces</span>
+<span class="n">groups_url</span> <span class="o">=</span> <span class="s1">&#39;https://api.powerbi.com/v1.0/myorg/admin/groups?$top=10&#39;</span>
+<span class="n">groups</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">groups_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">groups_dict</span> <span class="o">=</span> <span class="n">groups</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+
+<p>In this code we are using MSAL to manage the authentication process. Once we retrieve the token, we can start using the Admin REST API.</p>
+<p>That's all for today.</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="https://twitter.com/databreak1">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://github.com/Inzaniak/pybistuff">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Data Break 2018</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/pybistuffblog/vendor/jquery/jquery.min.js"></script>
+    <script src="/pybistuffblog/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="/pybistuffblog/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
