@@ -9,173 +9,148 @@
 
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/index.html</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/pages/others/about.html</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/pages/others/contact.html</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://inzaniak.github.io/pybistuffblog/posts/2021/October/power-bi-how-to-connect-to-the-admin-rest-api</loc>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/posts/2020/September/power-bi-the-python-way-sqlite</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/posts/2018/October/power-bi-the-python-way-bar-chart</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/posts/2018/August/markov-chains-on-wikipedia</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/posts/2018/August/pyodbc-how-to-connection-strings</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/posts/2018/August/nltk-classify-words-language</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/posts/2018/August/power-bi-the-python-way</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/posts/2018/March/requestshtml</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://inzaniak.github.io/pybistuffblog/posts/2017/May/ranking-fifa-players</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/pages/index/page2.html</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://inzaniak.github.io/about.html</loc>
-  <lastmod>2021-02-01T15:55:28+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://inzaniak.github.io/contact.html</loc>
-  <lastmod>2021-02-01T15:55:28+00:00</lastmod>
+  <loc>https://inzaniak.github.io/pybistuffblog/posts/2017/May/ranking-fifa-players</loc>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/posts/2017/April/simple-markov-chains-tutorial</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/posts/2017/April/nltk-how-to-stopwords</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/posts/2017/April/tsql-running-queries</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/posts/2017/April/pyodbc-intro</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/posts/2017/March/python-lambda</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/posts/2017/March/python-and-json</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/posts/2017/March/python-get-method</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/posts/2017/February/nltk-counting-words</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://inzaniak.github.io/pybistuffblog/posts/2017/July/python-cleaning-sql-views-for-docs</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/pages/index/page1.html</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/pages/index/page3.html</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://inzaniak.github.io/index.html</loc>
-  <lastmod>2021-02-01T15:55:28+00:00</lastmod>
+  <loc>https://inzaniak.github.io/pybistuffblog/posts/2017/July/python-cleaning-sql-views-for-docs</loc>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/posts/2017/February/dos-wifi-fix-by-command-prompt</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/posts/2017/February/excel-macro-to-filter-based-on-cell</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/posts/2017/February/excel-format-cleaner-macro</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://inzaniak.github.io/pybistuffblog/posts/2017/February/get-all-columns-from-tablesviews</loc>
-  <lastmod>2020-09-11T09:06:13+00:00</lastmod>
+  <lastmod>2021-10-29T08:01:34+00:00</lastmod>
   <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://inzaniak.github.io/music.html</loc>
-  <lastmod>2021-02-01T15:55:28+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://inzaniak.github.io/media.html</loc>
-  <lastmod>2021-02-01T15:55:28+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://inzaniak.github.io/stuff.html</loc>
-  <lastmod>2021-02-01T15:55:28+00:00</lastmod>
-  <priority>0.41</priority>
 </url>
 
 
