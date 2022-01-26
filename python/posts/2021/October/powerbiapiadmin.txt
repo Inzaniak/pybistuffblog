@@ -56,7 +56,7 @@ We can now finally start coding:
 §client_secret = 'REPLACE WITH CLIENT SECRET'
 §
 §# Authentication
-§authority_url = 'https://login.microsoftonline.com/nttos.onmicrosoft.com'
+§authority_url = 'https://login.microsoftonline.com/REPLACEWITHDOMAIN.onmicrosoft.com'
 §scope = ["https://analysis.windows.net/powerbi/api/.default"]
 §url_groups = 'https://api.powerbi.com/v1.0/myorg/groups'
 §
